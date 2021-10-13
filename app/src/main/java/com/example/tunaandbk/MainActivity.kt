@@ -37,6 +37,7 @@ class MainActivity : AppCompatActivity() {
         for(i in 1..5)
         {
             ImgList.add(resources.getIdentifier("b$i","mipmap",packageName))
+            print("test")
         }
     }
 }
