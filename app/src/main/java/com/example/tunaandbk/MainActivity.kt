@@ -38,10 +38,8 @@ class MainActivity : AppCompatActivity() {
         {
             ImgList.add(resources.getIdentifier("b$i","mipmap",packageName))
         }
-        Log.v("???",ImgList.toString())
     }
 }
 
-//自定義BgImg類
 
 
