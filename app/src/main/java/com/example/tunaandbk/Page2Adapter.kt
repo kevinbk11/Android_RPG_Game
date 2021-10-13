@@ -1,12 +1,9 @@
 package com.example.tunaandbk
-
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.page2_layout.view.*
-
-
 //自定義Page2Adapter
 class Page2Adapter(var ImgList: List<Int>) : RecyclerView.Adapter<Page2Adapter.ViewHolder>() {
     inner class ViewHolder( view: View) : RecyclerView.ViewHolder(view) {
