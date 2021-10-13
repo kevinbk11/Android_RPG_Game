@@ -12,13 +12,5 @@
             android:id="@+id/viewPager"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-    >
-    </androidx.viewpager2.widget.ViewPager2>
-    <Space
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-    <Space
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_gravity="center"/>
 </LinearLayout>
