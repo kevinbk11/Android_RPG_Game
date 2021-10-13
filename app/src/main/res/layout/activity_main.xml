@@ -15,4 +15,10 @@
             android:layout_gravity="center"
             android:gravity="center">
     </androidx.viewpager2.widget.ViewPager2>
+    <Space
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    <Space
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 </LinearLayout>
