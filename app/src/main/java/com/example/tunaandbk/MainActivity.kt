@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
         viewPager.adapter=BgImgAdapter
     }
     fun initImg(){
-        for(i in 1..5)
+        for(i in 1..2)
         {
             ImgList.add(resources.getIdentifier("b$i","mipmap",packageName))
             print("test")
