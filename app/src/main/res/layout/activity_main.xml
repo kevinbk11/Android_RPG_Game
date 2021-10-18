@@ -26,24 +26,26 @@
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-        <TextSwitcher android:layout_width="match_parent"
-                      android:layout_height="20dp" android:id="@+id/textSwitcher">
-
-
-        </TextSwitcher>
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14dp"
+                android:background="#ffffff"
+                android:id="@+id/name">
+        </EditText>
 
         <Button android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:ignore="MissingConstraints"
                 android:text="取消"
                 android:id="@+id/button"
-                app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@+id/textSwitcher">
+                app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@+id/name">
         </Button>
         <Button android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:ignore="MissingConstraints"
                 android:text="確認"
-                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toBottomOf="@+id/textSwitcher">
+                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toBottomOf="@+id/name">
         </Button>
 
 
