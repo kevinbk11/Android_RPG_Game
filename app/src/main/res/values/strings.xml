@@ -2,4 +2,6 @@
     <string name="app_name">TunaAndBk</string>
     <string name="OK">確認</string>
     <string name="NO">取消</string>
+    <string name="next">下一步</string>
+    <string name="back">返回</string>
 </resources>
