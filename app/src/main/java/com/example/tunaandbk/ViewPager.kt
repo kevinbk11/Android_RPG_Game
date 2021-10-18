@@ -28,6 +28,5 @@ class ViewPage(v: ViewPager2)
 
 fun getImageResources(r: Resources, name:String, type:String, p:String?):Int
 {
-    r.pack
     return r.getIdentifier(name,type,p)
 }
