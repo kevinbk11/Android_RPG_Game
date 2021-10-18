@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">TunaAndBk</string>
+    <string name="OK">確認</string>
+    <string name="NO">取消</string>
 </resources>
