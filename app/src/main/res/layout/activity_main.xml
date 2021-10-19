@@ -43,7 +43,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/OK"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/name">
+                app:layout_constraintTop_toBottomOf="@+id/name" android:id="@+id/btn"
+                android:onClick="ok">
         </Button>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>

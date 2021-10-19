@@ -1,0 +1,7 @@
+package com.example.tunaandbk
+
+import com.example.tunaandbk.Item.Fighter.Weapon.WoodSword
+
+val itemMap=mapOf(
+    "木劍" to WoodSword("木劍")
+)
