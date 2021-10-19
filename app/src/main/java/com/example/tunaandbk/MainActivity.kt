@@ -56,12 +56,6 @@ class MainActivity : AppCompatActivity(),FileReadOrWrite {
                 Thread{
                     Thread.sleep(1500)
                     rebuildUserData(name.text.toString())
-                    Thread.sleep(1500)
-                    getId(player!!)
-                    Thread.sleep(1500)
-                    player!!.id=id!!
-                    val db=Firebase.firestore
-                    db.collection("users").document(player!!.id).update("playerData",player)
                 }.start()
             }
             else
@@ -72,13 +66,9 @@ class MainActivity : AppCompatActivity(),FileReadOrWrite {
                     player!!.levelup()
                     player!!.save()
                 }.start()
-
-
             }
         }
-
     }
-
 }
 
 

@@ -20,8 +20,8 @@ class Fighter(name:String, override var id: String): Player(name) {
     var BasicStr: Double=0.0
     override fun levelup() {
         println("LEVEL UP!")
-        FullHP+=180
-        FullMP+=50
+        FullHP=500+(LV-1)*180
+        FullMP=100+(LV-1)*50
         LV+=1
         EXP-=FullEXP
         FullEXP=150+(1.8).pow(LV*0.35)

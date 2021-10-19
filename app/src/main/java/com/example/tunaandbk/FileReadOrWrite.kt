@@ -20,7 +20,7 @@ interface FileReadOrWrite {
 
     fun addUserToFirebase(user: Map<String, Any>) {
         val db = Firebase.firestore
-        db.collection("users").add(user)
+        db.collection("users").document(user["account"].toString()).set(user)
     }
 
     fun rebuildUserData(name: String) {
@@ -59,7 +59,7 @@ interface FileReadOrWrite {
                     mapOf<String, Any>(
                         "account" to name,
                         "password" to "bk",
-                        "playerData" to Fighter(name, "")
+                        "playerData" to Fighter(name, name)
                     )
                 addUserToFirebase(user)
             }
@@ -69,16 +69,4 @@ interface FileReadOrWrite {
         }
     }
 
-    fun getId(p: Player) {
-        val db = Firebase.firestore
-        db.collection("users").get().addOnSuccessListener { result ->
-            for (user in result) {
-                if (p.name == user.data["account"]) {
-                    Log.v("test","???????")
-                    id=user.id
-                    Log.v("test",id!!)
-                }
-            }
-        }
-    }
 }

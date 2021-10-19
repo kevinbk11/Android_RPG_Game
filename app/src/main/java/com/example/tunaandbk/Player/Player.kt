@@ -1,5 +1,6 @@
 package com.example.tunaandbk.Player
 
+import com.example.tunaandbk.Item.Item
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
@@ -18,23 +19,33 @@ abstract class Player(name:String) {
     open var EXP:Double=0.0
 
     open var Money:Int=0
+
+    open var bag:MutableList<Item> = mutableListOf()
     open fun levelup(){}
-    fun getId()
-    {
-        val db= Firebase.firestore
-        db.collection("users").get().addOnSuccessListener {
-            result->
-            for(user in result)
-            {
-                if(user["name"]==name)id=user.id
-            }
-        }
-    }
     fun save()
     {
         val db = Firebase.firestore
         db.collection("users").document(id).update("playerData",this)
     }
+    fun put(item: Item?, value:Int)
+    {
+        var find=false
+        var Value=value
+        for(x in this.bag)
+        {
+            if(x!!.name==item!!.name)
+            {
+                x.count+=Value
+                find=true
+                break
+            }
+        }
+        if(find==false)
+        {
+
+        }
+    }
+
 
 
 }
