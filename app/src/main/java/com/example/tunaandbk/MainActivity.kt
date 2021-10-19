@@ -22,39 +22,6 @@ class MainActivity : AppCompatActivity(),FileReadOrWrite {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         jobPager=JobPager(viewPager)
-        /*val bag = user["bag"] as MutableMap<String,MutableMap<String,Int>>
-        val equipment = bag["equipment"] as MutableList<Item>
-        equipment.add(WoodSword("木劍"))
-        addUserToFirebase(user)
-        FirebaseApp.initializeApp(this)
-        val db = Firebase.firestore
-        db.collection("users").get().addOnSuccessListener {
-            result ->
-            for(user in result)
-            {
-
-                if(user.data["account"]=="LoveNyabi")
-                {
-
-                    val bag = user.data["bag"] as MutableMap<String,MutableList<HashMap<String,String>>>
-                    val eq = bag["equipment"] as MutableList<HashMap<String,String>>
-                    for(e in eq)
-                    {
-                        if(e["name"]=="木劍")
-                        {
-                            var c = e["count"]!!
-                            e["count"] = (c.toInt()+1).toString()
-                            db.collection("users").document(user.id).update(FieldPath.of("bag"),bag)
-                        }
-                        val newItem = itemMap[e["name"]]
-                        newItem!!.count=e["count"]!!.toInt()
-                        Log.v("test",newItem.count.toString())
-                    }
-
-                }
-            }
-        }*/
-
         for(i in 1..2)
         {
             jobPager.addimg(getImageResources(resources,"b$i","mipmap",packageName))
