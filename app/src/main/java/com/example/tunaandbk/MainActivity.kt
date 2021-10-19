@@ -16,7 +16,7 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 var player: Player? = null
 var id:String?=null
-class MainActivity : AppCompatActivity(),FileReadOrWrite {
+abstract class MainActivity : AppCompatActivity(),FileReadOrWrite {
     lateinit var jobPager: JobPager
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
