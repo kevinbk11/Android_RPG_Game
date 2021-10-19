@@ -16,7 +16,7 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 var player: Player? = null
 var id:String?=null
-abstract class MainActivity : AppCompatActivity(),FileReadOrWrite {
+class MainActivity : AppCompatActivity(),FileReadOrWrite {
     lateinit var jobPager: JobPager
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -73,7 +73,7 @@ abstract class MainActivity : AppCompatActivity(),FileReadOrWrite {
         val db = Firebase.firestore
         var find:Boolean=false
         db.collection("users").get().addOnSuccessListener{
-            result ->
+                result ->
             for(user in result)
             {
                 if(user.data["account"]==name.text.toString())
