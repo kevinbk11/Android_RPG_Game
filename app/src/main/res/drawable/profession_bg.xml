@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<bitmap xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:gravity="clip_horizontal|clip_vertical"
+        android:dither="true"
+        android:src="@drawable/profes_bg"
+        android:tileMode="disabled" tools:ignore="ResourceCycle"/>
+        <!--屬性解釋-->
+        <!--android:src 圖片資源id-->
+        <!--android:antialias是否開啟抗鋸齒，應該開啟-->
+        <!--android:dither是否開啟抖動效果，應該開啟-->
+        <!--android:filter是否開啟過濾效果，應該開啟-->
+        <!--android:gravity對圖片進行定位-->
+        <!--android:mipMap紋理對映，一般為false-->
+        <!--android:tileMode平鋪模式四個值：disabled（預設值即關閉平鋪模式）、clamp、repeat、mirror-->
