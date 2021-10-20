@@ -1,4 +1,4 @@
 package com.example.tunaandbk.Item
 
-class emptyItem {
+class EmptyItem:Item("none") {
 }

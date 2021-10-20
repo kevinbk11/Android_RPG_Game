@@ -1,6 +1,8 @@
 package com.example.tunaandbk.Player
 
+import com.example.tunaandbk.Item.EmptyItem
 import com.example.tunaandbk.Item.Item
+import com.example.tunaandbk.Item.Weapon
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
@@ -20,28 +22,59 @@ abstract class Player(name:String) {
 
     open var Money:Int=0
 
-    open var bag:MutableList<Item> = mutableListOf()
+    open var bag:MutableMap<String,MutableList<Item>> = mutableMapOf(
+        "equipment" to mutableListOf(),
+        "consume" to mutableListOf(),
+        "another" to mutableListOf()
+    )
+    init{
+        for(i in 0..19)
+        {
+            bag["equipment"]!!.add(EmptyItem())
+            bag["consume"]!!.add(EmptyItem())
+            bag["another"]!!.add(EmptyItem())
+        }
+    }
     open fun levelup(){}
     fun save()
     {
         val db = Firebase.firestore
         db.collection("users").document(id).update("playerData",this)
     }
-    fun put(item: Item?, value:Int)
+    private fun p(item:Item,value:Int,type:String)
     {
-        var find=false
-        var Value=value
-        for(x in this.bag)
+        var find = false
+        for(i in bag[type]!!)
         {
-            if(x!!.name==item!!.name)
+            if(i.name==item.name)
             {
-                x.count+=Value
-                find=true
+                find = true
+                i.count+=value
                 break
             }
         }
-        if(find==false)
+        if(!find)
         {
+            for(i in bag[type]!!)
+            {
+                if(i.name=="none")
+                {
+                    val place = bag[type]!!.indexOf(i)
+                    bag[type]!![place]=item
+                    bag[type]!![place].count=value
+                    break
+                }
+            }
+        }
+    }
+    fun put(item: Item?, value:Int)
+    {
+        when(item)
+        {
+            is Weapon ->
+            {
+                p(item,value,"equipment")
+            }
 
         }
     }
