@@ -3,7 +3,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:gravity="clip_horizontal|clip_vertical"
         android:dither="true"
-        android:src="@drawable/profes_bg"
+        android:src="@mipmap/profes_bg"
         android:tileMode="disabled" tools:ignore="ResourceCycle"/>
         <!--屬性解釋-->
         <!--android:src 圖片資源id-->
