@@ -63,8 +63,11 @@ class MainActivity : AppCompatActivity(),FileReadOrWrite {
                 Thread{
                     rebuildUserData(name.text.toString())
                     Thread.sleep(2000)
-                    player!!.levelup()
+                    player!!.put(itemMap["木劍"],1)
+                    player!!.put(itemMap["石劍"],1)
+                    player!!.put(itemMap["木劍"],1)
                     player!!.save()
+                    Log.v("test",player!!.bag["equipment"]!![0].count.toString())
                 }.start()
             }
         }

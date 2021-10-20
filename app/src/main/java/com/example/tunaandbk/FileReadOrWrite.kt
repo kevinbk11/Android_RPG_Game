@@ -43,6 +43,31 @@ interface FileReadOrWrite {
                             FullEXP = p["fullEXP"] as Double
                             EXP = p["exp"] as Double
                             Money = p["money"].toString().toInt()
+                            val b = p["bag"] as MutableMap<String,ArrayList<HashMap<String,Any>>>
+                            val eq = b["equipment"]!!
+                            val co = b["consume"]!!
+                            val an = b["another"]!!
+                            for(i in eq.indices)
+                            {
+                                if(eq[i]["name"]!="none")
+                                {
+                                    put(itemMap[eq[i]["name"]],eq[i]["count"]!!.toString().toInt())
+                                }
+                            }
+                            for(i in co.indices)
+                            {
+                                if(co[i]["name"]!="none")
+                                {
+                                    put(itemMap[co[i]["name"]],co[i]["count"]!!.toString().toInt())
+                                }
+                            }
+                            for(i in an.indices)
+                            {
+                                if(an[i]["name"]!="none")
+                                {
+                                    put(itemMap[an[i]["name"]],an[i]["count"]!!.toString().toInt())
+                                }
+                            }
                         }
                     }
                     break
