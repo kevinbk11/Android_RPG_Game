@@ -3,7 +3,7 @@ package com.example.tunaandbk.Player.Job;
 import com.example.tunaandbk.Player.Player
 import kotlin.math.pow
 
-class Fighter(name:String, override var id: String): Player(name) {
+class Fighter(name:String): Player(name) {
     override var job="Fighter"
     override var HP=500
     override var MP=100

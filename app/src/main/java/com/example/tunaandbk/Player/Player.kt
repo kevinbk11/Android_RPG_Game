@@ -7,7 +7,6 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
 abstract class Player(name:String) {
-    open var id:String=""
     open var name:String=name
     open var job:String=""
     open var HP:Int=0
@@ -39,7 +38,7 @@ abstract class Player(name:String) {
     fun save()
     {
         val db = Firebase.firestore
-        db.collection("users").document(id).update("playerData",this)
+        db.collection("users").document(name).update("playerData",this)
     }
     private fun p(item:Item,value:Int,type:String)
     {

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" android:orientation="horizontal">
+
+
+    <Space
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" android:layout_weight="1"/>
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" android:layout_weight="1">
+        <Space
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:layout_weight="10"/>
+        <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/account"
+                android:gravity="center"
+                android:layout_weight="1"/>
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:id="@+id/password"
+                android:layout_weight="1" android:layout_gravity="center" android:autoText="false"
+                android:textAlignment="center"/>
+        <Space
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:layout_weight="1"/>
+        <Button
+                android:text="登入"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/ok"
+                android:layout_weight="1" android:onClick="login"/>
+        <Space
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:layout_weight="1"/>
+    </LinearLayout>
+    <Space
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" android:layout_weight="1"/>
+</LinearLayout>

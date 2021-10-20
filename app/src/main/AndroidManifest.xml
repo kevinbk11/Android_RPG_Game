@@ -9,8 +9,15 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/Theme.TunaAndBk">
-        <activity android:name=".MainActivity"
-                  android:windowSoftInputMode="adjustPan">
+        <activity android:name=".GameMainPage">
+        </activity>
+        <activity android:name=".CreatePlayer">
+        </activity>
+        <activity android:name=".Login">
+        </activity>
+        <activity
+                android:name=".MainActivity"
+                android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -18,6 +25,5 @@
             </intent-filter>
         </activity>
     </application>
-
 
 </manifest>
