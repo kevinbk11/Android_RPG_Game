@@ -18,14 +18,15 @@ interface FileReadOrWrite {
         db.collection("users").document(user["account"].toString()).set(user)
     }
 
-    fun rebuildUserData(name: String) {
+    fun rebuildUserData(acc: String) {
         val db = Firebase.firestore
-        db.collection("users").document(name).get().addOnSuccessListener { result ->
+        db.collection("users").document(acc).get().addOnSuccessListener { result ->
             val p = result["playerData"] as Map<String,String>
             if (p["job"] == "Fighter") {
-                player = Fighter(p["name"].toString())
+                player = Fighter(p["name"].toString(),acc)
                 with(player!!)
                 {
+                    account = acc
                     HP = p["hp"].toString().toInt()
                     MP = p["mp"].toString().toInt()
                     FullMP = p["fullMP"].toString().toInt()
@@ -65,7 +66,7 @@ interface FileReadOrWrite {
                     mapOf<String, Any>(
                         "account" to account,
                         "password" to password,
-                        "playerData" to Fighter(name)
+                        "playerData" to Fighter(name,account)
                     )
                 addUserToFirebase(user)
             }
@@ -73,6 +74,7 @@ interface FileReadOrWrite {
                 //TODO
             }
         }
+        player=Fighter(name,account)
     }
 
 }

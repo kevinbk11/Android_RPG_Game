@@ -53,7 +53,6 @@ class Login : AppCompatActivity(),FileReadOrWrite {
                 bundle.putString("account",account.text.toString())
                 bundle.putString("password",password.text.toString())
                 intent.putExtras(bundle)
-                intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
                 startActivity(intent)
             }
         }

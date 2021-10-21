@@ -3,7 +3,8 @@ package com.example.tunaandbk.Player.Job;
 import com.example.tunaandbk.Player.Player
 import kotlin.math.pow
 
-class Fighter(name:String): Player(name) {
+class Fighter(name:String,acc:String): Player(name,acc) {
+    override var account = acc
     override var job="Fighter"
     override var HP=500
     override var MP=100
@@ -28,6 +29,7 @@ class Fighter(name:String): Player(name) {
         HP=FullHP
         MP=FullMP
         BasicStr=LV*2.5
+        this.save()
         //Damage=(BasicStr+hand!!.Damage).toInt()
     }
 }

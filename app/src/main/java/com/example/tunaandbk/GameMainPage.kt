@@ -8,6 +8,7 @@ class GameMainPage : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game_main_page)
-        Log.v("test",player!!.name)
+        player!!.levelup()
+        Log.v("test",player!!.LV.toString())
     }
 }

@@ -1,5 +1,6 @@
 package com.example.tunaandbk
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -37,39 +38,12 @@ class CreatePlayer : AppCompatActivity(),FileReadOrWrite {
     }
     fun ok(view: View)
     {
-        val db = Firebase.firestore
-        var find:Boolean=false
-        db.collection("users").get().addOnSuccessListener{
-                result ->
-            for(user in result)
-            {
-                if(user.data["account"]==name.text.toString())
-                {
-                    find=true
-                    break
-                }
-            }
-        }.addOnCompleteListener {
-            if(!find)
-            {
-                createUserData(account!!,password!!,name.text.toString(),jobPager)
-                Thread{
-                    Thread.sleep(1500)
-                    rebuildUserData(name.text.toString())
-                }.start()
-            }
-            else
-            {
-                Thread{
-                    rebuildUserData(name.text.toString())
-                    Thread.sleep(2000)
-                    player!!.put(itemMap["木劍"],1)
-                    player!!.put(itemMap["石劍"],1)
-                    player!!.put(itemMap["木劍"],1)
-                    player!!.save()
-                    Log.v("test",player!!.bag["equipment"]!![0].count.toString())
-                }.start()
-            }
-        }
+        createUserData(account,password,name.text.toString(),jobPager)
+        Thread{
+            Thread.sleep(1500)
+            val intent = Intent(this@CreatePlayer,GameMainPage::class.java)
+            intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+            startActivity(intent)
+        }.start()
     }
 }

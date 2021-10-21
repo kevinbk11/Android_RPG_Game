@@ -6,7 +6,9 @@ import com.example.tunaandbk.Item.Weapon
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
-abstract class Player(name:String) {
+abstract class Player(name:String,acc:String) {
+    open var account:String=acc
+
     open var name:String=name
     open var job:String=""
     open var HP:Int=0
@@ -38,7 +40,7 @@ abstract class Player(name:String) {
     fun save()
     {
         val db = Firebase.firestore
-        db.collection("users").document(name).update("playerData",this)
+        db.collection("users").document(account).update("playerData",this)
     }
     private fun p(item:Item,value:Int,type:String)
     {
@@ -65,6 +67,7 @@ abstract class Player(name:String) {
                 }
             }
         }
+        save()
     }
     fun put(item: Item?, value:Int)
     {
@@ -74,8 +77,8 @@ abstract class Player(name:String) {
             {
                 p(item,value,"equipment")
             }
-
         }
+        save()
     }
 
 
