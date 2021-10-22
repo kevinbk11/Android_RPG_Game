@@ -13,6 +13,7 @@ class GameMainPage : AppCompatActivity(),FileReadOrWrite {
 
     override fun onStop() {
         super.onStop()
+        Log.v("wtfwtf","?????")
         changeOnlineState(false)
     }
 
