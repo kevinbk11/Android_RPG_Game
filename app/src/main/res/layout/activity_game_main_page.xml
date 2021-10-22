@@ -7,4 +7,9 @@
         android:layout_height="match_parent"
         tools:context=".GameMainPage">
 
+    <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/textView" tools:layout_editor_absoluteY="15dp"
+            tools:layout_editor_absoluteX="9dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

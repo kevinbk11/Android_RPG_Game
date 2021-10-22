@@ -9,11 +9,14 @@ import android.widget.Toast
 import androidx.annotation.UiThread
 import com.example.tunaandbk.R
 import com.example.tunaandbk.System.FileReadOrWrite
+import com.example.tunaandbk.System.player
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_login.*
 
 class Login : AppCompatActivity(),FileReadOrWrite {
+    override fun onBackPressed() {
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -23,7 +26,6 @@ class Login : AppCompatActivity(),FileReadOrWrite {
         val db = Firebase.firestore
         db.collection("users").document(account.text.toString()).get().addOnSuccessListener {
             user->
-            Log.v("testtest",user.toString())
             if(user.data!=null)
             {
                 val acc = account.text.toString()
@@ -31,10 +33,10 @@ class Login : AppCompatActivity(),FileReadOrWrite {
                 val ud = user.data!!
                 if(ud["account"]==acc&&ud["password"]==pw)
                 {
+                    rebuildUserData(ud["playerData"] as Map<String, Any?>)
+                    Log.v("test","HIHIHI")
                     Thread{
-                        Log.v("??","已登入$acc")
-                        rebuildUserData(acc)
-                        Thread.sleep(1000)
+                        Log.v("ttt",player!!.name)
                         runOnUiThread{Toast.makeText(this,"歡迎回來,$acc",Toast.LENGTH_SHORT).show()}
                         val intent = Intent(this@Login,GameMainPage::class.java)
                         intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
@@ -48,12 +50,7 @@ class Login : AppCompatActivity(),FileReadOrWrite {
             }
             else
             {
-                val intent = Intent(this@Login,CreatePlayer::class.java)
-                val bundle = Bundle()
-                bundle.putString("account",account.text.toString())
-                bundle.putString("password",password.text.toString())
-                intent.putExtras(bundle)
-                startActivity(intent)
+                Toast.makeText(this,"此使用者不存在",Toast.LENGTH_SHORT).show()
             }
         }
         /*db.collection("users").get().addOnSuccessListener {
@@ -75,5 +72,15 @@ class Login : AppCompatActivity(),FileReadOrWrite {
             }
 
         }.start()*/
+    }
+    fun toRegister(view:View)
+    {
+        val intent = Intent(this@Login,Register::class.java)
+        val bundle = Bundle()
+        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+        bundle.putString("account",account.text.toString())
+        bundle.putString("password",password.text.toString())
+        intent.putExtras(bundle)
+        startActivity(intent)
     }
 }

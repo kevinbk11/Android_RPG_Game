@@ -16,7 +16,7 @@
             android:layout_height="match_parent" android:layout_weight="1">
         <Space
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:layout_weight="10"/>
+                android:layout_height="wrap_content" android:layout_weight="5"/>
         <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -35,14 +35,31 @@
         <Space
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" android:layout_weight="1"/>
-        <Button
-                android:text="登入"
+        <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/ok"
-                android:layout_weight="1" android:onClick="login"/>
-        <Space
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:layout_weight="1"/>
+                android:layout_height="wrap_content" android:layout_weight="1">
+            <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" android:layout_weight="1"/>
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" android:layout_weight="1">
+                <Button
+                        android:text="登入"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" android:id="@+id/ok"
+                        android:layout_weight="1" android:onClick="login"/>
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" android:layout_weight="1" android:id="@+id/register"
+                        android:text="register" android:gravity="center" android:onClick="toRegister"/>
+            </LinearLayout>
+            <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" android:layout_weight="1"/>
+        </LinearLayout>
     </LinearLayout>
     <Space
             android:layout_width="match_parent"

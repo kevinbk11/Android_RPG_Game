@@ -17,6 +17,8 @@ class CreatePlayer : AppCompatActivity(),FileReadOrWrite {
     lateinit var jobPager: JobPager
     lateinit var account:String
     lateinit var password:String
+    override fun onBackPressed() {
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
