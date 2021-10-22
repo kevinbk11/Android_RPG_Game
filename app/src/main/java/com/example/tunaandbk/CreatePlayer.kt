@@ -51,11 +51,9 @@ class CreatePlayer : AppCompatActivity(),FileReadOrWrite {
         Thread{
             Thread.sleep(1500)
             val db = Firebase.firestore
-            db.collection("users").document(player!!.account).update("online","yes").addOnSuccessListener {
-                val intent = Intent(this@CreatePlayer,GameMainPage::class.java)
-                intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
-                startActivity(intent)
-            }
+            val intent = Intent(this@CreatePlayer,GameMainPage::class.java)
+            intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+            startActivity(intent)
 
         }.start()
     }

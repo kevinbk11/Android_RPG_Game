@@ -50,12 +50,10 @@ class Login : AppCompatActivity(),FileReadOrWrite {
                         {
                             rebuildUserData(ud["playerData"] as Map<String, Any?>)
                             player!!.online=true
-                            db.collection("users").document(player!!.account).set(player!!).addOnSuccessListener {
-                                Toast.makeText(this,"歡迎回來,$acc",Toast.LENGTH_SHORT).show()
-                                val intent = Intent(this@Login,GameMainPage::class.java)
-                                intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
-                                startActivity(intent)
-                            }
+                            Toast.makeText(this,"歡迎回來,$acc",Toast.LENGTH_SHORT).show()
+                            val intent = Intent(this@Login,GameMainPage::class.java)
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+                            startActivity(intent)
                         }
                     }
                     else
