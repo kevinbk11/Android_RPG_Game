@@ -40,21 +40,11 @@ class Login : AppCompatActivity(),FileReadOrWrite {
                 val ud = user.data!!
                 if(ud["account"]==acc&&ud["password"]==pw)
                 {
-                    if((ud["playerData"] as Map<*,*>)["online"]=="yes")
+                    if(ud["playerData"]!=null)
                     {
-                        Toast.makeText(this,"此帳號目前正在使用中!",Toast.LENGTH_SHORT).show()
-                    }
-                    else
-                    {
-                        if(ud["playerData"]==null)
+                        if((ud["playerData"] as Map<*,*>)["online"]=="yes")
                         {
-                            val intent = Intent(this@Login,CreatePlayer::class.java)
-                            val bundle = Bundle()
-                            bundle.putString("account",account.text.toString())
-                            bundle.putString("password",password.text.toString())
-                            intent.putExtras(bundle)
-                            intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
-                            startActivity(intent)
+                            Toast.makeText(this,"此帳號目前正在使用中!",Toast.LENGTH_SHORT).show()
                         }
                         else
                         {
@@ -67,6 +57,16 @@ class Login : AppCompatActivity(),FileReadOrWrite {
                                 startActivity(intent)
                             }
                         }
+                    }
+                    else
+                    {
+                        val intent = Intent(this@Login,CreatePlayer::class.java)
+                        val bundle = Bundle()
+                        bundle.putString("account",account.text.toString())
+                        bundle.putString("password",password.text.toString())
+                        intent.putExtras(bundle)
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+                        startActivity(intent)
                     }
                 }
                 else Toast.makeText(this,"帳號或密碼錯誤",Toast.LENGTH_SHORT).show()
