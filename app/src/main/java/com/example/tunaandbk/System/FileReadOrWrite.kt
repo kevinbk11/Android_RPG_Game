@@ -75,9 +75,7 @@ interface FileReadOrWrite {
     }
     fun changeOnlineState(state:Boolean)
     {
-        Thread{
-            val db = Firebase.firestore
-            db.collection("users").document(player!!.account).update("online",state)
-        }.start()
+        val db = Firebase.firestore
+        db.collection("users").document(player!!.account).update("online",state)
     }
 }
