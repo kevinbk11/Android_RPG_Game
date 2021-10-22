@@ -40,25 +40,32 @@ class Login : AppCompatActivity(),FileReadOrWrite {
                 val ud = user.data!!
                 if(ud["account"]==acc&&ud["password"]==pw)
                 {
-                    if(ud["playerData"]==null)
+                    if(ud["online"]==true)
                     {
-                        val intent = Intent(this@Login,CreatePlayer::class.java)
-                        val bundle = Bundle()
-                        bundle.putString("account",account.text.toString())
-                        bundle.putString("password",password.text.toString())
-                        intent.putExtras(bundle)
-                        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
-                        startActivity(intent)
+                        Toast.makeText(this,"此帳號目前正在使用中!",Toast.LENGTH_SHORT).show()
                     }
                     else
                     {
-                        rebuildUserData(ud["playerData"] as Map<String, Any?>)
-                        Toast.makeText(this,"歡迎回來,$acc",Toast.LENGTH_SHORT).show()
-                        val intent = Intent(this@Login,GameMainPage::class.java)
-                        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
-                        startActivity(intent)
+                        if(ud["playerData"]==null)
+                        {
+                            val intent = Intent(this@Login,CreatePlayer::class.java)
+                            val bundle = Bundle()
+                            bundle.putString("account",account.text.toString())
+                            bundle.putString("password",password.text.toString())
+                            intent.putExtras(bundle)
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+                            startActivity(intent)
+                        }
+                        else
+                        {
+                            rebuildUserData(ud["playerData"] as Map<String, Any?>)
+                            changeOnlineState()
+                            Toast.makeText(this,"歡迎回來,$acc",Toast.LENGTH_SHORT).show()
+                            val intent = Intent(this@Login,GameMainPage::class.java)
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+                            startActivity(intent)
+                        }
                     }
-
                 }
                 else Toast.makeText(this,"帳號或密碼錯誤",Toast.LENGTH_SHORT).show()
             }

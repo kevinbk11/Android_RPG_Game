@@ -38,9 +38,10 @@ class Register : AppCompatActivity() {
                 if(password_check.text.toString()==register_password_textView.text.toString())
                 {
                     val intent = Intent(this@Register,CreatePlayer::class.java)
-                    val user = mapOf<String,String>(
+                    val user = mapOf<String,Any>(
                         "account" to acc,
-                        "password" to pw
+                        "password" to pw,
+                        "online" to false
                     )
                     db.collection("users").document(acc).set(user)
                     intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)

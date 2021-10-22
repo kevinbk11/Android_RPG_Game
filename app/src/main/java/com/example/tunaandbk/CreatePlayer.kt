@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import com.example.tunaandbk.Pager.ViewPagerPackage.JobPager
 import com.example.tunaandbk.R
 import com.example.tunaandbk.System.FileReadOrWrite
@@ -40,6 +41,11 @@ class CreatePlayer : AppCompatActivity(),FileReadOrWrite {
     }
     fun ok(view: View)
     {
+        if(name.text.toString()=="")
+        {
+            Toast.makeText(this,"輸入不可為空!", Toast.LENGTH_SHORT).show()
+            return
+        }
         createUserData(account,password,name.text.toString(),jobPager)
         Thread{
             Thread.sleep(1500)

@@ -18,7 +18,6 @@ interface FileReadOrWrite {
     }
 
     fun rebuildUserData(p: Map<String,Any?>): Player {
-        Log.v("ttt",p["job"].toString())
         if (p["job"] == "Fighter") {
             player = Fighter(p["name"].toString(),p["account"].toString())
             with(player!!)
@@ -63,6 +62,7 @@ interface FileReadOrWrite {
                     mapOf<String, Any>(
                         "account" to account,
                         "password" to password,
+                        "online" to "false",
                         "playerData" to Fighter(name,account)
                     )
                 addUserToFirebase(user)
@@ -73,5 +73,18 @@ interface FileReadOrWrite {
         }
         player=Fighter(name,account)
     }
+    fun changeOnlineState()
+    {
+        Thread{
+            val db = Firebase.firestore
+            val userOnline = db.collection("users").document(player!!.account).get().addOnSuccessListener {
+                result->
 
+                val user=db.collection("users").document(player!!.account)
+                user.update("online",!(result["online"].toString().toBoolean()))
+            }
+
+
+        }.start()
+    }
 }
