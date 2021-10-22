@@ -37,16 +37,18 @@ class Register : AppCompatActivity() {
             {
                 if(password_check.text.toString()==register_password_textView.text.toString())
                 {
-                    val intent = Intent(this@Register,CreatePlayer::class.java)
+                    val intent = Intent(this@Register,Login::class.java)
                     val user = mapOf<String,Any>(
                         "account" to acc,
                         "password" to pw,
-                        "online" to false
+                        "online" to "no"
                     )
-                    db.collection("users").document(acc).set(user)
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
-                    Toast.makeText(this,"帳號註冊成功!請再次登入並建立角色",Toast.LENGTH_SHORT).show()
-                    startActivity(intent)
+                    db.collection("users").document(acc).set(user).addOnSuccessListener {
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+                        Toast.makeText(this,"帳號註冊成功!請再次登入並建立角色",Toast.LENGTH_SHORT).show()
+                        startActivity(intent)
+                    }
+
                 }
                 else
                 {
