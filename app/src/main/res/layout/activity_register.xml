@@ -19,6 +19,7 @@
                 android:inputType="textPersonName"
                 android:ems="10"
                 android:hint="@string/account"
+                android:textSize="14sp"
                 android:id="@+id/register_account_textView"/>
         <EditText
                 android:layout_width="160dp"
@@ -26,6 +27,7 @@
                 android:inputType="textPassword"
                 android:ems="10"
                 android:hint="@string/password"
+                android:textSize="14sp"
                 android:id="@+id/register_password_textView"/>
 
         <EditText
@@ -34,6 +36,7 @@
                 android:inputType="textPassword"
                 android:ems="10"
                 android:hint="@string/confirm_password"
+                android:textSize="14sp"
                 android:id="@+id/password_check"/>
 
         <Button

@@ -59,7 +59,7 @@
                     android:onClick="toRegister"
                     android:layout_gravity="center_horizontal"
                     android:text="註冊"
-                    android:textSize="12sp"/>
+                    android:textSize="14sp"/>
         </LinearLayout>
 
     </LinearLayout>
