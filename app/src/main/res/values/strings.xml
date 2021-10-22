@@ -4,4 +4,8 @@
     <string name="NO">取消</string>
     <string name="next">下一步</string>
     <string name="back">返回</string>
+    <string name="login">登入</string>
+    <string name="password">密碼</string>
+    <string name="account">帳號</string>
+    <string name="confirm_password">確認密碼</string>
 </resources>
