@@ -42,7 +42,7 @@ class Login : AppCompatActivity(),FileReadOrWrite {
                 if(ud["account"]==acc&&ud["password"]==pw)
                 {
                     Log.v("userData",ud.toString())
-                    if(ud["online"].toString().toBoolean())
+                    if(ud["online"]=="online")
                     {
                         Toast.makeText(this,"此帳號目前正在使用中!",Toast.LENGTH_SHORT).show()
                     }
@@ -61,7 +61,7 @@ class Login : AppCompatActivity(),FileReadOrWrite {
                         else
                         {
                             rebuildUserData(ud["playerData"] as Map<String, Any?>)
-                            db.collection("users").document(player!!.account).update("online",true).addOnSuccessListener {
+                            db.collection("users").document(player!!.account).update("online","online").addOnSuccessListener {
                                 Toast.makeText(this,"歡迎回來,$acc",Toast.LENGTH_SHORT).show()
                                 val intent = Intent(this@Login,GameMainPage::class.java)
                                 intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
