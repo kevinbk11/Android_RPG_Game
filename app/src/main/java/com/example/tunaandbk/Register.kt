@@ -29,13 +29,22 @@ class Register : AppCompatActivity() {
             if(result.data!=null) Toast.makeText(this,"此帳號已有人使用",Toast.LENGTH_SHORT).show()
             else
             {
-                val intent = Intent(this@Register,CreatePlayer::class.java)
-                val bundle = Bundle()
-                intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
-                bundle.putString("account",acc)
-                bundle.putString("password",pw)
-                intent.putExtras(bundle)
-                startActivity(intent)
+                if(password_check.text.toString()==register_password_textView.text.toString())
+                {
+                    val intent = Intent(this@Register,CreatePlayer::class.java)
+                    val user = mapOf<String,String>(
+                        "account" to acc,
+                        "password" to pw
+                    )
+                    db.collection("users").document(acc).set(user)
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+                    Toast.makeText(this,"帳號註冊成功!請再次登入並建立角色",Toast.LENGTH_SHORT).show()
+                    startActivity(intent)
+                }
+                else
+                {
+                    Toast.makeText(this,"兩次密碼不一致",Toast.LENGTH_SHORT).show()
+                }
             }
         }
     }
