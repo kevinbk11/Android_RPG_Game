@@ -17,7 +17,7 @@ interface FileReadOrWrite {
         db.collection("users").document(user["account"].toString()).set(user)
     }
 
-    fun rebuildUserData(p: Map<String,Any?>): Player {
+    fun rebuildUserData(p: Map<String,Any?>) {
         if (p["job"] == "Fighter") {
             player = Fighter(p["name"].toString(),p["account"].toString())
             with(player!!)
@@ -53,7 +53,6 @@ interface FileReadOrWrite {
                 }
             }
         }
-        return player!!
     }
     fun createUserData(account:String,password:String,name: String, JobPager: JobPager) {
         when (JobPager.getChoice()) {
@@ -76,6 +75,6 @@ interface FileReadOrWrite {
     fun changeOnlineState(state:Boolean)
     {
         val db = Firebase.firestore
-        db.collection("users").document(player!!.account).update("online",state)
+
     }
 }

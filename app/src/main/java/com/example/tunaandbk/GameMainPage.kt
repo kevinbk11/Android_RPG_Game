@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.util.Log
 import com.example.tunaandbk.System.FileReadOrWrite
 import com.example.tunaandbk.System.player
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_game_main_page.*
 
 class GameMainPage : AppCompatActivity(),FileReadOrWrite {
@@ -13,8 +15,9 @@ class GameMainPage : AppCompatActivity(),FileReadOrWrite {
 
     override fun onStop() {
         super.onStop()
-        Log.v("wtfwtf","?????")
-        changeOnlineState(false)
+        Firebase.firestore.collection("users").document(player!!.account).update("online",false).addOnSuccessListener {
+            Log.v("??????","?")
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
