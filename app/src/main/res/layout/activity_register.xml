@@ -9,14 +9,15 @@
 
     <Space
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:layout_weight="1"/>
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
     <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent" android:layout_weight="1">
         <Space
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:layout_weight="1"/>
+                android:layout_height="185dp" android:layout_weight="1"/>
         <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -40,5 +41,7 @@
     </LinearLayout>
     <Space
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:layout_weight="1"/>
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+
 </LinearLayout>
