@@ -22,7 +22,6 @@ class GameMainPage : AppCompatActivity(),FileReadOrWrite {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game_main_page)
-        player!!.levelup()
         Log.v("playerInfo",player!!.name)
         textView.setText(player!!.name)
     }
