@@ -33,15 +33,23 @@ class Login : AppCompatActivity(),FileReadOrWrite {
                 val ud = user.data!!
                 if(ud["account"]==acc&&ud["password"]==pw)
                 {
-                    rebuildUserData(ud["playerData"] as Map<String, Any?>)
-                    Log.v("test","HIHIHI")
-                    Thread{
-                        Log.v("ttt",player!!.name)
-                        runOnUiThread{Toast.makeText(this,"歡迎回來,$acc",Toast.LENGTH_SHORT).show()}
-                        val intent = Intent(this@Login,GameMainPage::class.java)
-                        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
-                        startActivity(intent)
-                    }.start()
+                    if(ud["playerData"]==null)
+                    {
+
+                    }
+                    else
+                    {
+                        rebuildUserData(ud["playerData"] as Map<String, Any?>)
+                        Log.v("test","HIHIHI")
+                        Thread{
+                            Log.v("ttt",player!!.name)
+                            runOnUiThread{Toast.makeText(this,"歡迎回來,$acc",Toast.LENGTH_SHORT).show()}
+                            val intent = Intent(this@Login,GameMainPage::class.java)
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+                            startActivity(intent)
+                        }.start()
+                    }
+
                 }
                 else
                 {
