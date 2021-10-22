@@ -15,9 +15,8 @@ class GameMainPage : AppCompatActivity(),FileReadOrWrite {
 
     override fun onStop() {
         super.onStop()
-        Firebase.firestore.collection("users").document(player!!.account).update("online","no").addOnSuccessListener {
-            Log.v("??????","?")
-        }
+        player!!.online=false
+        Firebase.firestore.collection("users").document(player!!.account).set(player!!)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

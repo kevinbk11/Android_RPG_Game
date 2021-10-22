@@ -38,11 +38,9 @@ class Login : AppCompatActivity(),FileReadOrWrite {
                 val acc = account.text.toString()
                 val pw = password.text.toString()
                 val ud = user.data!!
-                Log.v("userData",ud["online"].toString())
                 if(ud["account"]==acc&&ud["password"]==pw)
                 {
-                    Log.v("userData",ud.toString())
-                    if(ud["online"]=="yes")
+                    if((ud["playerData"] as Map<*,*>)["online"]=="yes")
                     {
                         Toast.makeText(this,"此帳號目前正在使用中!",Toast.LENGTH_SHORT).show()
                     }
@@ -61,13 +59,13 @@ class Login : AppCompatActivity(),FileReadOrWrite {
                         else
                         {
                             rebuildUserData(ud["playerData"] as Map<String, Any?>)
-                            db.collection("users").document(player!!.account).update("online","yes").addOnSuccessListener {
+                            player!!.online=true
+                            db.collection("users").document(player!!.account).set(player!!).addOnSuccessListener {
                                 Toast.makeText(this,"歡迎回來,$acc",Toast.LENGTH_SHORT).show()
                                 val intent = Intent(this@Login,GameMainPage::class.java)
                                 intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
                                 startActivity(intent)
                             }
-
                         }
                     }
                 }

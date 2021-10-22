@@ -61,7 +61,6 @@ interface FileReadOrWrite {
                     mapOf<String, Any>(
                         "account" to account,
                         "password" to password,
-                        "online" to "no",
                         "playerData" to Fighter(name,account)
                     )
                 addUserToFirebase(user)
