@@ -10,6 +10,7 @@ import com.example.tunaandbk.Pager.ViewPagerPackage.JobPager
 import com.example.tunaandbk.R
 import com.example.tunaandbk.System.FileReadOrWrite
 import com.example.tunaandbk.System.itemMap
+import com.example.tunaandbk.System.player
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_create_player.*
@@ -49,9 +50,13 @@ class CreatePlayer : AppCompatActivity(),FileReadOrWrite {
         createUserData(account,password,name.text.toString(),jobPager)
         Thread{
             Thread.sleep(1500)
-            val intent = Intent(this@CreatePlayer,GameMainPage::class.java)
-            intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
-            startActivity(intent)
+            val db = Firebase.firestore
+            db.collection("users").document(player!!.account).update("online","yes").addOnSuccessListener {
+                val intent = Intent(this@CreatePlayer,GameMainPage::class.java)
+                intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+                startActivity(intent)
+            }
+
         }.start()
     }
 }
