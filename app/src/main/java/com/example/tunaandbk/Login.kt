@@ -1,6 +1,7 @@
 package com.example.tunaandbk
 
 import android.content.Intent
+import android.graphics.Paint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -20,6 +21,7 @@ class Login : AppCompatActivity(),FileReadOrWrite {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+        register.paintFlags= Paint.UNDERLINE_TEXT_FLAG
     }
     fun login(view: View)
     {
@@ -33,15 +35,29 @@ class Login : AppCompatActivity(),FileReadOrWrite {
                 val ud = user.data!!
                 if(ud["account"]==acc&&ud["password"]==pw)
                 {
-                    rebuildUserData(ud["playerData"] as Map<String, Any?>)
-                    Log.v("test","HIHIHI")
-                    Thread{
-                        Log.v("ttt",player!!.name)
-                        runOnUiThread{Toast.makeText(this,"歡迎回來,$acc",Toast.LENGTH_SHORT).show()}
-                        val intent = Intent(this@Login,GameMainPage::class.java)
+                    if(ud["playerData"]==null)
+                    {
+                        val intent = Intent(this@Login,CreatePlayer::class.java)
+                        val bundle = Bundle()
+                        bundle.putString("account",account.text.toString())
+                        bundle.putString("password",password.text.toString())
+                        intent.putExtras(bundle)
                         intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
                         startActivity(intent)
-                    }.start()
+                    }
+                    else
+                    {
+                        rebuildUserData(ud["playerData"] as Map<String, Any?>)
+                        Log.v("test","HIHIHI")
+                        Thread{
+                            Log.v("ttt",player!!.name)
+                            runOnUiThread{Toast.makeText(this,"歡迎回來,$acc",Toast.LENGTH_SHORT).show()}
+                            val intent = Intent(this@Login,GameMainPage::class.java)
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+                            startActivity(intent)
+                        }.start()
+                    }
+
                 }
                 else
                 {

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+0<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -19,47 +19,46 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" android:layout_weight="5"/>
         <EditText
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
-                android:ems="10"
+                android:ems="0"
                 android:id="@+id/account"
                 android:gravity="center"
-                android:layout_weight="1"/>
+                android:layout_weight="0"/>
         <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
                 android:id="@+id/password"
-                android:layout_weight="1" android:layout_gravity="center" android:autoText="false"
+                android:layout_weight="0" android:autoText="false"
                 android:textAlignment="center"/>
-        <Space
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:layout_weight="1"/>
         <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" android:layout_weight="1">
-            <Space
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent" android:layout_weight="1"/>
             <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" android:layout_weight="1">
+                    android:layout_height="wrap_content" android:layout_weight="3">
+                <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" android:layout_weight="2"/>
                 <Button
                         android:text="登入"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent" android:id="@+id/ok"
+                        android:layout_height="40dp" android:id="@+id/ok"
                         android:layout_weight="1" android:onClick="login"/>
-                <TextView
+                <Space
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent" android:layout_weight="1" android:id="@+id/register"
-                        android:text="register" android:gravity="center" android:onClick="toRegister"/>
+                        android:layout_height="match_parent" android:layout_weight="2"/>
             </LinearLayout>
-            <Space
+            <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent" android:layout_weight="1"/>
+                    android:layout_height="wrap_content" android:layout_weight="1" android:id="@+id/register"
+                    android:gravity="center" android:onClick="toRegister"
+                    android:layout_gravity="center" android:text="註冊" android:textAllCaps="false"
+                    android:textAlignment="center"/>
         </LinearLayout>
     </LinearLayout>
     <Space
