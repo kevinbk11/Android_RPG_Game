@@ -23,6 +23,7 @@ class GameMainPage : AppCompatActivity(),FileReadOrWrite {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game_main_page)
         Log.v("playerInfo",player!!.name)
+        player!!.save()
         textView.setText(player!!.name)
     }
 }
