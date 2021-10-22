@@ -5,50 +5,47 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:screenOrientation="landscape"
+        android:orientation="vertical"
+        android:gravity="center"
         tools:context=".Register">
-
     <Space
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
-    <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" android:layout_weight="1">
-        <Space
-                android:layout_width="match_parent"
-                android:layout_height="185dp" android:layout_weight="1"/>
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="3"/>
+
         <EditText
-                android:layout_width="match_parent"
+                android:layout_width="160dp"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
                 android:ems="10"
+                android:hint="@string/account"
                 android:id="@+id/register_account_textView"/>
         <EditText
-                android:layout_width="match_parent"
+                android:layout_width="160dp"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
                 android:ems="10"
+                android:hint="@string/password"
                 android:id="@+id/register_password_textView"/>
+
         <EditText
-                android:layout_width="wrap_content"
+                android:layout_width="160dp"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
                 android:ems="10"
+                android:hint="@string/confirm_password"
                 android:id="@+id/password_check"/>
-        <Button
-                android:text="註冊"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/register_page_buttom" android:layout_weight="0.01"
-                android:onClick="register"/>
-        <Space
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:layout_weight="0.2"/>
-    </LinearLayout>
-    <Space
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
 
+        <Button
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/register_page_buttom"
+            android:text="註冊"
+            android:textSize="16sp"
+            android:onClick="register"/>
+
+    <Space
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="2"/>
 </LinearLayout>

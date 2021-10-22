@@ -21,9 +21,15 @@ class Register : AppCompatActivity() {
     }
     fun register(view: View)
     {
+        if(register_account_textView.text.toString()==""||register_password_textView.text.toString()==""||password_check.text.toString()=="")return
         val acc = register_account_textView.text.toString()
         val pw = register_password_textView.text.toString()
         val db = Firebase.firestore
+        if(acc==""||pw==""||password_check.text.toString()=="")
+        {
+            Toast.makeText(this,"輸入不可為空!",Toast.LENGTH_SHORT).show()
+            return
+        }
         db.collection("users").document(acc).get().addOnSuccessListener {
             result->
             if(result.data!=null) Toast.makeText(this,"此帳號已有人使用",Toast.LENGTH_SHORT).show()

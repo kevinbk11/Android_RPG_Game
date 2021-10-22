@@ -9,17 +9,22 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/Theme.TunaAndBk">
-        <activity android:name=".Register">
+        <activity android:name=".Register"
+                  android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".GameMainPage">
+        <activity android:name=".GameMainPage"
+                  android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".CreatePlayer">
+        <activity android:name=".CreatePlayer"
+                  android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".Login">
+        <activity android:name=".Login"
+                  android:screenOrientation="portrait">
         </activity>
         <activity
                 android:name=".MainActivity"
-                android:windowSoftInputMode="adjustPan">
+                android:windowSoftInputMode="adjustPan"
+                android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

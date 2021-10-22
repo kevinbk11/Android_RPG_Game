@@ -26,45 +26,43 @@ class Login : AppCompatActivity(),FileReadOrWrite {
     fun login(view: View)
     {
         val db = Firebase.firestore
-        if(account.text.toString()!=""&&(password.text.toString()!=""))
+        if(account.text.toString()==""||(password.text.toString()==""))
         {
-            db.collection("users").document(account.text.toString()).get().addOnSuccessListener {
-                    user->
-                if(user.data!=null)
-                {
-                    val acc = account.text.toString()
-                    val pw = password.text.toString()
-                    val ud = user.data!!
-                    if(ud["account"]==acc&&ud["password"]==pw)
-                    {
-                        if(ud["playerData"]==null)
-                        {
-                            val intent = Intent(this@Login,CreatePlayer::class.java)
-                            val bundle = Bundle()
-                            bundle.putString("account",account.text.toString())
-                            bundle.putString("password",password.text.toString())
-                            intent.putExtras(bundle)
-                            intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
-                            startActivity(intent)
-                        }
-                        else
-                        {
-                            rebuildUserData(ud["playerData"] as Map<String, Any?>)
-                            Toast.makeText(this,"歡迎回來,$acc",Toast.LENGTH_SHORT).show()
-                            val intent = Intent(this@Login,GameMainPage::class.java)
-                            intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
-                            startActivity(intent)
-                        }
-
-                    }
-                    else Toast.makeText(this,"帳號或密碼錯誤",Toast.LENGTH_SHORT).show()
-                }
-                else Toast.makeText(this,"此使用者不存在",Toast.LENGTH_SHORT).show()
-            }
+            Toast.makeText(this,"輸入不可為空!",Toast.LENGTH_SHORT).show()
+            return
         }
-        else
-        {
-            Toast.makeText(this,"帳號密碼不可為空!",Toast.LENGTH_SHORT).show()
+        db.collection("users").document(account.text.toString()).get().addOnSuccessListener {
+                user->
+            if(user.data!=null)
+            {
+                val acc = account.text.toString()
+                val pw = password.text.toString()
+                val ud = user.data!!
+                if(ud["account"]==acc&&ud["password"]==pw)
+                {
+                    if(ud["playerData"]==null)
+                    {
+                        val intent = Intent(this@Login,CreatePlayer::class.java)
+                        val bundle = Bundle()
+                        bundle.putString("account",account.text.toString())
+                        bundle.putString("password",password.text.toString())
+                        intent.putExtras(bundle)
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+                        startActivity(intent)
+                    }
+                    else
+                    {
+                        rebuildUserData(ud["playerData"] as Map<String, Any?>)
+                        Toast.makeText(this,"歡迎回來,$acc",Toast.LENGTH_SHORT).show()
+                        val intent = Intent(this@Login,GameMainPage::class.java)
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+                        startActivity(intent)
+                    }
+
+                }
+                else Toast.makeText(this,"帳號或密碼錯誤",Toast.LENGTH_SHORT).show()
+            }
+            else Toast.makeText(this,"此使用者不存在",Toast.LENGTH_SHORT).show()
         }
     }
     fun toRegister(view:View)
