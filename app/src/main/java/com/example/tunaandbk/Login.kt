@@ -38,10 +38,11 @@ class Login : AppCompatActivity(),FileReadOrWrite {
                 val acc = account.text.toString()
                 val pw = password.text.toString()
                 val ud = user.data!!
+                Log.v("userData",ud["online"].toString())
                 if(ud["account"]==acc&&ud["password"]==pw)
                 {
                     Log.v("userData",ud.toString())
-                    if(ud["online"]==true)
+                    if(ud["online"].toString().toBoolean())
                     {
                         Toast.makeText(this,"此帳號目前正在使用中!",Toast.LENGTH_SHORT).show()
                     }
