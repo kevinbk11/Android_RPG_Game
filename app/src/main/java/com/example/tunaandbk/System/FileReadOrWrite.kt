@@ -73,18 +73,11 @@ interface FileReadOrWrite {
         }
         player=Fighter(name,account)
     }
-    fun changeOnlineState()
+    fun changeOnlineState(state:Boolean)
     {
         Thread{
             val db = Firebase.firestore
-            val userOnline = db.collection("users").document(player!!.account).get().addOnSuccessListener {
-                result->
-
-                val user=db.collection("users").document(player!!.account)
-                user.update("online",!(result["online"].toString().toBoolean()))
-            }
-
-
+            db.collection("users").document(player!!.account).update("online",state)
         }.start()
     }
 }

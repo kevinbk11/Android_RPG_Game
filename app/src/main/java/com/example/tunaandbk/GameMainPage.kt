@@ -13,7 +13,7 @@ class GameMainPage : AppCompatActivity(),FileReadOrWrite {
 
     override fun onStop() {
         super.onStop()
-        changeOnlineState()
+        changeOnlineState(false)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -59,7 +59,7 @@ class Login : AppCompatActivity(),FileReadOrWrite {
                         else
                         {
                             rebuildUserData(ud["playerData"] as Map<String, Any?>)
-                            changeOnlineState()
+                            changeOnlineState(true)
                             Toast.makeText(this,"歡迎回來,$acc",Toast.LENGTH_SHORT).show()
                             val intent = Intent(this@Login,GameMainPage::class.java)
                             intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
