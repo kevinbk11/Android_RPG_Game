@@ -42,7 +42,7 @@ class Login : AppCompatActivity(),FileReadOrWrite {
                 {
                     if(ud["playerData"]!=null)
                     {
-                        Log.v("test",(ud["playerData"] as Map<*,*>)["online"].toString())
+                        Log.v("test",ud["playerData"].toString())
                         if((ud["playerData"] as Map<*,*>)["online"] as Boolean)
                         {
                             Toast.makeText(this,"此帳號目前正在使用中!",Toast.LENGTH_SHORT).show()
