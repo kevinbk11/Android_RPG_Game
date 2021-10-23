@@ -41,6 +41,7 @@ class Register : AppCompatActivity() {
                     val user = mapOf<String,Any>(
                         "account" to acc,
                         "password" to pw,
+                        "online" to false
                     )
                     db.collection("users").document(acc).set(user).addOnSuccessListener {
                         intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)

@@ -12,12 +12,12 @@ interface FileReadOrWrite {
         return r.getIdentifier(name, type, p)
     }
 
-    fun addUserToFirebase(user: Map<String, Any>) {
+    fun addUserToFirebase(user: HashMap<String, Any>) {
         val db = Firebase.firestore
         db.collection("users").document(user["account"].toString()).set(user)
     }
 
-    fun rebuildUserData(p: Map<String,Any?>) {
+    fun rebuildUserData(p: HashMap<String,Any?>) {
         if (p["job"] == "Fighter") {
             player = Fighter(p["name"].toString(),p["account"].toString())
             with(player!!)
@@ -58,9 +58,10 @@ interface FileReadOrWrite {
         when (JobPager.getChoice()) {
             1 -> {
                 val user =
-                    mapOf<String, Any>(
+                    hashMapOf<String, Any>(
                         "account" to account,
                         "password" to password,
+                        "online" to true,
                         "playerData" to Fighter(name,account)
                     )
                 addUserToFirebase(user)

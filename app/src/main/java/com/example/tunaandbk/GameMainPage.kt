@@ -13,17 +13,23 @@ class GameMainPage : AppCompatActivity(),FileReadOrWrite {
     override fun onBackPressed() {
     }
 
+    /*override fun onStart() {
+        super.onStart()
+        player!!.online=true
+        player!!.save()
+    }*/
+
     override fun onStop() {
         super.onStop()
-        player!!.online=false
+        val db = Firebase.firestore
+        db.collection("users").document(player!!.account).update("online",false)
         player!!.save()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game_main_page)
-        Log.v("playerInfo",player!!.name)
-        player!!.save()
-        textView.setText(player!!.name)
+        /*Log.v("playerInfo",player!!.name)
+        textView.setText(player!!.name)*/
     }
 }

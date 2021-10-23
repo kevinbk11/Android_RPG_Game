@@ -7,7 +7,6 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
 abstract class Player(name:String,acc:String) {
-    open var online=true
     open var account:String=acc
 
     open var name:String=name
