@@ -50,7 +50,6 @@ class CreatePlayer : AppCompatActivity(),FileReadOrWrite {
         createUserData(account,password,name.text.toString(),jobPager)
         Thread{
             Thread.sleep(1500)
-            val db = Firebase.firestore
             val intent = Intent(this@CreatePlayer,GameMainPage::class.java)
             intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
             startActivity(intent)
