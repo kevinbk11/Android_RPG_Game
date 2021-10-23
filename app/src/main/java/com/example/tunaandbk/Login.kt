@@ -42,7 +42,6 @@ class Login : AppCompatActivity(),FileReadOrWrite {
                 {
                     if(ud["playerData"]!=null)
                     {
-                        Toast.makeText(this,ud["online"].toString(),Toast.LENGTH_SHORT).show()
                         if(ud["online"].toString().toBoolean())
                         {
                             Toast.makeText(this,"此帳號目前正在使用中!",Toast.LENGTH_SHORT).show()
