@@ -1,10 +1,8 @@
 package com.example.tunaandbk.System
 
 import android.content.res.Resources
-import android.util.Log
 import com.example.tunaandbk.Pager.ViewPagerPackage.JobPager
-import com.example.tunaandbk.Player.Job.Fighter
-import com.example.tunaandbk.Player.Player
+import com.example.tunaandbk.Mob.Player.Job.Fighter
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 interface FileReadOrWrite {

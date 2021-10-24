@@ -1,4 +1,4 @@
-package com.example.tunaandbk.Player
+package com.example.tunaandbk.Mob.Player
 
 import com.example.tunaandbk.Item.EmptyItem
 import com.example.tunaandbk.Item.Item

@@ -1,6 +1,6 @@
-package com.example.tunaandbk.Player.Job;
+package com.example.tunaandbk.Mob.Player.Job;
 
-import com.example.tunaandbk.Player.Player
+import com.example.tunaandbk.Mob.Player.Player
 import kotlin.math.pow
 
 class Fighter(name:String,acc:String): Player(name,acc) {
