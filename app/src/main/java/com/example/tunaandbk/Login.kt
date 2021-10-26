@@ -25,12 +25,12 @@ class Login : AppCompatActivity(),FileReadOrWrite {
     }
     fun login(view: View)
     {
-        val db = Firebase.firestore
         if(account.text.toString()==""||(password.text.toString()==""))
         {
             Toast.makeText(this,"輸入不可為空!",Toast.LENGTH_SHORT).show()
             return
         }
+        val db = Firebase.firestore
         db.collection("users").document(account.text.toString()).get().addOnSuccessListener {
                 user->
             if(user.data!=null)
@@ -43,19 +43,22 @@ class Login : AppCompatActivity(),FileReadOrWrite {
                     if(ud["playerData"]!=null)
                     {
 
-                        Log.v("test",ud["playerData"].toString())
-                        if((ud["playerData"] as Map<*,*>)["online"] as Boolean)
+                        if(ud["online"].toString().toBoolean())
                         {
                             Toast.makeText(this,"此帳號目前正在使用中!",Toast.LENGTH_SHORT).show()
                         }
                         else
                         {
-                            rebuildUserData(ud["playerData"] as Map<String, Any?>)
-                            player!!.online=true
-                            Toast.makeText(this,"歡迎回來,$acc",Toast.LENGTH_SHORT).show()
-                            val intent = Intent(this@Login,GameMainPage::class.java)
-                            intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
-                            startActivity(intent)
+                            rebuildUserData(ud["playerData"] as HashMap<String,Any?>)
+                            db.collection("users").document(acc).update("online",true).addOnSuccessListener {
+                                Toast.makeText(this,"歡迎回來,$acc",Toast.LENGTH_SHORT).show()
+                                Thread{
+                                    val intent = Intent(this@Login,GameMainPage::class.java)
+                                    intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+                                    startActivity(intent)
+                                }.start()
+
+                            }
                         }
                     }
                     else
@@ -73,6 +76,7 @@ class Login : AppCompatActivity(),FileReadOrWrite {
             }
             else Toast.makeText(this,"此使用者不存在",Toast.LENGTH_SHORT).show()
         }
+        db.clearPersistence()
     }
     fun toRegister(view:View)
     {

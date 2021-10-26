@@ -1,23 +1,19 @@
 package com.example.tunaandbk.System
 
 import android.content.res.Resources
-import android.util.Log
 import com.example.tunaandbk.Pager.ViewPagerPackage.JobPager
-import com.example.tunaandbk.Player.Job.Fighter
-import com.example.tunaandbk.Player.Player
+import com.example.tunaandbk.Mob.Player.Job.Fighter
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 interface FileReadOrWrite {
     fun getImageResources(r: Resources, name: String, type: String, p: String?): Int {
         return r.getIdentifier(name, type, p)
     }
-
-    fun addUserToFirebase(user: Map<String, Any>) {
+    fun addUserToFirebase(user: HashMap<String, Any>) {
         val db = Firebase.firestore
         db.collection("users").document(user["account"].toString()).set(user)
     }
-
-    fun rebuildUserData(p: Map<String,Any?>) {
+    fun rebuildUserData(p: HashMap<String,Any?>) {
         if (p["job"] == "Fighter") {
             player = Fighter(p["name"].toString(),p["account"].toString())
             with(player!!)
@@ -58,9 +54,10 @@ interface FileReadOrWrite {
         when (JobPager.getChoice()) {
             1 -> {
                 val user =
-                    mapOf<String, Any>(
+                    hashMapOf<String, Any>(
                         "account" to account,
                         "password" to password,
+                        "online" to true,
                         "playerData" to Fighter(name,account)
                     )
                 addUserToFirebase(user)
