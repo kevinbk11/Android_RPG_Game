@@ -68,7 +68,6 @@ abstract class Player(name:String,acc:String) {
                 }
             }
         }
-        save()
     }
     fun put(item: Item?, value:Int)
     {
@@ -79,9 +78,5 @@ abstract class Player(name:String,acc:String) {
                 p(item,value,"equipment")
             }
         }
-        save()
     }
-
-
-
 }

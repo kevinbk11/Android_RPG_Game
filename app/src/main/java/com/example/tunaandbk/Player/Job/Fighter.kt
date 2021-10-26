@@ -4,6 +4,7 @@ import com.example.tunaandbk.Player.Player
 import kotlin.math.pow
 
 class Fighter(name:String,acc:String): Player(name,acc) {
+    override var online = true
     override var account = acc
     override var job="Fighter"
     override var HP=500
