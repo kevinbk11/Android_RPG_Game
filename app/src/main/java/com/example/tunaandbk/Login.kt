@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.view.View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
 import android.widget.Toast
 import androidx.annotation.UiThread
 import com.example.tunaandbk.R

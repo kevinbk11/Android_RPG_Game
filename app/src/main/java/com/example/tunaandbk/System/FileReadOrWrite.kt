@@ -9,10 +9,12 @@ interface FileReadOrWrite {
     fun getImageResources(r: Resources, name: String, type: String, p: String?): Int {
         return r.getIdentifier(name, type, p)
     }
+
     fun addUserToFirebase(user: HashMap<String, Any>) {
         val db = Firebase.firestore
         db.collection("users").document(user["account"].toString()).set(user)
     }
+
     fun rebuildUserData(p: HashMap<String,Any?>) {
         if (p["job"] == "Fighter") {
             player = Fighter(p["name"].toString(),p["account"].toString())
