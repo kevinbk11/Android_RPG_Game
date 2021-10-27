@@ -29,6 +29,13 @@
             android:layout_weight="3"
             android:orientation="horizontal">
         <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/World_Map"
+                android:id="@+id/big_map"
+                android:onClick="big_map"/>
+        <Button
                 android:text="Button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

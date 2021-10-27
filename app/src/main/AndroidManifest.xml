@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.example.tunaandbk">
+          xmlns:tools="http://schemas.android.com/tools" package="com.example.tunaandbk">
 
     <application
             android:allowBackup="true"
@@ -13,6 +13,9 @@
                   android:screenOrientation="portrait">
         </activity>
         <activity android:name=".GameMainPage"
+                  android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".BigMap"
                   android:screenOrientation="portrait">
         </activity>
         <activity android:name=".CreatePlayer"
