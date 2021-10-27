@@ -9,6 +9,7 @@ import android.widget.Toast
 import com.example.tunaandbk.Pager.ViewPagerPackage.JobPager
 import com.example.tunaandbk.R
 import com.example.tunaandbk.System.FileReadOrWrite
+import com.example.tunaandbk.System.hideBar
 import com.example.tunaandbk.System.itemMap
 import com.example.tunaandbk.System.player
 import com.google.firebase.firestore.ktx.firestore
@@ -24,6 +25,7 @@ class CreatePlayer : AppCompatActivity(),FileReadOrWrite {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        hideBar(window)
         account = intent.getStringExtra("account")!!
         password=intent.getStringExtra("password")!!
         jobPager=JobPager(viewPager)

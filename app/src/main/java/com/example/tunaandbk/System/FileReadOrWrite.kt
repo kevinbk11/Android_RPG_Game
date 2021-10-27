@@ -70,9 +70,4 @@ interface FileReadOrWrite {
         }
         player=Fighter(name,account)
     }
-    fun changeOnlineState(state:Boolean)
-    {
-        val db = Firebase.firestore
-
-    }
 }

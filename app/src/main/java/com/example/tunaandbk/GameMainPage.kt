@@ -13,6 +13,7 @@ import android.widget.LinearLayout
 import androidx.constraintlayout.widget.ConstraintSet
 import com.example.tunaandbk.Mob.Monster.Monster
 import com.example.tunaandbk.System.FileReadOrWrite
+import com.example.tunaandbk.System.hideBar
 import com.example.tunaandbk.System.monsterMap
 import com.example.tunaandbk.System.player
 import com.google.firebase.firestore.ktx.firestore
@@ -42,6 +43,7 @@ class GameMainPage : AppCompatActivity(),FileReadOrWrite {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game_main_page)
+        hideBar(window)
         db.collection("Maps").document("0001").get().addOnSuccessListener {
             result->
             now=result.data!!["name"].toString()

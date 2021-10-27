@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.annotation.UiThread
 import com.example.tunaandbk.R
 import com.example.tunaandbk.System.FileReadOrWrite
+import com.example.tunaandbk.System.hideBar
 import com.example.tunaandbk.System.player
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -23,12 +24,7 @@ class Login : AppCompatActivity(),FileReadOrWrite {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         register.paintFlags= Paint.UNDERLINE_TEXT_FLAG
-        window.decorView.apply {
-            // Hide both the navigation bar and the status bar.
-            // hide the navigation bar.
-            systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or
-                                 View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-        }
+        hideBar(window)
     }
     fun login(view: View)
     {
