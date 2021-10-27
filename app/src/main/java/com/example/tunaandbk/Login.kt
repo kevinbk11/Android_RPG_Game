@@ -27,7 +27,6 @@ class Login : AppCompatActivity(),FileReadOrWrite {
             // Hide both the navigation bar and the status bar.
             // hide the navigation bar.
             systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or
-                                 View.SYSTEM_UI_FLAG_FULLSCREEN or
                                  View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
         }
     }

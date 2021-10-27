@@ -8,4 +8,5 @@
     <string name="password">密碼</string>
     <string name="account">帳號</string>
     <string name="confirm_password">確認密碼</string>
+    <string name="loading">載入中...</string>
 </resources>
