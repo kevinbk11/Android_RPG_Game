@@ -44,6 +44,9 @@ class GameMainPage : AppCompatActivity(),FileReadOrWrite {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game_main_page)
         hideBar(window)
+        player!!.levelup()
+        player!!.levelup()
+        player!!.levelup()
         db.collection("Maps").document("0001").get().addOnSuccessListener {
             result->
             now=result.data!!["name"].toString()
@@ -51,6 +54,7 @@ class GameMainPage : AppCompatActivity(),FileReadOrWrite {
             next=result.data!!["next"].toString()
             Thread.sleep(800)
         }
+        Log.v("test",player!!.LV.toString())
     }
     fun next(view: View)
     {

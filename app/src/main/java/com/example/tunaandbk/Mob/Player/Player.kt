@@ -5,6 +5,7 @@ import com.example.tunaandbk.Item.Item
 import com.example.tunaandbk.Item.Weapon
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import kotlin.math.pow
 
 abstract class Player(name:String,acc:String) {
     open var account:String=acc
@@ -36,7 +37,12 @@ abstract class Player(name:String,acc:String) {
             bag["another"]!!.add(EmptyItem())
         }
     }
-    open fun levelup(){}
+    open fun levelup()
+    {
+        LV+=1
+        FullEXP=150+(1.8).pow(LV*0.35)
+        EXP-=FullEXP
+    }
     fun save()
     {
         val db = Firebase.firestore
