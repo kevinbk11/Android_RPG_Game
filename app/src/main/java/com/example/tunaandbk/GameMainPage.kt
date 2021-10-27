@@ -1,5 +1,6 @@
 package com.example.tunaandbk
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.AttributeSet
@@ -21,10 +22,6 @@ import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_game_main_page.*
 import java.time.Instant
 import kotlin.random.Random
-
-
-
-
 
 class GameMainPage : AppCompatActivity(),FileReadOrWrite {
     val db = Firebase.firestore
@@ -85,5 +82,11 @@ class GameMainPage : AppCompatActivity(),FileReadOrWrite {
         {
             Log.v("monster",m.name)
         }
+    }
+    fun big_map(view: View)
+    {
+        val intent = Intent(this@GameMainPage,BigMap::class.java)
+        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+        startActivity(intent)
     }
 }
