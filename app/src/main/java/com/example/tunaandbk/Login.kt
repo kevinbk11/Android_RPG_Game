@@ -23,6 +23,13 @@ class Login : AppCompatActivity(),FileReadOrWrite {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         register.paintFlags= Paint.UNDERLINE_TEXT_FLAG
+        window.decorView.apply {
+            // Hide both the navigation bar and the status bar.
+            // hide the navigation bar.
+            systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or
+                                 View.SYSTEM_UI_FLAG_FULLSCREEN or
+                                 View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+        }
     }
     fun login(view: View)
     {
