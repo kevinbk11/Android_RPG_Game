@@ -7,26 +7,47 @@
         android:layout_height="match_parent"
         tools:context=".GameMainPage"
         android:orientation="vertical">
+
     <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_height="200dp"
             android:gravity="center"
             android:id="@+id/test">
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="top"
                 android:gravity="center"
                 android:id="@+id/textView"
                 android:textSize="24sp"
                 android:text="@string/loading"/>
+        <Button
+                android:text="設定"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/setting"/>
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:orientation="vertical"
+            android:gravity="right"
+            tools:ignore="RtlHardcoded">
+        <Button
+                android:text="信件"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/letter"/>
+        <Button
+                android:text="戰鬥"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/fright"/>
     </LinearLayout>
 
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="3"
             android:orientation="horizontal">
         <Button
                 android:layout_width="match_parent"
@@ -35,13 +56,7 @@
                 android:text="@string/World_Map"
                 android:id="@+id/big_map"
                 android:onClick="big_map"/>
-        <Button
-                android:text="Button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:id="@+id/button4"
-                android:onClick="getMonster"/>
+
         <Button
                 android:text="next"
                 android:layout_width="match_parent"
@@ -50,4 +65,5 @@
                 android:id="@+id/button2"
                 android:onClick="next"/>
     </LinearLayout>
+
 </LinearLayout>
