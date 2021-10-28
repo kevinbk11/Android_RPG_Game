@@ -82,11 +82,11 @@ class Login : AppCompatActivity(),FileReadOrWrite {
     }
     fun toRegister(view:View)
     {
-        val intent = Intent(this@Login,Register::class.java)
+        val intent = Intent(this@Login, Register::class.java)
         val bundle = Bundle()
         intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
-        bundle.putString("account",account.text.toString())
-        bundle.putString("password",password.text.toString())
+        bundle.putString("account", account.text.toString())
+        bundle.putString("password  ", password.text.toString())
         intent.putExtras(bundle)
         startActivity(intent)
     }

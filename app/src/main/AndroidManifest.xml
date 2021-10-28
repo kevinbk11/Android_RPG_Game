@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          xmlns:tools="http://schemas.android.com/tools" package="com.example.tunaandbk">
+          xmlns:tools="http://schemas.android.com/tools"
+          package="com.example.tunaandbk">
 
     <application
             android:allowBackup="true"
@@ -9,25 +10,32 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/Theme.TunaAndBk">
-        <activity android:name=".Register"
-                  android:screenOrientation="portrait">
+        <activity android:name=".test">
         </activity>
-        <activity android:name=".GameMainPage"
-                  android:screenOrientation="portrait">
+        <activity
+                android:name=".Register"
+                android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".BigMap"
-                  android:screenOrientation="portrait">
+        <activity
+                android:name=".GameMainPage"
+                android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".CreatePlayer"
-                  android:screenOrientation="portrait">
+        <activity
+                android:name=".BigMap"
+                android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".Login"
-                  android:screenOrientation="portrait">
+        <activity
+                android:name=".CreatePlayer"
+                android:screenOrientation="portrait">
+        </activity>
+        <activity
+                android:name=".Login"
+                android:screenOrientation="portrait">
         </activity>
         <activity
                 android:name=".MainActivity"
-                android:windowSoftInputMode="adjustPan"
-                android:screenOrientation="portrait">
+                android:screenOrientation="portrait"
+                android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
