@@ -5,7 +5,7 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:orientation="vertical"
-              tools:context=".BigMap">
+              tools:context=".BigMap" android:background="#FFFFFF">
 
     <LinearLayout
             android:layout_width="match_parent"
@@ -20,5 +20,9 @@
                 android:textSize="24sp"
                 android:text="@string/loading"/>
     </LinearLayout>
+    <ImageButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" app:srcCompat="@mipmap/test" android:id="@+id/imageButton"
+            android:background="@color/design_default_color_on_primary" android:onClick="t"/>
 
 </LinearLayout>
