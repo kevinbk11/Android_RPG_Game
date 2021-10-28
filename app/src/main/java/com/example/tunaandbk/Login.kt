@@ -60,7 +60,6 @@ class Login : AppCompatActivity(),FileReadOrWrite {
                                     intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
                                     startActivity(intent)
                                 }.start()
-
                             }
                         }
                     }
