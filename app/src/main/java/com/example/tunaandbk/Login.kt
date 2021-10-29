@@ -48,7 +48,6 @@ class Login : AppCompatActivity(),FileReadOrWrite {
                         }
                         else
                         {
-                            Log.v("here","TESTHI1")
                             rebuildUserData(ud["playerData"] as HashMap<String,Any?>)
                             db.collection("users").document(acc).update("online",true).addOnSuccessListener {
                                 Toast.makeText(this,"歡迎回來,$acc",Toast.LENGTH_SHORT).show()
