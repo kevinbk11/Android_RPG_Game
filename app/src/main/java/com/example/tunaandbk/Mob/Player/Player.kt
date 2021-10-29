@@ -1,8 +1,9 @@
 package com.example.tunaandbk.Mob.Player
 
 import com.example.tunaandbk.Item.EmptyItem
+import com.example.tunaandbk.Item.Equipment.Equipment
 import com.example.tunaandbk.Item.Item
-import com.example.tunaandbk.Item.Weapon
+import com.example.tunaandbk.Item.Equipment.Hand.Weapon
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlin.math.pow
@@ -47,6 +48,7 @@ abstract class Player(name:String,acc:String) {
     {
         val db = Firebase.firestore
         db.collection("users").document(account).update("playerData",this)
+        save()
     }
     private fun p(item:Item,value:Int,type:String)
     {
@@ -78,10 +80,11 @@ abstract class Player(name:String,acc:String) {
     {
         when(item)
         {
-            is Weapon ->
+            is Equipment ->
             {
                 p(item,value,"equipment")
             }
         }
+        save()
     }
 }

@@ -12,6 +12,7 @@ import android.widget.Button
 import android.widget.FrameLayout
 import android.widget.LinearLayout
 import androidx.constraintlayout.widget.ConstraintSet
+import com.example.tunaandbk.Item.Equipment.Hand.Fighter.WoodSword
 import com.example.tunaandbk.Mob.Monster.Monster
 import com.example.tunaandbk.System.FileReadOrWrite
 import com.example.tunaandbk.System.hideBar
@@ -41,9 +42,7 @@ class GameMainPage : AppCompatActivity(),FileReadOrWrite {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game_main_page)
         hideBar(window)
-        player!!.levelup()
-        player!!.levelup()
-        player!!.levelup()
+        //player!!.put(WoodSword,1)
         db.collection("Maps").document("0001").get().addOnSuccessListener {
             result->
             now=result.data!!["name"].toString()
@@ -51,7 +50,6 @@ class GameMainPage : AppCompatActivity(),FileReadOrWrite {
             next=result.data!!["next"].toString()
             Thread.sleep(800)
         }
-        Log.v("test",player!!.LV.toString())
     }
     fun next(view: View)
     {

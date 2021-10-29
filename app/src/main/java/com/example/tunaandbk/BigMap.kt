@@ -20,7 +20,7 @@ class BigMap : AppCompatActivity(), FileReadOrWrite {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_big_map)
-        imageButton.setOnTouchListener(object: View.OnTouchListener{
+        /*imageButton.setOnTouchListener(object: View.OnTouchListener{
             override fun onTouch(view: View?, e: MotionEvent?): Boolean {
                 if(checkColor(imageButton,e!!))
                 {
@@ -29,17 +29,6 @@ class BigMap : AppCompatActivity(), FileReadOrWrite {
                 }
                 else return false
             }
-        })
-    }
-    fun t(view: View,e:MotionEvent)
-    {
-        Log.v("testtest","test")
-        /*imageButton.isDrawingCacheEnabled=true
-        val imgbmp = Bitmap.createBitmap(imageButton.drawingCache)
-        val px=imgbmp.getPixel(e.x.toInt(),e.y.toInt())
-        val r = Color.red(px)
-        val g = Color.green(px)
-        val b = Color.blue(px)
-        Log.v("RGB","$r:$g:$b")*/
+        })*/
     }
 }

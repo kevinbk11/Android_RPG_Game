@@ -1,6 +1,7 @@
 package com.example.tunaandbk.System
 
 import android.content.res.Resources
+import android.util.Log
 import com.example.tunaandbk.Pager.ViewPagerPackage.JobPager
 import com.example.tunaandbk.Mob.Player.Job.Fighter
 import com.google.firebase.firestore.ktx.firestore
@@ -17,9 +18,11 @@ interface FileReadOrWrite {
 
     fun rebuildUserData(p: HashMap<String,Any?>) {
         if (p["job"] == "Fighter") {
+
             player = Fighter(p["name"].toString(),p["account"].toString())
             with(player!!)
             {
+                Log.v("here","TESTHI")
                 account = p["account"].toString()
                 HP = p["hp"].toString().toInt()
                 MP = p["mp"].toString().toInt()
@@ -34,21 +37,25 @@ interface FileReadOrWrite {
                 val eq = b["equipment"]!!
                 val co = b["consume"]!!
                 val an = b["another"]!!
+                Log.v("here","TESTHI")
                 for (i in eq.indices) {
                     if (eq[i]["name"] != "none") {
                         put(itemMap[eq[i]["name"]], eq[i]["count"]!!.toString().toInt())
                     }
                 }
+                Log.v("here","TESTHI")
                 for (i in co.indices) {
                     if (co[i]["name"] != "none") {
                         put(itemMap[co[i]["name"]], co[i]["count"]!!.toString().toInt())
                     }
                 }
+                Log.v("here","TESTHI")
                 for (i in an.indices) {
                     if (an[i]["name"] != "none") {
                         put(itemMap[an[i]["name"]], an[i]["count"]!!.toString().toInt())
                     }
                 }
+                Log.v("here","TESTHI")
             }
         }
     }

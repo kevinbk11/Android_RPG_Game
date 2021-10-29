@@ -6,13 +6,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.view.View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
 import android.widget.Toast
-import androidx.annotation.UiThread
-import com.example.tunaandbk.R
 import com.example.tunaandbk.System.FileReadOrWrite
 import com.example.tunaandbk.System.hideBar
-import com.example.tunaandbk.System.player
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_login.*
@@ -52,6 +48,7 @@ class Login : AppCompatActivity(),FileReadOrWrite {
                         }
                         else
                         {
+                            Log.v("here","TESTHI1")
                             rebuildUserData(ud["playerData"] as HashMap<String,Any?>)
                             db.collection("users").document(acc).update("online",true).addOnSuccessListener {
                                 Toast.makeText(this,"歡迎回來,$acc",Toast.LENGTH_SHORT).show()
