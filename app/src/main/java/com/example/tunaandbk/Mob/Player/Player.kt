@@ -48,7 +48,6 @@ abstract class Player(name:String,acc:String) {
     {
         val db = Firebase.firestore
         db.collection("users").document(account).update("playerData",this)
-        save()
     }
     private fun p(item:Item,value:Int,type:String)
     {

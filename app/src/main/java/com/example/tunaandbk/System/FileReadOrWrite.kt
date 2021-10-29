@@ -18,7 +18,6 @@ interface FileReadOrWrite {
 
     fun rebuildUserData(p: HashMap<String,Any?>) {
         if (p["job"] == "Fighter") {
-
             player = Fighter(p["name"].toString(),p["account"].toString())
             with(player!!)
             {

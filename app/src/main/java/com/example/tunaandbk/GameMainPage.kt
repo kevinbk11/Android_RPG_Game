@@ -42,7 +42,7 @@ class GameMainPage : AppCompatActivity(),FileReadOrWrite {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game_main_page)
         hideBar(window)
-        //player!!.put(WoodSword,1)
+        Log.v("player","${player!!.bag["equipment"]!![0].name}:${player!!.bag["equipment"]!![0].count}")
         db.collection("Maps").document("0001").get().addOnSuccessListener {
             result->
             now=result.data!!["name"].toString()

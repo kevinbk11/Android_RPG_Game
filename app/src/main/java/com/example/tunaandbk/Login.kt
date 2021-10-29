@@ -21,9 +21,11 @@ class Login : AppCompatActivity(),FileReadOrWrite {
         setContentView(R.layout.activity_login)
         register.paintFlags= Paint.UNDERLINE_TEXT_FLAG
         hideBar(window)
+        Log.v("?test","TEST")
     }
     fun login(view: View)
     {
+        Log.v("?test","???")
         if(account.text.toString()==""||(password.text.toString()==""))
         {
             Toast.makeText(this,"輸入不可為空!",Toast.LENGTH_SHORT).show()
