@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.text.Layout
 import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
+import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.example.tunaandbk.System.getXml
 
@@ -23,7 +25,7 @@ class ZoomInMap : AppCompatActivity() {
         val dialoglayout =  inflater.inflate(R.layout.test,null)
         builder.setView(dialoglayout)
         val dialog = builder.create()
-        dialog.window!!.setLayout(621,309)
+        dialog.window!!.setBackgroundDrawableResource(android.R.color.transparent)
         dialog.show()
     }
 }
