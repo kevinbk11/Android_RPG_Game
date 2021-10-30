@@ -1,12 +1,13 @@
 package com.example.tunaandbk.System
 
+import android.app.AlertDialog
+import android.app.Dialog
+import android.content.Context
 import android.content.res.Resources
 import android.graphics.Color
-import android.view.LayoutInflater
-import android.view.MotionEvent
-import android.view.View
-import android.view.Window
+import android.view.*
 import android.widget.ImageButton
+import android.widget.RelativeLayout
 import androidx.core.graphics.drawable.toBitmap
 import com.example.tunaandbk.MainActivity
 import com.example.tunaandbk.R
@@ -47,4 +48,13 @@ fun getXml(key:String):Int?
         "布德草原" to R.layout.bird_grassland
     )
     return mapXml[key]
+}
+fun showCheckFight(dialog:AlertDialog,WindowManager:WindowManager)
+{
+    dialog.show()
+    val window = dialog.window
+    dialog!!.window!!.setBackgroundDrawableResource(android.R.color.transparent)
+    dialog!!.window!!.setContentView(R.layout.fight_recheck)
+    val rl = window!!.findViewById(R.id.RL) as RelativeLayout
+    val display = WindowManager.defaultDisplay
 }
