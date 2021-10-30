@@ -9,12 +9,17 @@
     <TextView
             android:text="是否要進入戰鬥?"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" android:id="@+id/textView3" android:layout_weight="5"
-            android:textAlignment="center" android:textSize="36sp" android:textColor="#FF0000"/>
+            android:layout_height="match_parent"
+            android:id="@+id/textView3"
+            android:layout_weight="5"
+            android:textAlignment="center"
+            android:textSize="30sp"
+            android:textColor="#FF0000"/>
     <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" android:layout_weight="1">
+            android:layout_height="match_parent"
+            android:layout_weight="1">
         <Button
                 android:text="取消"
                 android:layout_width="wrap_content"
@@ -30,5 +35,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" android:id="@+id/button9" android:layout_weight="1"
                 android:onClick="ok"/>
+        <Button android:layout_width="wrap_content" android:layout_height="wrap_content"/>
     </LinearLayout>
 </LinearLayout>
