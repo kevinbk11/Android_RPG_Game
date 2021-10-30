@@ -14,10 +14,7 @@ import android.widget.LinearLayout
 import androidx.constraintlayout.widget.ConstraintSet
 import com.example.tunaandbk.Item.Equipment.Hand.Fighter.WoodSword
 import com.example.tunaandbk.Mob.Monster.Monster
-import com.example.tunaandbk.System.FileReadOrWrite
-import com.example.tunaandbk.System.hideBar
-import com.example.tunaandbk.System.monsterMap
-import com.example.tunaandbk.System.player
+import com.example.tunaandbk.System.*
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_game_main_page.*
@@ -30,19 +27,19 @@ class GameMainPage : AppCompatActivity(),FileReadOrWrite {
     var next = ""
     var monsterList = mutableListOf<Monster>()
     override fun onBackPressed() {
-        this.finishAndRemoveTask()
-    }
-    override fun onDestroy() {
-        super.onDestroy()
+        for(a in activityList)a.finish()
         val db = Firebase.firestore
         db.collection("users").document(player!!.account).update("online",false)
         player!!.save()
+        Thread.sleep(500)
+        android.os.Process.killProcess(android.os.Process.myPid())
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game_main_page)
+        activityList.add(this)
         hideBar(window)
-        Log.v("player","${player!!.bag["equipment"]!![0].name}:${player!!.bag["equipment"]!![0].count}")
+        player!!.put(WoodSword,1)
         db.collection("Maps").document("0001").get().addOnSuccessListener {
             result->
             now=result.data!!["name"].toString()
@@ -50,6 +47,7 @@ class GameMainPage : AppCompatActivity(),FileReadOrWrite {
             next=result.data!!["next"].toString()
             Thread.sleep(800)
         }
+        player!!.save()
     }
     fun next(view: View)
     {

@@ -1,5 +1,6 @@
 package com.example.tunaandbk.Mob.Player
 
+import android.util.Log
 import com.example.tunaandbk.Item.EmptyItem
 import com.example.tunaandbk.Item.Equipment.Equipment
 import com.example.tunaandbk.Item.Item
@@ -52,12 +53,30 @@ abstract class Player(name:String,acc:String) {
     private fun p(item:Item,value:Int,type:String)
     {
         var find = false
-        for(i in bag[type]!!)
+        val matchedItem=bag[type]!!.filter{it.name==item.name}
+        if(matchedItem.isNotEmpty())
+        {
+            Log.v("test","notEmpty")
+            matchedItem[0].count+=value
+        }
+        else
+        {
+            Log.v("test","Empty")
+            val emptyItem=bag[type]!!.filter{it.name=="none"}
+            with(bag[type]!!)
+            {
+                val emptyPlace=this.indexOf(emptyItem[0])
+                this[emptyPlace]=item
+                Log.v("???TEST",this[emptyPlace].count.toString())
+                this[emptyPlace].count+=value
+            }
+        }
+        /*for(i in bag[type]!!)
         {
             if(i.name==item.name)
             {
                 find = true
-                i.count+=value
+
                 break
             }
         }
@@ -73,7 +92,7 @@ abstract class Player(name:String,acc:String) {
                     break
                 }
             }
-        }
+        }*/
     }
     fun put(item: Item?, value:Int)
     {
@@ -84,6 +103,5 @@ abstract class Player(name:String,acc:String) {
                 p(item,value,"equipment")
             }
         }
-        save()
     }
 }

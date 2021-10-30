@@ -35,20 +35,17 @@ interface FileReadOrWrite {
                 val eq = b["equipment"]!!
                 val co = b["consume"]!!
                 val an = b["another"]!!
-                for (i in eq.indices) {
-                    if (eq[i]["name"] != "none") {
-                        put(itemMap[eq[i]["name"]], eq[i]["count"]!!.toString().toInt())
-                    }
+                for (i in co.filter{it["name"]!="none"}) {
+                    Log.v("test",i["count"].toString()+"?WTF")
+                    put(itemMap[i["name"]],i["count"]!!.toString().toInt())
                 }
-                for (i in co.indices) {
-                    if (co[i]["name"] != "none") {
-                        put(itemMap[co[i]["name"]], co[i]["count"]!!.toString().toInt())
-                    }
+                for (i in eq.filter{it["name"]!="none"}) {
+                    Log.v("test",i["count"].toString()+"??WTF")
+                    put(itemMap[i["name"]], i["count"]!!.toString().toInt())
                 }
-                for (i in an.indices) {
-                    if (an[i]["name"] != "none") {
-                        put(itemMap[an[i]["name"]], an[i]["count"]!!.toString().toInt())
-                    }
+                for (i in an.filter{it["name"]!="none"}) {
+                    Log.v("test",i["count"].toString()+"???WTF")
+                    put(itemMap[i["name"]], i["count"]!!.toString().toInt())
                 }
             }
         }
