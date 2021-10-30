@@ -2,13 +2,12 @@
 <RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="wrap_content"
-        android:layout_height="300dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:gravity="bottom"
         android:orientation="vertical"
         android:background="@mipmap/ab"
-        android:scaleType="centerCrop"
-        android:id="@+id/RL">
+        android:scaleType="centerCrop">
 
     <Button
             android:text="取消"
@@ -16,7 +15,6 @@
             android:layout_gravity="bottom"
             android:layout_height="wrap_content"
             android:id="@+id/button8"
-            android:layout_weight="1"
             android:onClick="cancel"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="0dp"
@@ -27,17 +25,19 @@
             android:text="是否要進入戰鬥?"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:id="@+id/textView3"
-            android:layout_weight="1"
             android:textAlignment="center"
             android:textSize="30sp"
             android:textColor="#FF0000"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="83dp"
+            android:layout_marginEnd="90dp"
             android:layout_alignParentStart="true"
-            android:layout_marginStart="96dp"
+            android:layout_marginStart="90dp"
             android:layout_marginTop="0dp"
-            android:layout_alignParentTop="true"/>
+            android:layout_alignParentTop="true"
+            android:layout_above="@+id/button8"
+            android:layout_marginBottom="300dp"/>
 
     <Button
             android:text="確定"
@@ -45,7 +45,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/button9"
-            android:layout_weight="1"
             android:onClick="ok"
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="0dp"
