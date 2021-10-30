@@ -1,8 +1,10 @@
 package com.example.tunaandbk.Mob.Player
 
+import android.util.Log
 import com.example.tunaandbk.Item.EmptyItem
+import com.example.tunaandbk.Item.Equipment.Equipment
 import com.example.tunaandbk.Item.Item
-import com.example.tunaandbk.Item.Weapon
+import com.example.tunaandbk.Item.Equipment.Hand.Weapon
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlin.math.pow
@@ -51,26 +53,19 @@ abstract class Player(name:String,acc:String) {
     private fun p(item:Item,value:Int,type:String)
     {
         var find = false
-        for(i in bag[type]!!)
+        val matchedItem=bag[type]!!.filter{it.name==item.name}
+        if(matchedItem.isNotEmpty())
         {
-            if(i.name==item.name)
-            {
-                find = true
-                i.count+=value
-                break
-            }
+            matchedItem[0].count+=value
         }
-        if(!find)
+        else
         {
-            for(i in bag[type]!!)
+            val emptyItem=bag[type]!!.filter{it.name=="none"}
+            with(bag[type]!!)
             {
-                if(i.name=="none")
-                {
-                    val place = bag[type]!!.indexOf(i)
-                    bag[type]!![place]=item
-                    bag[type]!![place].count=value
-                    break
-                }
+                val emptyPlace=this.indexOf(emptyItem[0])
+                this[emptyPlace]=item
+                this[emptyPlace].count+=value
             }
         }
     }
@@ -78,7 +73,7 @@ abstract class Player(name:String,acc:String) {
     {
         when(item)
         {
-            is Weapon ->
+            is Equipment ->
             {
                 p(item,value,"equipment")
             }

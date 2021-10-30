@@ -6,13 +6,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.view.View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
 import android.widget.Toast
-import androidx.annotation.UiThread
-import com.example.tunaandbk.R
 import com.example.tunaandbk.System.FileReadOrWrite
+import com.example.tunaandbk.System.activityList
 import com.example.tunaandbk.System.hideBar
-import com.example.tunaandbk.System.player
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_login.*
@@ -25,7 +22,9 @@ class Login : AppCompatActivity(),FileReadOrWrite {
         setContentView(R.layout.activity_login)
         register.paintFlags= Paint.UNDERLINE_TEXT_FLAG
         hideBar(window)
+        activityList.add(this)
     }
+
     fun login(view: View)
     {
         if(account.text.toString()==""||(password.text.toString()==""))

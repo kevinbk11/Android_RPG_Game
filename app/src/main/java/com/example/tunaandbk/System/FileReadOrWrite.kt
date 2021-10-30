@@ -1,14 +1,12 @@
 package com.example.tunaandbk.System
 
 import android.content.res.Resources
+import android.util.Log
 import com.example.tunaandbk.Pager.ViewPagerPackage.JobPager
 import com.example.tunaandbk.Mob.Player.Job.Fighter
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 interface FileReadOrWrite {
-    fun getImageResources(r: Resources, name: String, type: String, p: String?): Int {
-        return r.getIdentifier(name, type, p)
-    }
 
     fun addUserToFirebase(user: HashMap<String, Any>) {
         val db = Firebase.firestore
@@ -34,20 +32,14 @@ interface FileReadOrWrite {
                 val eq = b["equipment"]!!
                 val co = b["consume"]!!
                 val an = b["another"]!!
-                for (i in eq.indices) {
-                    if (eq[i]["name"] != "none") {
-                        put(itemMap[eq[i]["name"]], eq[i]["count"]!!.toString().toInt())
-                    }
+                for (i in co.filter{it["name"]!="none"}) {
+                    put(itemMap[i["name"]],i["count"]!!.toString().toInt())
                 }
-                for (i in co.indices) {
-                    if (co[i]["name"] != "none") {
-                        put(itemMap[co[i]["name"]], co[i]["count"]!!.toString().toInt())
-                    }
+                for (i in eq.filter{it["name"]!="none"}) {
+                    put(itemMap[i["name"]], i["count"]!!.toString().toInt())
                 }
-                for (i in an.indices) {
-                    if (an[i]["name"] != "none") {
-                        put(itemMap[an[i]["name"]], an[i]["count"]!!.toString().toInt())
-                    }
+                for (i in an.filter{it["name"]!="none"}) {
+                    put(itemMap[i["name"]], i["count"]!!.toString().toInt())
                 }
             }
         }

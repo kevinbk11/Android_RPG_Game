@@ -8,10 +8,7 @@ import android.view.View
 import android.widget.Toast
 import com.example.tunaandbk.Pager.ViewPagerPackage.JobPager
 import com.example.tunaandbk.R
-import com.example.tunaandbk.System.FileReadOrWrite
-import com.example.tunaandbk.System.hideBar
-import com.example.tunaandbk.System.itemMap
-import com.example.tunaandbk.System.player
+import com.example.tunaandbk.System.*
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_create_player.*
@@ -26,6 +23,7 @@ class CreatePlayer : AppCompatActivity(),FileReadOrWrite {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         hideBar(window)
+        activityList.add(this)
         account = intent.getStringExtra("account")!!
         password=intent.getStringExtra("password")!!
         jobPager=JobPager(viewPager)
@@ -34,13 +32,6 @@ class CreatePlayer : AppCompatActivity(),FileReadOrWrite {
             jobPager.addimg(getImageResources(resources,"b$i","mipmap",packageName))
         }
         jobPager.buildViewPage2()
-        Thread{
-            while(true)
-            {
-                Log.v("test", jobPager.getChoice().toString())
-                Thread.sleep(1000)
-            }
-        }
     }
     fun ok(view: View)
     {
