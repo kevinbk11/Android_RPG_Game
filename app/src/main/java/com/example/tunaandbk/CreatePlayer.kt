@@ -32,13 +32,6 @@ class CreatePlayer : AppCompatActivity(),FileReadOrWrite {
             jobPager.addimg(getImageResources(resources,"b$i","mipmap",packageName))
         }
         jobPager.buildViewPage2()
-        Thread{
-            while(true)
-            {
-                Log.v("test", jobPager.getChoice().toString())
-                Thread.sleep(1000)
-            }
-        }
     }
     fun ok(view: View)
     {

@@ -7,9 +7,6 @@ import com.example.tunaandbk.Mob.Player.Job.Fighter
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 interface FileReadOrWrite {
-    fun getImageResources(r: Resources, name: String, type: String, p: String?): Int {
-        return r.getIdentifier(name, type, p)
-    }
 
     fun addUserToFirebase(user: HashMap<String, Any>) {
         val db = Firebase.firestore

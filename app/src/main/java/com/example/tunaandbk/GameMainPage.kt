@@ -64,6 +64,15 @@ class GameMainPage : AppCompatActivity(),FileReadOrWrite {
             Thread.sleep(400)
         }
     }
+    fun exploreMap(view:View)
+    {
+        val intent = Intent(this@GameMainPage,ZoomInMap::class.java)
+        val bundle = Bundle()
+        bundle.putString("map",now)
+        intent.putExtras(bundle)
+        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+        startActivity(intent)
+    }
     fun getMonster(view:View)
     {
         /*val btn1= Button(this)

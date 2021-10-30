@@ -56,43 +56,18 @@ abstract class Player(name:String,acc:String) {
         val matchedItem=bag[type]!!.filter{it.name==item.name}
         if(matchedItem.isNotEmpty())
         {
-            Log.v("test","notEmpty")
             matchedItem[0].count+=value
         }
         else
         {
-            Log.v("test","Empty")
             val emptyItem=bag[type]!!.filter{it.name=="none"}
             with(bag[type]!!)
             {
                 val emptyPlace=this.indexOf(emptyItem[0])
                 this[emptyPlace]=item
-                Log.v("???TEST",this[emptyPlace].count.toString())
                 this[emptyPlace].count+=value
             }
         }
-        /*for(i in bag[type]!!)
-        {
-            if(i.name==item.name)
-            {
-                find = true
-
-                break
-            }
-        }
-        if(!find)
-        {
-            for(i in bag[type]!!)
-            {
-                if(i.name=="none")
-                {
-                    val place = bag[type]!!.indexOf(i)
-                    bag[type]!![place]=item
-                    bag[type]!![place].count=value
-                    break
-                }
-            }
-        }*/
     }
     fun put(item: Item?, value:Int)
     {
