@@ -36,15 +36,12 @@ interface FileReadOrWrite {
                 val co = b["consume"]!!
                 val an = b["another"]!!
                 for (i in co.filter{it["name"]!="none"}) {
-                    Log.v("test",i["count"].toString()+"?WTF")
                     put(itemMap[i["name"]],i["count"]!!.toString().toInt())
                 }
                 for (i in eq.filter{it["name"]!="none"}) {
-                    Log.v("test",i["count"].toString()+"??WTF")
                     put(itemMap[i["name"]], i["count"]!!.toString().toInt())
                 }
                 for (i in an.filter{it["name"]!="none"}) {
-                    Log.v("test",i["count"].toString()+"???WTF")
                     put(itemMap[i["name"]], i["count"]!!.toString().toInt())
                 }
             }
