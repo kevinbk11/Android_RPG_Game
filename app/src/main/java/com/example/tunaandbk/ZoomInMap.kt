@@ -2,21 +2,24 @@ package com.example.tunaandbk
 
 import android.app.AlertDialog
 import android.content.Context
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.example.tunaandbk.Mob.Monster.LittleStone
-import com.example.tunaandbk.Mob.Monster.Monster
 import com.example.tunaandbk.Mob.Monster.NullMonster
 import com.example.tunaandbk.Mob.Monster.TurnTurnBird
 import com.example.tunaandbk.System.getXml
 import com.example.tunaandbk.System.nowMonster
 
+
 class ZoomInMap : AppCompatActivity() {
 
     var dialog: AlertDialog?=null
+    @RequiresApi(Build.VERSION_CODES.R)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_zoom_in_map)
@@ -29,6 +32,8 @@ class ZoomInMap : AppCompatActivity() {
         builder.setView(dialoglayout)
         dialog = builder.create()
         dialog!!.window!!.setBackgroundDrawableResource(android.R.color.transparent)
+        dialog!!.show()
+
     }
     fun cancel(view:View)
     {
@@ -43,7 +48,6 @@ class ZoomInMap : AppCompatActivity() {
         intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
         startActivity(intent)*/
     }
-
     fun turnTurnBird(view: View){nowMonster= TurnTurnBird();dialog!!.show()}
     fun littleStone(view:View){nowMonster = LittleStone();dialog!!.show()}
 }
