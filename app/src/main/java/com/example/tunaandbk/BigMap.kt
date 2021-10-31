@@ -12,6 +12,7 @@ import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.view.animation.ScaleAnimation
+import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.graphics.drawable.toBitmap
@@ -28,6 +29,11 @@ class BigMap : AppCompatActivity(), FileReadOrWrite,UIExtension {
     }
     fun ccc(view:View)
     {
-        Log.v("rgb",imageButton.r.toString()+imageButton.g.toString()+imageButton.b.toString())
+
+        Thread{
+             Thread.sleep(20)
+            Log.v("TEST","$r:$g:$b")
+        }.start()
+
     }
 }

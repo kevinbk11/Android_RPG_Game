@@ -25,13 +25,6 @@ val itemMap=mapOf(
 val monsterMap=mapOf<String, Monster>(
     "轉轉鳥" to TurnTurnBird()
 )
-
-var ImageButton.r: Int
-    get() = 0
-    set(value){this.r=value}
-var ImageButton.g: Int
-    get() = 0
-    set(value){this.g=value}
-var ImageButton.b: Int
-    get() = 0
-    set(value){this.b=value}
+var r=0
+var g=0
+var b=0

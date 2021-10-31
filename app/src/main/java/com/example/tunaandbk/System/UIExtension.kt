@@ -1,7 +1,9 @@
 package com.example.tunaandbk.System
 
+import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.graphics.Color
+import android.util.Log
 import android.view.*
 import android.view.animation.Animation
 import android.view.animation.ScaleAnimation
@@ -24,17 +26,29 @@ interface UIExtension
             }
         }
     }
+    fun ImageButton.checkColor():Boolean{
+        return !(r==g&&g==b&&r==0)
+    }
     fun ImageButton.setCheckColor()
     {
-        val btn = this
         val imgbmp = this.drawable.toBitmap()
         this.setOnTouchListener(object: View.OnTouchListener{
+            @SuppressLint("ClickableViewAccessibility")
             override fun onTouch(view: View?, e: MotionEvent?): Boolean {
-                val px=imgbmp.getPixel(e!!.x.toInt(),e.y.toInt())
-                btn.r = Color.red(px)
-                btn.g = Color.green(px)
-                btn.b = Color.blue(px)
-                return true
+                if(e!!.action==MotionEvent.ACTION_DOWN)
+                {
+                    val dx = (view!!.width-imgbmp.width)/2
+                    val dy = (view.height-imgbmp.height)/2
+                    if((e.x>=dx &&e.y>=dy) && (e.x<=imgbmp.width+dx && e.y<=imgbmp.height+dy))
+                    {
+                        val px=imgbmp.getPixel(e!!.x.toInt()-dx,e.y.toInt()-dy)
+                        r = Color.red(px)
+                        g = Color.green(px)
+                        b = Color.blue(px)
+                    }
+
+                }
+                return false
             }
         })
     }
@@ -47,25 +61,29 @@ interface UIExtension
     fun Button.setScaleAnimation()
     {
         this.setOnTouchListener(object:View.OnTouchListener{
+            @SuppressLint("ClickableViewAccessibility")
             override fun onTouch(p0: View?, p1: MotionEvent?): Boolean {
-                var am:Animation? = null
                 if (p1!!.action == MotionEvent.ACTION_DOWN) {
-                    am = ScaleAnimation(1.0f, 0.9f, 1.0f,0.9f,
+                    val am = ScaleAnimation(1.0f, 0.9f, 1.0f,0.9f,
                         Animation.RELATIVE_TO_SELF,0.5f,
                         Animation.RELATIVE_TO_SELF,0.5f)
+                    am!!.duration=100
+                    am.fillAfter=true
+                    p0!!.startAnimation((am))
                 }
-                if(p1!!.action==MotionEvent.ACTION_UP)
+                else if(p1!!.action==MotionEvent.ACTION_UP)
                 {
-                    am = ScaleAnimation(0.9f, 1.0f, 0.9f,1.0f,
+                    val am = ScaleAnimation(0.9f, 1.0f, 0.9f,1.0f,
                         Animation.RELATIVE_TO_SELF,0.5f,
                         Animation.RELATIVE_TO_SELF,0.5f)
-
+                    am!!.duration=100
+                    am.fillAfter=true
+                    p0!!.startAnimation((am))
                 }
-                am!!.duration=100
-                am.fillAfter=true
-                p0!!.startAnimation((am))
-                return true
+
+                return false
             }
         })
+
     }
 }
