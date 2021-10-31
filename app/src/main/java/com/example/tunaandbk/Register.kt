@@ -5,17 +5,16 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import com.example.tunaandbk.System.hideBar
+import com.example.tunaandbk.System.UIExtension
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_register.*
 
-class Register : AppCompatActivity() {
+class Register : AppCompatActivity(), UIExtension {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
-        hideBar(window)
+        window.hideBar()
         val acc = intent.getStringExtra("account")
         val pw = intent.getStringExtra("password")
         register_account_textView.setText(acc)

@@ -21,7 +21,7 @@ import kotlinx.android.synthetic.main.activity_game_main_page.*
 import java.time.Instant
 import kotlin.random.Random
 
-class GameMainPage : AppCompatActivity(),FileReadOrWrite {
+class GameMainPage : AppCompatActivity(),FileReadOrWrite,UIExtension {
     val db = Firebase.firestore
     var now = ""
     var next = ""
@@ -38,7 +38,7 @@ class GameMainPage : AppCompatActivity(),FileReadOrWrite {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game_main_page)
         activityList.add(this)
-        hideBar(window)
+        window.hideBar()
         //player!!.put(WoodSword,1)
         db.collection("Maps").document("0001").get().addOnSuccessListener {
             result->

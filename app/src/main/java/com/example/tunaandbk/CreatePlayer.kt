@@ -13,7 +13,7 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_create_player.*
 
-class CreatePlayer : AppCompatActivity(),FileReadOrWrite,GetResource {
+class CreatePlayer : AppCompatActivity(),FileReadOrWrite,GetResource,UIExtension {
     lateinit var jobPager: JobPager
     lateinit var account:String
     lateinit var password:String
@@ -22,7 +22,7 @@ class CreatePlayer : AppCompatActivity(),FileReadOrWrite,GetResource {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        hideBar(window)
+        window.hideBar()
         activityList.add(this)
         account = intent.getStringExtra("account")!!
         password=intent.getStringExtra("password")!!

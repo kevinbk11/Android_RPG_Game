@@ -11,10 +11,9 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.tunaandbk.Mob.Monster.*
 import com.example.tunaandbk.System.*
 import com.example.tunaandbk.System.nowMonster
-import com.example.tunaandbk.System.showCheckFight
 
 
-class ZoomInMap : AppCompatActivity(),GetResource {
+class ZoomInMap : AppCompatActivity(),GetResource,UIExtension {
 
     var dialog: AlertDialog?=null
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -8,20 +8,20 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import com.example.tunaandbk.System.FileReadOrWrite
+import com.example.tunaandbk.System.UIExtension
 import com.example.tunaandbk.System.activityList
-import com.example.tunaandbk.System.hideBar
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_login.*
 
-class Login : AppCompatActivity(),FileReadOrWrite {
+class Login : AppCompatActivity(),FileReadOrWrite, UIExtension {
     override fun onBackPressed() {
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         register.paintFlags= Paint.UNDERLINE_TEXT_FLAG
-        hideBar(window)
+        window.hideBar()
         activityList.add(this)
     }
 

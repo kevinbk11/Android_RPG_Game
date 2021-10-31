@@ -18,22 +18,16 @@ import androidx.core.graphics.drawable.toBitmap
 import com.example.tunaandbk.System.*
 import kotlinx.android.synthetic.main.activity_big_map.*
 
-class BigMap : AppCompatActivity(), FileReadOrWrite {
+class BigMap : AppCompatActivity(), FileReadOrWrite,UIExtension {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_big_map)
         activityList.add(this)
         button3.setScaleAnimation()
-        /*imageButton.setOnTouchListener(object: View.OnTouchListener{
-            override fun onTouch(view: View?, e: MotionEvent?): Boolean {
-                if(checkColor(imageButton,e!!))
-                {
-                    //TODO
-                    return true
-                }
-                else return false
-            }
-        })*/
-
+        imageButton.setCheckColor()
+    }
+    fun ccc(view:View)
+    {
+        Log.v("rgb",imageButton.r.toString()+imageButton.g.toString()+imageButton.b.toString())
     }
 }

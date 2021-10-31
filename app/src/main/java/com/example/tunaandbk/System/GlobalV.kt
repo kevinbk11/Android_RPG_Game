@@ -2,6 +2,11 @@ package com.example.tunaandbk.System
 
 import android.app.Activity
 import android.app.AlertDialog
+import android.graphics.Color
+import android.view.MotionEvent
+import android.view.View
+import android.widget.ImageButton
+import androidx.core.graphics.drawable.toBitmap
 import com.example.tunaandbk.Item.Equipment.Hand.Fighter.StoneSword
 import com.example.tunaandbk.Item.Equipment.Hand.Fighter.WoodSword
 import com.example.tunaandbk.Mob.Monster.Monster
@@ -20,3 +25,13 @@ val itemMap=mapOf(
 val monsterMap=mapOf<String, Monster>(
     "轉轉鳥" to TurnTurnBird()
 )
+
+var ImageButton.r: Int
+    get() = 0
+    set(value){this.r=value}
+var ImageButton.g: Int
+    get() = 0
+    set(value){this.g=value}
+var ImageButton.b: Int
+    get() = 0
+    set(value){this.b=value}

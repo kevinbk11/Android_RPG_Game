@@ -27,13 +27,13 @@
             app:srcCompat="@mipmap/test"
             android:id="@+id/imageButton"
             android:background="@color/design_default_color_on_primary"
-            />
+            android:onClick="ccc"/>
 
     <Button
             android:text="Button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/button3"
-            android:onClick="ccc"/>
+            />
 
 </LinearLayout>
