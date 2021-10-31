@@ -74,20 +74,26 @@
     </LinearLayout>
 
 </LinearLayout>
+<androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-        <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="技能5"
-                android:id="@+id/skill_5"
-                android:layout_marginTop="100dp"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="150dp"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="150dp"
-                android:layout_alignParentBottom="true"
-                android:layout_marginBottom="100dp"
-                android:layout_alignParentTop="true"/>
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="技能5"
+            android:textSize="40sp"
+            android:id="@+id/skill_5"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentTop="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
+
 
     </RelativeLayout>
 
