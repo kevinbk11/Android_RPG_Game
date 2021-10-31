@@ -1,11 +1,15 @@
 package com.example.tunaandbk.System
 
+import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.app.Dialog
 import android.content.Context
 import android.content.res.Resources
 import android.graphics.Color
 import android.view.*
+import android.view.animation.Animation
+import android.view.animation.ScaleAnimation
+import android.widget.Button
 import android.widget.ImageButton
 import android.widget.RelativeLayout
 import androidx.core.graphics.drawable.toBitmap
@@ -37,24 +41,34 @@ fun checkColor(imageButton:ImageButton,e: MotionEvent):Boolean
     return true
 }
 
-fun getImageResources(r: Resources, name: String, type: String, p: String?): Int {
-    return r.getIdentifier(name, type, p)
+fun AlertDialog.showCheckFight()
+{
+    this.show()
+    this.window!!.setBackgroundDrawableResource(android.R.color.transparent)
+    this.window!!.setContentView(R.layout.fight_recheck)
+}
+fun Button.setScaleAnimation()
+{
+    this.setOnTouchListener(object:View.OnTouchListener{
+        override fun onTouch(p0: View?, p1: MotionEvent?): Boolean {
+            var am:Animation? = null
+            if (p1!!.action == MotionEvent.ACTION_DOWN) {
+                am = ScaleAnimation(1.0f, 0.9f, 1.0f,0.9f,
+                    Animation.RELATIVE_TO_SELF,0.5f,
+                    Animation.RELATIVE_TO_SELF,0.5f)
+            }
+            if(p1!!.action==MotionEvent.ACTION_UP)
+            {
+                am = ScaleAnimation(0.9f, 1.0f, 0.9f,1.0f,
+                    Animation.RELATIVE_TO_SELF,0.5f,
+                    Animation.RELATIVE_TO_SELF,0.5f)
+
+            }
+            am!!.duration=100
+            am.fillAfter=true
+            p0!!.startAnimation((am))
+            return true
+        }
+    })
 }
 
-fun getXml(key:String):Int?
-{
-    val mapXml=mapOf(
-        "伊納修" to R.layout.initial_city,
-        "布德草原" to R.layout.bird_grassland
-    )
-    return mapXml[key]
-}
-fun showCheckFight(dialog:AlertDialog,WindowManager:WindowManager)
-{
-    dialog.show()
-    val window = dialog.window
-    dialog!!.window!!.setBackgroundDrawableResource(android.R.color.transparent)
-    dialog!!.window!!.setContentView(R.layout.fight_recheck)
-    val rl = window!!.findViewById(R.id.RL) as RelativeLayout
-    val display = WindowManager.defaultDisplay
-}
