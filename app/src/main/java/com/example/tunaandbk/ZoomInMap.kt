@@ -2,6 +2,7 @@ package com.example.tunaandbk
 
 import android.app.AlertDialog
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -42,9 +43,9 @@ class ZoomInMap : AppCompatActivity() {
         dialog!!.hide()
         Log.v("test",nowMonster.name)
         nowMonster=NullMonster
-        /*val intent= Intent(this@ZoomInMap,FightPage::class.java)
+        val intent= Intent(this@ZoomInMap,FightingPage::class.java)
         intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
-        startActivity(intent)*/
+        startActivity(intent)
     }
 
     fun turnTurnBird(view: View){nowMonster= TurnTurnBird();dialog!!.show()}
