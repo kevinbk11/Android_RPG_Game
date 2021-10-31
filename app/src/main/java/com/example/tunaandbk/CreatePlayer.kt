@@ -13,7 +13,7 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_create_player.*
 
-class CreatePlayer : AppCompatActivity(),FileReadOrWrite {
+class CreatePlayer : AppCompatActivity(),FileReadOrWrite,GetResource {
     lateinit var jobPager: JobPager
     lateinit var account:String
     lateinit var password:String

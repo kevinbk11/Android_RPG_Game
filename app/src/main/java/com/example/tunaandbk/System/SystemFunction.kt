@@ -41,23 +41,11 @@ fun checkColor(imageButton:ImageButton,e: MotionEvent):Boolean
     return true
 }
 
-fun getImageResources(r: Resources, name: String, type: String, p: String?): Int {
-    return r.getIdentifier(name, type, p)
-}
-
-fun getXml(key:String):Int?
+fun AlertDialog.showCheckFight()
 {
-    val mapXml=mapOf(
-        "伊納修" to R.layout.initial_city,
-        "布德草原" to R.layout.bird_grassland
-    )
-    return mapXml[key]
-}
-fun showCheckFight(dialog:AlertDialog,WindowManager:WindowManager)
-{
-    dialog.show()
-    dialog!!.window!!.setBackgroundDrawableResource(android.R.color.transparent)
-    dialog!!.window!!.setContentView(R.layout.fight_recheck)
+    this.show()
+    this.window!!.setBackgroundDrawableResource(android.R.color.transparent)
+    this.window!!.setContentView(R.layout.fight_recheck)
 }
 fun Button.setScaleAnimation()
 {
@@ -83,3 +71,4 @@ fun Button.setScaleAnimation()
         }
     })
 }
+
