@@ -16,6 +16,7 @@ import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.graphics.drawable.toBitmap
+import com.example.tunaandbk.Mob.Skill.PlayerSkill.SwordAttack
 import com.example.tunaandbk.System.*
 import kotlinx.android.synthetic.main.activity_big_map.*
 
@@ -26,14 +27,13 @@ class BigMap : AppCompatActivity(), FileReadOrWrite,UIExtension {
         activityList.add(this)
         button3.setScaleAnimation()
         imageButton.setCheckColor()
+        player!!.learnSkill(SwordAttack())
     }
     fun ccc(view:View)
     {
-
         Thread{
              Thread.sleep(20)
             Log.v("TEST","$r:$g:$b")
         }.start()
-
     }
 }

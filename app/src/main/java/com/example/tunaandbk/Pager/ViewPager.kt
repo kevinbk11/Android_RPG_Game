@@ -1,11 +1,11 @@
-package com.example.tunaandbk
+package com.example.tunaandbk.Pager
 
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
 import com.example.tunaandbk.Pager.Adapter.Page2Adapter
 
-abstract class ViewPage(v: ViewPager2)
+abstract class ViewPager(v: ViewPager2)
 {
     val viewPager = v
     val ImgList=ArrayList<Int>()
