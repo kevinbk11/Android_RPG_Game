@@ -40,10 +40,15 @@ class RecyclerViewAdapter(private val nowContext:AppCompatActivity, var list: Li
             if(nowMonster.hp<=0.0)
             {
                 nowContext.onBackPressed()
+                player!!.save()
             }
             nowMonster.attack()
+            if(player!!.HP<=0.0)
+            {
+                player!!.HP=player!!.FullHP
+                player!!.save()
+            }
 
-            player!!.save()
         }
     }
 
