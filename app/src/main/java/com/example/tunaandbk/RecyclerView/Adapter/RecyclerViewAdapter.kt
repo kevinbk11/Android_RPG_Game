@@ -22,6 +22,7 @@ class RecyclerViewAdapter(private val nowContext:AppCompatActivity, var list: Li
     inner class ViewHolder( view: View) : RecyclerView.ViewHolder(view) {
         val btn= view.b
         val textBox = view.t
+        //
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.skill_recyclerview_layout, parent, false)
