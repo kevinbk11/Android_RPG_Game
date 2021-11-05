@@ -20,7 +20,6 @@ import kotlinx.android.synthetic.main.skill_recyclerview_layout.view.*
 
 class RecyclerViewAdapter(private val nowContext:AppCompatActivity, var list: List<Skill>):RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
     inner class ViewHolder( view: View) : RecyclerView.ViewHolder(view) {
-        val btn= view.b
         val textBox = view.t
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -31,10 +30,9 @@ class RecyclerViewAdapter(private val nowContext:AppCompatActivity, var list: Li
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val skillName = list[position].name
-        val btn=holder.btn
         val tB=holder.textBox
         tB.text="測試"
-        btn.text=skillName
+        /*btn.text=skillName
         btn.setOnClickListener{
             player!!.skillList[position].use()
             if(nowMonster.hp<=0.0)
@@ -49,7 +47,7 @@ class RecyclerViewAdapter(private val nowContext:AppCompatActivity, var list: Li
                 player!!.save()
             }
 
-        }
+        }*/
     }
 
     override fun getItemCount(): Int {
