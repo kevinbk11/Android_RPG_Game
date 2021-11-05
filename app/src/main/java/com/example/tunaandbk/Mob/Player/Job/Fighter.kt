@@ -10,8 +10,8 @@ class Fighter(name:String,acc:String): Player(name,acc) {
     override var MP=100
     override var FullHP=500
     override var FullMP=100
-    override var Damage=0.0
-
+    override var Damage=10.0
+    override var speed=1.0
     override var LV=1
     override var FullEXP: Double =150.0
     override var EXP: Double =0.0

@@ -16,16 +16,19 @@ import com.example.tunaandbk.System.nowMonster
 class ZoomInMap : AppCompatActivity(),GetResource,UIExtension {
 
     var dialog: AlertDialog?=null
+    override fun onBackPressed() {
+        super.onBackPressed()
+        dialog!!.dismiss()
+        dialog=null
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_zoom_in_map)
         val map = intent.getStringExtra("map")
         setContentView(getXml(map!!)!!)
         val builder = AlertDialog.Builder(this)
-        val inflater = this.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         dialog = builder.create()
-        dialog!!.showCheckFight()
-        dialog!!.hide()
+
     }
     fun cancel(view:View)
     {
@@ -36,12 +39,11 @@ class ZoomInMap : AppCompatActivity(),GetResource,UIExtension {
     {
         dialog!!.hide()
         Log.v("test",nowMonster.name)
-        nowMonster=NullMonster
         val intent= Intent(this@ZoomInMap,FightingPage::class.java)
         intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
         startActivity(intent)
     }
 
-    fun turnTurnBird(view: View){nowMonster= TurnTurnBird();dialog!!.show()}
-    fun littleStone(view:View){nowMonster = LittleStone();dialog!!.show()}
+    fun turnTurnBird(view: View){nowMonster= TurnTurnBird();dialog!!.showCheckFight()}
+    fun littleStone(view:View){nowMonster = LittleStone();dialog!!.showCheckFight()}
 }

@@ -5,6 +5,7 @@ import com.example.tunaandbk.Item.EmptyItem
 import com.example.tunaandbk.Item.Equipment.Equipment
 import com.example.tunaandbk.Item.Item
 import com.example.tunaandbk.Item.Equipment.Hand.Weapon
+import com.example.tunaandbk.Mob.Skill.Skill
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlin.math.pow
@@ -19,11 +20,11 @@ abstract class Player(name:String,acc:String) {
     open var FullHP:Int=0
     open var FullMP:Int=0
     open var Damage = 0.0
-
+    open var skillList= mutableListOf<Skill>()
     open var LV:Int=0
     open var FullEXP:Double=0.0
     open var EXP:Double=0.0
-
+    open var speed=0.0
     open var Money:Int=0
 
     open var bag:MutableMap<String,MutableList<Item>> = mutableMapOf(
@@ -78,5 +79,9 @@ abstract class Player(name:String,acc:String) {
                 p(item,value,"equipment")
             }
         }
+    }
+    fun learnSkill(skill: Skill)
+    {
+        skillList.add(skill)
     }
 }

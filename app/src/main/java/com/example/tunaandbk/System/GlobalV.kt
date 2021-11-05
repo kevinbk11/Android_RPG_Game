@@ -2,6 +2,7 @@ package com.example.tunaandbk.System
 
 import android.app.Activity
 import android.app.AlertDialog
+import android.content.Context
 import android.graphics.Color
 import android.view.MotionEvent
 import android.view.View
@@ -13,6 +14,7 @@ import com.example.tunaandbk.Mob.Monster.Monster
 import com.example.tunaandbk.Mob.Monster.NullMonster
 import com.example.tunaandbk.Mob.Monster.TurnTurnBird
 import com.example.tunaandbk.Mob.Player.Player
+import com.example.tunaandbk.Mob.Skill.PlayerSkill.SwordAttack
 
 
 var player: Player? = null
@@ -22,8 +24,11 @@ val itemMap=mapOf(
     "木劍" to WoodSword,
     "石劍" to StoneSword,
 )
-val monsterMap=mapOf<String, Monster>(
+val monsterMap=mapOf(
     "轉轉鳥" to TurnTurnBird()
+)
+val skillMap=mapOf(
+    "重劍劈砍" to SwordAttack()
 )
 var r=0
 var g=0

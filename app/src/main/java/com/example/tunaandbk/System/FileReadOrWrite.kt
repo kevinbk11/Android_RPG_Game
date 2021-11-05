@@ -23,7 +23,7 @@ interface FileReadOrWrite {
                 MP = p["mp"].toString().toInt()
                 FullMP = p["fullMP"].toString().toInt()
                 FullHP = p["fullHP"].toString().toInt()
-                Damage = p["damage"] as Double
+                Damage = p["damage"].toString().toDouble()
                 LV = p["lv"].toString().toInt()
                 FullEXP = p["fullEXP"] as Double
                 EXP = p["exp"] as Double
@@ -32,6 +32,10 @@ interface FileReadOrWrite {
                 val eq = b["equipment"]!!
                 val co = b["consume"]!!
                 val an = b["another"]!!
+                for(i in p["skillList"] as ArrayList<HashMap<String,String>>)
+                {
+                    player!!.learnSkill(skillMap[i["name"].toString()]!!)
+                }
                 for (i in co.filter{it["name"]!="none"}) {
                     put(itemMap[i["name"]],i["count"]!!.toString().toInt())
                 }
