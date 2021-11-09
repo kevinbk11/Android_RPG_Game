@@ -9,6 +9,6 @@ class NormalAttack1: Skill() {
     override val name = "普通攻擊"
     override fun use()
     {
-        player!!.HP-= (nowMonster.damage*nextDouble(0.8,1.2)).toInt()
+        player!!.hp-= (nowMonster.damage*nextDouble(0.8,1.2)).toInt()
     }
 }

@@ -1,31 +1,31 @@
 package com.example.tunaandbk.Mob.Player
 
-import android.util.Log
 import com.example.tunaandbk.Item.EmptyItem
 import com.example.tunaandbk.Item.Equipment.Equipment
 import com.example.tunaandbk.Item.Item
-import com.example.tunaandbk.Item.Equipment.Hand.Weapon
 import com.example.tunaandbk.Mob.Skill.Skill
+import com.example.tunaandbk.System.nowMonster
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlin.math.pow
+import kotlin.random.Random.Default.nextDouble
 
 abstract class Player(name:String,acc:String) {
     open var account:String=acc
 
     open var name:String=name
     open var job:String=""
-    open var HP:Int=0
-    open var MP:Int=0
-    open var FullHP:Int=0
-    open var FullMP:Int=0
-    open var Damage = 0.0
+    open var hp:Int=0
+    open var mp:Int=0
+    open var fullHP:Int=0
+    open var fullMP:Int=0
+    open var damage = 0.0
     open var skillList= mutableListOf<Skill>()
-    open var LV:Int=0
-    open var FullEXP:Double=0.0
-    open var EXP:Double=0.0
+    open var lv:Int=0
+    open var fullEXP:Double=0.0
+    open var exp:Double=0.0
     open var speed=0.0
-    open var Money:Int=0
+    open var money:Int=0
 
     open var bag:MutableMap<String,MutableList<Item>> = mutableMapOf(
         "equipment" to mutableListOf(),
@@ -42,9 +42,9 @@ abstract class Player(name:String,acc:String) {
     }
     open fun levelup()
     {
-        LV+=1
-        FullEXP=150+(1.8).pow(LV*0.35)
-        EXP-=FullEXP
+        lv+=1
+        fullEXP=150+(1.8).pow(lv*0.35)
+        exp-=fullEXP
     }
     fun save()
     {
@@ -70,7 +70,7 @@ abstract class Player(name:String,acc:String) {
             }
         }
     }
-    fun put(item: Item?, value:Int)
+    fun getItem(item: Item?, value:Int)
     {
         when(item)
         {
@@ -84,4 +84,11 @@ abstract class Player(name:String,acc:String) {
     {
         skillList.add(skill)
     }
+    fun respawn()
+    {
+        hp=(fullHP*0.1).toInt()
+        mp=(fullMP*0.1).toInt()
+    }
+
+    fun isDead():Boolean{return hp<=0}
 }

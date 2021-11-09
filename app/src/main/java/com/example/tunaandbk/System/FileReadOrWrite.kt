@@ -1,7 +1,5 @@
 package com.example.tunaandbk.System
 
-import android.content.res.Resources
-import android.util.Log
 import com.example.tunaandbk.Pager.ViewPagerPackage.JobPager
 import com.example.tunaandbk.Mob.Player.Job.Fighter
 import com.google.firebase.firestore.ktx.firestore
@@ -19,15 +17,15 @@ interface FileReadOrWrite {
             with(player!!)
             {
                 account = p["account"].toString()
-                HP = p["hp"].toString().toInt()
-                MP = p["mp"].toString().toInt()
-                FullMP = p["fullMP"].toString().toInt()
-                FullHP = p["fullHP"].toString().toInt()
-                Damage = p["damage"].toString().toDouble()
-                LV = p["lv"].toString().toInt()
-                FullEXP = p["fullEXP"] as Double
-                EXP = p["exp"] as Double
-                Money = p["money"].toString().toInt()
+                hp = p["hp"].toString().toInt()
+                mp = p["mp"].toString().toInt()
+                fullMP = p["fullMP"].toString().toInt()
+                fullHP = p["fullHP"].toString().toInt()
+                damage = p["damage"].toString().toDouble()
+                lv = p["lv"].toString().toInt()
+                fullEXP = p["fullEXP"] as Double
+                exp = p["exp"] as Double
+                money = p["money"].toString().toInt()
                 val b = p["bag"] as MutableMap<String, ArrayList<HashMap<String, Any>>>
                 val eq = b["equipment"]!!
                 val co = b["consume"]!!
@@ -37,13 +35,13 @@ interface FileReadOrWrite {
                     player!!.learnSkill(skillMap[i["name"].toString()]!!)
                 }
                 for (i in co.filter{it["name"]!="none"}) {
-                    put(itemMap[i["name"]],i["count"]!!.toString().toInt())
+                    getItem(itemMap[i["name"]],i["count"]!!.toString().toInt())
                 }
                 for (i in eq.filter{it["name"]!="none"}) {
-                    put(itemMap[i["name"]], i["count"]!!.toString().toInt())
+                    getItem(itemMap[i["name"]], i["count"]!!.toString().toInt())
                 }
                 for (i in an.filter{it["name"]!="none"}) {
-                    put(itemMap[i["name"]], i["count"]!!.toString().toInt())
+                    getItem(itemMap[i["name"]], i["count"]!!.toString().toInt())
                 }
             }
         }

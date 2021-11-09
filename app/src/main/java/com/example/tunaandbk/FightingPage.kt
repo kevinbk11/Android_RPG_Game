@@ -4,13 +4,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import com.example.tunaandbk.Mob.Skill.MonsterSkill.BirdAttack
-import com.example.tunaandbk.Mob.Skill.MonsterSkill.StoneAttack
-import com.example.tunaandbk.Mob.Skill.PlayerSkill.SwordAttack
 import com.example.tunaandbk.RecyclerView.RecyclerViewPackage.skillRecyclerView
 import com.example.tunaandbk.System.nowMonster
 import com.example.tunaandbk.System.player
 import kotlinx.android.synthetic.main.activity_fighting_page.*
+import kotlin.random.Random.Default.nextDouble
 
 class FightingPage : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,6 +20,24 @@ class FightingPage : AppCompatActivity() {
         {
             nowMonster.attack()
         }
-        Log.v("fightInfo","player:${player!!.HP},${nowMonster.name}:${nowMonster.hp}")
+        Log.v("fightInfo","player:${player!!.hp},${nowMonster.name}:${nowMonster.hp}")
     }
+
+    fun normalAttack(view:View)
+    {
+        nowMonster.hp-=((player!!.damage)*nextDouble(0.8,1.2)).toInt()
+        if(nowMonster.isDead())
+        {
+            onBackPressed()
+            player!!.save()
+        }
+        nowMonster.attack()
+        if(player!!.isDead())
+        {
+            onBackPressed()
+            player!!.respawn()
+            player!!.save()
+        }
+    }
+
 }
