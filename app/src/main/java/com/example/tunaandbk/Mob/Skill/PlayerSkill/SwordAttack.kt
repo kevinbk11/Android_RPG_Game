@@ -12,5 +12,6 @@ class SwordAttack: Skill() {
     override fun use()
     {
         nowMonster.hp-=(player!!.Damage* nextDouble(1.2,1.5)).toInt()
+        player!!.MP-=10
     }
 }
