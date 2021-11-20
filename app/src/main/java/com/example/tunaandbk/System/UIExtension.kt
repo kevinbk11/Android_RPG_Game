@@ -88,11 +88,12 @@ interface UIExtension:GetResource{
     }
 
     fun ImageButton.setScaleAnimation(r: Resources, p:String) {
+        val btn = this
         this.setOnTouchListener(object : View.OnTouchListener {
             @SuppressLint("ClickableViewAccessibility")
             override fun onTouch(p0: View?, p1: MotionEvent?): Boolean {
-                p0 as ImageButton
                 if (p1!!.action == MotionEvent.ACTION_DOWN) {
+                    btn.setBackgroundResource(getImageResources(r,"bt_login_2","mipmap",p))
                     val am = ScaleAnimation(
                         1.0f, 0.9f, 1.0f, 0.9f,
                         Animation.RELATIVE_TO_SELF, 0.5f,
@@ -100,9 +101,10 @@ interface UIExtension:GetResource{
                     )
                     am!!.duration = 0
                     am.fillAfter = true
-                    p0!!.startAnimation(am)
-                    p0!!.setImageResource(getImageResources(r,"bt_login_2","mipmap",p))
+                    btn.startAnimation(am)
+
                 } else if (p1!!.action == MotionEvent.ACTION_UP) {
+                    btn.setBackgroundResource(getImageResources(r,"bt_login_1","mipmap",p))
                     val am = ScaleAnimation(
                         0.9f, 1.0f, 0.9f, 1.0f,
                         Animation.RELATIVE_TO_SELF, 0.5f,
@@ -110,8 +112,8 @@ interface UIExtension:GetResource{
                     )
                     am!!.duration = 0
                     am.fillAfter = true
-                    p0!!.startAnimation(am)
-                    p0!!.setImageResource(getImageResources(r,"bt_login_1","mipmap",p))
+                    btn!!.startAnimation(am)
+
                 }
                 return false
             }

@@ -46,8 +46,7 @@
         <ImageButton
                 android:layout_width="160dp"
                 android:layout_height="80dp"
-                android:background="@mipmap/bt_login_1"
-                android:scaleType="centerInside"
+                android:background= "@mipmap/bt_login_1"
                 android:id="@+id/ok"
                 android:onClick="login"/>
         <LinearLayout
