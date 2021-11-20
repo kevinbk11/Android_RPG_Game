@@ -5,10 +5,12 @@ import android.app.AlertDialog
 import android.graphics.Color
 import android.util.Log
 import android.view.*
+import android.view.animation.AlphaAnimation
 import android.view.animation.Animation
 import android.view.animation.ScaleAnimation
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.TextView
 import androidx.core.graphics.drawable.toBitmap
 import com.example.tunaandbk.R
 

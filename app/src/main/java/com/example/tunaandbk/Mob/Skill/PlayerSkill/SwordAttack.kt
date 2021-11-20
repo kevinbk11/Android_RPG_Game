@@ -9,7 +9,9 @@ class SwordAttack: Skill() {
     override val name: String="重劍劈砍"
     override fun use()
     {
-        nowMonster.hp-=(player!!.damage* nextDouble(1.2,1.5)).toInt()
-        player!!.mp-=10
+        val a = listOf((player.damage* nextDouble(1.2,1.5)).toInt())
+        nowMonster.hp-=a.sum()
+        showDmg(a)
+        player.mp-=10
     }
 }

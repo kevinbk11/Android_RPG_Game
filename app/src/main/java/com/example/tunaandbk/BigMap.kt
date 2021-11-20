@@ -27,7 +27,7 @@ class BigMap : AppCompatActivity(), FileReadOrWrite,UIExtension {
         activityList.add(this)
         button3.setScaleAnimation()
         imageButton.setCheckColor()
-        player!!.learnSkill(SwordAttack())
+        player.learnSkill(SwordAttack())
     }
     fun ccc(view:View)
     {

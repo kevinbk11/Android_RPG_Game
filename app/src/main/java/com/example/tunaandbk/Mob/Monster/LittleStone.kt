@@ -4,7 +4,7 @@ import com.example.tunaandbk.Mob.Skill.MonsterSkill.BirdAttack
 import com.example.tunaandbk.Mob.Skill.MonsterSkill.NormalAttack.NormalAttack1
 import kotlin.random.Random
 
-class LittleStone:Monster("小石怪",100,10.0,0.8,10,listOf())
+class LittleStone:Monster("小石怪",100,10.0,0.8,10,30,listOf())
 {
     override fun attack()
     {

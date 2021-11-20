@@ -1,16 +1,22 @@
 package com.example.tunaandbk.Mob.Player
 
+import android.util.Log
 import com.example.tunaandbk.Item.EmptyItem
 import com.example.tunaandbk.Item.Equipment.Equipment
 import com.example.tunaandbk.Item.Item
+import com.example.tunaandbk.Mob.Player.Job.Fighter
+import com.example.tunaandbk.Mob.Skill.PlayerSkill.FighterNormalAttack
 import com.example.tunaandbk.Mob.Skill.Skill
+import com.example.tunaandbk.System.monsterDmgText
 import com.example.tunaandbk.System.nowMonster
+import com.example.tunaandbk.System.player
+import com.example.tunaandbk.System.textViewFun.TextViewExtension
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlin.math.pow
 import kotlin.random.Random.Default.nextDouble
 
-abstract class Player(name:String,acc:String) {
+abstract class Player(name:String,acc:String){
     open var account:String=acc
 
     open var name:String=name
@@ -43,8 +49,9 @@ abstract class Player(name:String,acc:String) {
     open fun levelup()
     {
         lv+=1
-        fullEXP=150+(1.8).pow(lv*0.35)
         exp-=fullEXP
+        fullEXP=150+(1.8).pow(lv*0.35)
+
     }
     fun save()
     {
@@ -70,6 +77,18 @@ abstract class Player(name:String,acc:String) {
             }
         }
     }
+    fun getMoney(money:Int)
+    {
+        player.money+=money
+    }
+    fun getExp(exp:Int)
+    {
+        player.exp+=exp
+        if(player.exp>=player.fullEXP)
+        {
+            player.levelup()
+        }
+    }
     fun getItem(item: Item?, value:Int)
     {
         when(item)
@@ -89,6 +108,15 @@ abstract class Player(name:String,acc:String) {
         hp=(fullHP*0.1).toInt()
         mp=(fullMP*0.1).toInt()
     }
-
     fun isDead():Boolean{return hp<=0}
+    fun normalAttack(){
+        when(this)
+        {
+            is Fighter->
+            {
+                FighterNormalAttack().use()
+            }
+        }
+
+    }
 }

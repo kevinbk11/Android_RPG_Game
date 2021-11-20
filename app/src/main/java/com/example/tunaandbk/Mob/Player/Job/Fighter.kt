@@ -1,7 +1,7 @@
 package com.example.tunaandbk.Mob.Player.Job;
 
+import android.util.Log
 import com.example.tunaandbk.Mob.Player.Player
-
 class Fighter(name:String,acc:String): Player(name,acc) {
     override var account = acc
     override var job="Fighter"
@@ -20,9 +20,9 @@ class Fighter(name:String,acc:String): Player(name,acc) {
     var BasicStr: Double=0.0
     override fun levelup() {
         super.levelup()
-        println("LEVEL UP!")
+        Log.v("test","LEVEL UP!")
         fullHP=500+(lv-1)*180
-        fullMP=100+(lv-1)*50
+        fullMP=100+(lv-1)*30
         hp=fullHP
         mp=fullMP
         BasicStr=lv*2.5

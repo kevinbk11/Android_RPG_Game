@@ -14,7 +14,7 @@ interface FileReadOrWrite {
     fun rebuildUserData(p: HashMap<String,Any?>) {
         if (p["job"] == "Fighter") {
             player = Fighter(p["name"].toString(),p["account"].toString())
-            with(player!!)
+            with(player)
             {
                 account = p["account"].toString()
                 hp = p["hp"].toString().toInt()
@@ -23,8 +23,8 @@ interface FileReadOrWrite {
                 fullHP = p["fullHP"].toString().toInt()
                 damage = p["damage"].toString().toDouble()
                 lv = p["lv"].toString().toInt()
-                fullEXP = p["fullEXP"] as Double
-                exp = p["exp"] as Double
+                fullEXP = p["fullEXP"].toString().toDouble()
+                exp = p["exp"].toString().toDouble()
                 money = p["money"].toString().toInt()
                 val b = p["bag"] as MutableMap<String, ArrayList<HashMap<String, Any>>>
                 val eq = b["equipment"]!!
@@ -32,7 +32,7 @@ interface FileReadOrWrite {
                 val an = b["another"]!!
                 for(i in p["skillList"] as ArrayList<HashMap<String,String>>)
                 {
-                    player!!.learnSkill(skillMap[i["name"].toString()]!!)
+                    player.learnSkill(skillMap[i["name"].toString()]!!)
                 }
                 for (i in co.filter{it["name"]!="none"}) {
                     getItem(itemMap[i["name"]],i["count"]!!.toString().toInt())

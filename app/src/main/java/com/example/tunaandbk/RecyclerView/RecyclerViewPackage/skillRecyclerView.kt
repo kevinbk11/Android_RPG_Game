@@ -16,7 +16,7 @@ class skillRecyclerView(val a:AppCompatActivity,val RV:RecyclerView) {
     {
         val layoutManager = LinearLayoutManager(context)
         layoutManager.orientation = LinearLayoutManager.VERTICAL
-        val adapter = RecyclerViewAdapter(a,player!!.skillList)
+        val adapter = RecyclerViewAdapter(a,player.skillList)
         RV.layoutManager = layoutManager
         RV.addItemDecoration(DividerItemDecoration(context,DividerItemDecoration.VERTICAL))
         RV.adapter=adapter

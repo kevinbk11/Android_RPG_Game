@@ -10,22 +10,79 @@
         tools:context=".FightingPage">
 
     <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="bottom"
-            android:layout_weight="2">
+            android:layout_weight="1"
+            >
 
-        <ImageView
-                android:layout_width="0dp"
-                android:layout_height="200dp"
-                android:layout_weight="1"/>
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:id="@+id/linearLayout"
+                >
 
-        <ImageView
-                android:layout_width="0dp"
-                android:layout_height="200dp"
-                android:layout_weight="1"
-                android:id="@+id/imageView"/>
+            <TextView
+                    android:text=""
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView12"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    />
 
+            <TextView
+                    android:text=""
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/monsterDmg2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/monsterDmg1"
+                    android:textSize="48sp"
+                    />
+
+            <TextView
+                    android:text=""
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/monsterDmg1"
+                    app:layout_constraintEnd_toEndOf="@+id/monsterDmg2"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:textSize="48sp"
+                    />
+
+            <TextView
+                    android:text=""
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView16"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/textView12"
+                    />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="bottom"
+                android:layout_weight="0"
+                >
+
+            <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="200dp"
+                    android:layout_weight="1"
+                    />
+
+            <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="200dp"
+                    android:layout_weight="1"
+                    android:id="@+id/imageView"
+                    />
+
+        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
@@ -43,11 +100,15 @@
                 android:layout_width="80dp"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
+
             <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="攻擊"/>
+                    android:text="攻擊"
+                    android:onClick="normalAttack"
+                    android:id="@+id/attackButton"
+                    />
             <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

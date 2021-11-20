@@ -29,8 +29,8 @@ class GameMainPage : AppCompatActivity(),FileReadOrWrite,UIExtension {
     override fun onBackPressed() {
         for(a in activityList)a.finish()
         val db = Firebase.firestore
-        db.collection("users").document(player!!.account).update("online",false)
-        player!!.save()
+        db.collection("users").document(player.account).update("online",false)
+        player.save()
         Thread.sleep(500)
         android.os.Process.killProcess(android.os.Process.myPid())
     }
@@ -40,7 +40,7 @@ class GameMainPage : AppCompatActivity(),FileReadOrWrite,UIExtension {
         activityList.add(this)
         window.hideBar()
         //contextMap.put(4,this)
-        //player!!.put(WoodSword,1)
+        //player.put(WoodSword,1)
         db.collection("Maps").document("0001").get().addOnSuccessListener {
             result->
             now=result.data!!["name"].toString()
@@ -48,7 +48,7 @@ class GameMainPage : AppCompatActivity(),FileReadOrWrite,UIExtension {
             next=result.data!!["next"].toString()
             Thread.sleep(800)
         }
-        player!!.save()
+        player.save()
     }
     fun next(view: View)
     {
