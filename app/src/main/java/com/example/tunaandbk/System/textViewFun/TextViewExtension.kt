@@ -1,7 +1,10 @@
 package com.example.tunaandbk.System.textViewFun
 
+import android.util.Log
 import android.view.animation.AlphaAnimation
 import android.view.animation.Animation
+import android.widget.Button
+import android.widget.TextView
 import com.example.tunaandbk.System.fighting
 import com.example.tunaandbk.System.monsterDmgText
 import com.example.tunaandbk.System.nowMonster
@@ -9,7 +12,7 @@ import com.example.tunaandbk.System.player
 
 interface TextViewExtension {
     var alphaAnimationProcessing:Boolean
-    fun startAlphaAnimation(now:Int=0,max:Int){
+    fun startAlphaAnimation(dmgTextList:List<TextView>,now:Int=0,max:Int){
         if(now==max)return
         else
         {
@@ -19,16 +22,17 @@ interface TextViewExtension {
                 override fun onAnimationStart(p0: Animation?) {
                     Thread{
                         Thread.sleep(300)
-                        startAlphaAnimation(now+1,max)
+                        startAlphaAnimation(dmgTextList,now+1,max)
                     }.start()
                 }
 
                 override fun onAnimationEnd(p0: Animation?) {
-                    monsterDmgText[now].text=""
+                    dmgTextList[now].text=""
                     if(now+1==max)
                     {
                         alphaAnimationProcessing=false
-                        fighting.roundProcessing=false
+                        fighting.turn=(fighting.turn+1)%2
+                        if(fighting.turn==0)fighting.roundProcessing=false
                         fighting.checkEnd()
                     }
                 }
@@ -37,21 +41,19 @@ interface TextViewExtension {
 
                 }
             })
-            monsterDmgText[now].startAnimation(outAnim)
+            dmgTextList[now].startAnimation(outAnim)
         }
-
     }
-    fun showDmg(dmgList:List<Int>)
+    fun showDmg(dmgTextList:List<TextView>, dmgList:List<Int>)
     {
         alphaAnimationProcessing=true
         for(i in dmgList.indices)
         {
-            monsterDmgText[i].text=dmgList[i].toString()
+            dmgTextList[i].text=dmgList[i].toString()
         }
         Thread{
             Thread.sleep(1000)
-            startAlphaAnimation(0,dmgList.size)
+            startAlphaAnimation(dmgTextList,0,dmgList.size)
         }.start()
-
     }
 }

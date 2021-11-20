@@ -37,15 +37,16 @@ class RecyclerViewAdapter(private val nowContext:AppCompatActivity, var list: Li
         val skillName = list[position].name
         val btn = holder.btn
         skillButtonList+=btn
-        skillPosition=position
+
         btn.text=skillName
         btn.setOnClickListener{
+            skillPosition=position
+            fighting.startThisRound()
             for(button in skillButtonList)
             {
                 button.isClickable=false
             }
             fighting.roundProcessing=true
-            player.skillList[position].use()
             Thread{
                 while(fighting.roundProcessing)
                 {

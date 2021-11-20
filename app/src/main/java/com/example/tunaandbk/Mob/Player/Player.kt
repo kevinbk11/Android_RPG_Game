@@ -109,14 +109,8 @@ abstract class Player(name:String,acc:String){
         mp=(fullMP*0.1).toInt()
     }
     fun isDead():Boolean{return hp<=0}
-    fun normalAttack(){
-        when(this)
-        {
-            is Fighter->
-            {
-                FighterNormalAttack().use()
-            }
-        }
-
+    open fun normalAttack():List<Int>{
+        return listOf()
     }
+
 }

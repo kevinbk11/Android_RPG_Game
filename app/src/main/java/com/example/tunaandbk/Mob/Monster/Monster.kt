@@ -10,7 +10,7 @@ abstract class Monster(val name:String, private var FullHP:Int, val damage:Doubl
 {
     var hp = FullHP
     val skills:MutableList<Skill> = mutableListOf()
-    open fun attack(){}
+    open fun attack():List<Int>{return listOf()}
     fun isDead():Boolean{return hp<=0}
     fun dropMoney():Int{return (money*nextDouble(0.8,1.2)).toInt()}
     //fun dropItem(){}

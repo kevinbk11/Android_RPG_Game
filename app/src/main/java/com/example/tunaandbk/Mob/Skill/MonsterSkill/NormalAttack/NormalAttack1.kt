@@ -7,8 +7,5 @@ import kotlin.random.Random.Default.nextDouble
 
 class NormalAttack1: Skill() {
     override val name = "普通攻擊"
-    override fun use()
-    {
-        player.hp-= (nowMonster.damage*nextDouble(0.8,1.2)).toInt()
-    }
+    override val dmgList = listOf((nowMonster.damage*nextDouble(0.8,1.2)).toInt())
 }

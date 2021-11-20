@@ -20,6 +20,7 @@ class FightingPage : AppCompatActivity() {
         fighting=Fighting(this)
         fighting.start()
         monsterDmgText=listOf(monsterDmg1,monsterDmg2)
+        playerDmgText=listOf(playerDmgText1,playerDmgText2)
         skillButtonList=(skillPanelLayout.RV.adapter as RecyclerViewAdapter).skillButtonList
         skillButtonList.add(attackButton)
         Log.v("fightInfo","player:${player.hp},${nowMonster.name}:${nowMonster.hp}")
