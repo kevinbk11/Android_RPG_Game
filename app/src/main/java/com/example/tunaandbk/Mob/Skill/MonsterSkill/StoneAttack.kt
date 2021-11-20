@@ -7,7 +7,5 @@ import kotlin.random.Random
 
 class StoneAttack: Skill() {
     override val name = "重石滾動"
-    override fun use(){
-        player.hp -= (nowMonster.damage*1.5* Random.nextDouble(0.8, 1.0)).toInt()
-    }
+    override val dmgList: List<Int> = listOf((nowMonster.damage*1.5* Random.nextDouble(0.8, 1.0)).toInt())
 }

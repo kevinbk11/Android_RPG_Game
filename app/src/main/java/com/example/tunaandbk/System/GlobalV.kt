@@ -25,6 +25,7 @@ var player: Player = nullPlayer
 var activityList= mutableListOf<Activity>()
 var nowMonster: Monster = NullMonster
 var monsterDmgText:List<TextView> = listOf()
+var playerDmgText:List<TextView> = listOf()
 val itemMap=mapOf(
     "木劍" to WoodSword,
     "石劍" to StoneSword,
