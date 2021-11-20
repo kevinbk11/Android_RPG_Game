@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Button
 import android.widget.Toast
 import com.example.tunaandbk.System.FileReadOrWrite
 import com.example.tunaandbk.System.UIExtension
@@ -13,6 +14,7 @@ import com.example.tunaandbk.System.activityList
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.activity_login.view.*
 
 class Login : AppCompatActivity(),FileReadOrWrite, UIExtension {
     override fun onBackPressed() {
@@ -23,6 +25,7 @@ class Login : AppCompatActivity(),FileReadOrWrite, UIExtension {
         register.paintFlags= Paint.UNDERLINE_TEXT_FLAG
         window.hideBar()
         activityList.add(this)
+        ok.setScaleAnimation(resources,packageName)
     }
 
     fun login(view: View)
