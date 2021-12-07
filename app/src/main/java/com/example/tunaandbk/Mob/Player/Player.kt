@@ -1,20 +1,13 @@
 package com.example.tunaandbk.Mob.Player
 
-import android.util.Log
 import com.example.tunaandbk.Item.EmptyItem
 import com.example.tunaandbk.Item.Equipment.Equipment
 import com.example.tunaandbk.Item.Item
-import com.example.tunaandbk.Mob.Player.Job.Fighter
-import com.example.tunaandbk.Mob.Skill.PlayerSkill.FighterNormalAttack
 import com.example.tunaandbk.Mob.Skill.Skill
-import com.example.tunaandbk.System.monsterDmgText
-import com.example.tunaandbk.System.nowMonster
 import com.example.tunaandbk.System.player
-import com.example.tunaandbk.System.textViewFun.TextViewExtension
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlin.math.pow
-import kotlin.random.Random.Default.nextDouble
 
 abstract class Player(name:String,acc:String){
     open var account:String=acc

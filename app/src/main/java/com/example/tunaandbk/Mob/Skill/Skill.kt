@@ -1,13 +1,9 @@
 package com.example.tunaandbk.Mob.Skill
 
-import android.util.Log
-import android.view.animation.AlphaAnimation
-import android.view.animation.Animation
 import com.example.tunaandbk.System.*
-import com.example.tunaandbk.System.textViewFun.TextViewExtension
+import com.example.tunaandbk.System.UIExtension.TextViewExtension
 
-abstract class Skill:TextViewExtension{
-    override var alphaAnimationProcessing: Boolean=false
+abstract class Skill: TextViewExtension {
     open val dmgList:List<Int> = listOf()
     open val name = ""
     open fun use():List<Int>{

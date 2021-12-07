@@ -18,9 +18,10 @@ import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.graphics.drawable.toBitmap
 import com.example.tunaandbk.Mob.Skill.PlayerSkill.SwordAttack
 import com.example.tunaandbk.System.*
+import com.example.tunaandbk.System.UIExtension.ButtonExtension
 import kotlinx.android.synthetic.main.activity_big_map.*
 
-class BigMap : AppCompatActivity(), FileReadOrWrite,UIExtension {
+class BigMap : AppCompatActivity(), FileReadOrWrite,ButtonExtension{
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_big_map)

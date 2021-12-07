@@ -1,15 +1,11 @@
 package com.example.tunaandbk.System
 
-import android.content.Context
 import android.util.Log
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-import com.example.tunaandbk.MainActivity
-import com.example.tunaandbk.Mob.Monster.Monster
-import com.example.tunaandbk.Mob.Player.Player
-import com.example.tunaandbk.System.textViewFun.TextViewExtension
+import com.example.tunaandbk.System.UIExtension.TextViewExtension
 
-class Fighting(val context: AppCompatActivity? = null):TextViewExtension {
-    override var alphaAnimationProcessing: Boolean=false
+class Fighting(val context: AppCompatActivity? = null): TextViewExtension {
     var turn = 0
     var roundProcessing = false
     fun start()
@@ -19,15 +15,11 @@ class Fighting(val context: AppCompatActivity? = null):TextViewExtension {
             Log.v("?TEST", "${player.speed},${nowMonster.speed}")
             turn = 1
             nowMonster.attack()
-
         }
     }
     fun endFighting()
     {
-        if(player.isDead())
-        {
-            player.respawn()
-        }
+        if(player.isDead()) { player.respawn() }
         else
         {
             player.getMoney(nowMonster.dropMoney())
@@ -38,28 +30,30 @@ class Fighting(val context: AppCompatActivity? = null):TextViewExtension {
     }
     fun checkEnd()
     {
-        if(nowMonster.isDead())
-        {
-            fighting.endFighting()
-        }
-        else if(turn==1)
-        {
-            showDmg(playerDmgText,nowMonster.attack())
-        }
-        if(player.isDead())
-        {
-            fighting.endFighting()
-        }
+        if(nowMonster.isDead()) { fighting.endFighting() }
+        else if(turn==1) { showDmg(playerDmgText,nowMonster.attack()) }
+        if(player.isDead()) { fighting.endFighting() }
     }
     fun startThisRound()
     {
+        fighting.changeFightingButtonClickable(false)
+        Thread{
+            fighting.waitAnimationEnd()
+            fighting.changeFightingButtonClickable(true)
+        }.start()
         if(skillPosition==-1)showDmg(monsterDmgText,player.normalAttack())
         else showDmg(monsterDmgText,player.skillList[skillPosition].use())
-        Thread{
-            while(alphaAnimationProcessing)
-            {
-                Thread.sleep(100)
-            }
-        }.start()
+    }
+    fun waitAnimationEnd()
+    {
+        fighting.roundProcessing=true
+        while(fighting.roundProcessing){ Thread.sleep(100) }
+    }
+    fun changeFightingButtonClickable(state:Boolean)
+    {
+        for(button in fightingButtonList)
+        {
+            button.isClickable=state
+        }
     }
 }

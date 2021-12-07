@@ -111,16 +111,22 @@
                     android:onClick="normalAttack"
                     android:id="@+id/attackButton"
                     />
+
             <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="道具"/>
+                    android:text="道具"
+                    android:id="@+id/itemButton"
+                    />
+
             <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="逃跑"/>
+                    android:text="逃跑"
+                    android:id="@+id/runButton"
+                    />
         </LinearLayout>
 
     </LinearLayout>

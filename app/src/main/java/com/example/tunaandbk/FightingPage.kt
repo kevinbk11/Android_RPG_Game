@@ -11,7 +11,6 @@ import com.example.tunaandbk.System.*
 import kotlinx.android.synthetic.main.activity_fighting_page.*
 
 class FightingPage : AppCompatActivity() {
-    var skillButtonList:MutableList<Button> = mutableListOf()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_fighting_page)
@@ -21,8 +20,10 @@ class FightingPage : AppCompatActivity() {
         fighting.start()
         monsterDmgText=listOf(monsterDmg1,monsterDmg2)
         playerDmgText=listOf(playerDmgText1,playerDmgText2)
-        skillButtonList=(skillPanelLayout.RV.adapter as RecyclerViewAdapter).skillButtonList
-        skillButtonList.add(attackButton)
+        fightingButtonList=(skillPanelLayout.RV.adapter as RecyclerViewAdapter).skillButtonList
+        fightingButtonList.add(attackButton)
+        fightingButtonList.add(itemButton)
+        fightingButtonList.add(runButton)
         Log.v("fightInfo","player:${player.hp},${nowMonster.name}:${nowMonster.hp}")
     }
 
@@ -30,20 +31,5 @@ class FightingPage : AppCompatActivity() {
     {
         skillPosition=-1
         fighting.startThisRound()
-        for(button in skillButtonList)
-        {
-            button.isClickable=false
-        }
-        fighting.roundProcessing=true
-        Thread{
-            while(fighting.roundProcessing)
-            {
-                Thread.sleep(100)
-            }
-            for(button in skillButtonList)
-            {
-                button.isClickable=true
-            }
-        }.start()
     }
 }

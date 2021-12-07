@@ -15,13 +15,14 @@ import androidx.constraintlayout.widget.ConstraintSet
 import com.example.tunaandbk.Item.Equipment.Hand.Fighter.WoodSword
 import com.example.tunaandbk.Mob.Monster.Monster
 import com.example.tunaandbk.System.*
+import com.example.tunaandbk.System.UIExtension.WindowExtension
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_game_main_page.*
 import java.time.Instant
 import kotlin.random.Random
 
-class GameMainPage : AppCompatActivity(),FileReadOrWrite,UIExtension {
+class GameMainPage : AppCompatActivity(),FileReadOrWrite,WindowExtension {
     val db = Firebase.firestore
     var now = ""
     var next = ""

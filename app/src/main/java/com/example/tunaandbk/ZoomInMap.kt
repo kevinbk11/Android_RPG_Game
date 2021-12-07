@@ -10,10 +10,11 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.example.tunaandbk.Mob.Monster.*
 import com.example.tunaandbk.System.*
+import com.example.tunaandbk.System.UIExtension.WindowExtension
 import com.example.tunaandbk.System.nowMonster
 
 
-class ZoomInMap : AppCompatActivity(),GetResource,UIExtension {
+class ZoomInMap : AppCompatActivity(),GetResource,WindowExtension {
 
     var dialog: AlertDialog?=null
     override fun onBackPressed() {

@@ -9,11 +9,12 @@ import android.widget.Toast
 import com.example.tunaandbk.Pager.ViewPagerPackage.JobPager
 import com.example.tunaandbk.R
 import com.example.tunaandbk.System.*
+import com.example.tunaandbk.System.UIExtension.WindowExtension
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_create_player.*
 
-class CreatePlayer : AppCompatActivity(),FileReadOrWrite,GetResource,UIExtension {
+class CreatePlayer : AppCompatActivity(),FileReadOrWrite,GetResource,WindowExtension {
     lateinit var jobPager: JobPager
     lateinit var account:String
     lateinit var password:String
