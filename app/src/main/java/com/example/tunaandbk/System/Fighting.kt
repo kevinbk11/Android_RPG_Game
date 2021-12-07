@@ -31,7 +31,7 @@ class Fighting(val context: AppCompatActivity? = null): TextViewExtension {
     fun checkEnd()
     {
         if(nowMonster.isDead()) { fighting.endFighting() }
-        else if(turn==1) { showDmg(playerDmgText,nowMonster.attack()) }
+        else if(turn==1) { showDmg(playerDmgText,nowMonster.attack(),context!!) }
         if(player.isDead()) { fighting.endFighting() }
     }
     fun startThisRound()
@@ -41,8 +41,8 @@ class Fighting(val context: AppCompatActivity? = null): TextViewExtension {
             fighting.waitAnimationEnd()
             fighting.changeFightingButtonClickable(true)
         }.start()
-        if(skillPosition==-1)showDmg(monsterDmgText,player.normalAttack())
-        else showDmg(monsterDmgText,player.skillList[skillPosition].use())
+        if(skillPosition==-1)showDmg(monsterDmgText,player.normalAttack(),context!!)
+        else showDmg(monsterDmgText,player.skillList[skillPosition].use(),context!!)
     }
     fun waitAnimationEnd()
     {
