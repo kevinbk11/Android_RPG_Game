@@ -1,11 +1,11 @@
 package com.example.tunaandbk.System
 
+import android.util.Log
 import com.example.tunaandbk.Pager.ViewPagerPackage.JobPager
 import com.example.tunaandbk.Mob.Player.Job.Fighter
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 interface FileReadOrWrite {
-
     fun addUserToFirebase(user: HashMap<String, Any>) {
         val db = Firebase.firestore
         db.collection("users").document(user["account"].toString()).set(user)

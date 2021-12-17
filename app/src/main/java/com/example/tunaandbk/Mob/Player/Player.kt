@@ -1,5 +1,7 @@
 package com.example.tunaandbk.Mob.Player
 
+import android.content.ClipData
+import android.util.Log
 import com.example.tunaandbk.Item.EmptyItem
 import com.example.tunaandbk.Item.Equipment.Equipment
 import com.example.tunaandbk.Item.Item
@@ -11,7 +13,6 @@ import kotlin.math.pow
 
 abstract class Player(name:String,acc:String){
     open var account:String=acc
-
     open var name:String=name
     open var job:String=""
     open var hp:Int=0
@@ -32,6 +33,7 @@ abstract class Player(name:String,acc:String){
         "another" to mutableListOf()
     )
     init{
+
         for(i in 0..19)
         {
             bag["equipment"]!!.add(EmptyItem())
@@ -44,29 +46,28 @@ abstract class Player(name:String,acc:String){
         lv+=1
         exp-=fullEXP
         fullEXP=150+(1.8).pow(lv*0.35)
-
     }
     fun save()
     {
         val db = Firebase.firestore
         db.collection("users").document(account).update("playerData",this)
     }
-    private fun p(item:Item,value:Int,type:String)
+    private fun p(item:Item,value:Int)
     {
         var find = false
-        val matchedItem=bag[type]!!.filter{it.name==item.name}
+        val matchedItem=bag[item.type]!!.filter{it.name==item.name}
         if(matchedItem.isNotEmpty())
         {
-            matchedItem[0].count+=value
+            matchedItem[0]+=value
         }
         else
         {
-            val emptyItem=bag[type]!!.filter{it.name=="none"}
-            with(bag[type]!!)
+            val emptyItem=bag[item.type]!!.filter{it.name=="none"}
+            with(bag[item.type]!!)
             {
                 val emptyPlace=this.indexOf(emptyItem[0])
                 this[emptyPlace]=item
-                this[emptyPlace].count+=value
+                this[emptyPlace]+=value
             }
         }
     }
@@ -88,7 +89,7 @@ abstract class Player(name:String,acc:String){
         {
             is Equipment ->
             {
-                p(item,value,"equipment")
+                p(item,value)
             }
         }
     }

@@ -51,9 +51,11 @@ interface TextViewExtension {
             }
             Thread{
                 dmgTextViewList[now].startAnimation(inAnim)
-                Thread.sleep(300)
+                Thread.sleep(600/dmgList.size.toLong())
                 startAlphaAnimation(dmgTextViewList, dmgList, now+1, max,app)
-                Thread.sleep(1000)
+                var time:Long =400
+                if(dmgList.size!=1)time = 600+(dmgList.size.toLong()-1)*250
+                Thread.sleep(time)
                 dmgTextViewList[now].startAnimation(outAnim)
             }.start()
         }

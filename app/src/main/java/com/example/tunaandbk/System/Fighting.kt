@@ -36,18 +36,18 @@ class Fighting(val context: AppCompatActivity? = null): TextViewExtension {
     }
     fun startThisRound()
     {
-        fighting.changeFightingButtonClickable(false)
+        this.changeFightingButtonClickable(false)
         Thread{
-            fighting.waitAnimationEnd()
-            fighting.changeFightingButtonClickable(true)
+            this.waitAnimationEnd()
+            this.changeFightingButtonClickable(true)
         }.start()
         if(skillPosition==-1)showDmg(monsterDmgText,player.normalAttack(),context!!)
         else showDmg(monsterDmgText,player.skillList[skillPosition].use(),context!!)
     }
     fun waitAnimationEnd()
     {
-        fighting.roundProcessing=true
-        while(fighting.roundProcessing){ Thread.sleep(100) }
+        this.roundProcessing=true
+        while(this.roundProcessing){ Thread.sleep(100) }
     }
     fun changeFightingButtonClickable(state:Boolean)
     {

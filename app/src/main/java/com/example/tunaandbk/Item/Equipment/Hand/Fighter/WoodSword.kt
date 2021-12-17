@@ -6,4 +6,5 @@ object WoodSword: Weapon() {
     override val name="木劍"
     override val damage=8
     override val levelNeed=1
+    override var count=0
 }

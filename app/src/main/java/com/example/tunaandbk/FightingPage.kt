@@ -18,7 +18,7 @@ class FightingPage : AppCompatActivity() {
         skillPanelLayout.build(this)
         fighting=Fighting(this)
         fighting.start()
-        monsterDmgText=listOf(monsterDmg1,monsterDmg2)
+        monsterDmgText=listOf(monsterDmg1,monsterDmg2,monsterDmg3,monsterDmg4,monsterDmg5,monsterDmg6)
         playerDmgText=listOf(playerDmgText1,playerDmgText2)
         fightingButtonList=(skillPanelLayout.RV.adapter as RecyclerViewAdapter).skillButtonList
         fightingButtonList.add(attackButton)

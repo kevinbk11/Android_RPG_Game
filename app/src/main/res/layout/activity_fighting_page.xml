@@ -22,7 +22,6 @@
                 android:layout_weight="2"
                 android:id="@+id/linearLayout"
                 >
-
             <TextView
                     android:text=""
                     android:layout_width="wrap_content"
@@ -30,17 +29,16 @@
                     android:id="@+id/playerDmgText1"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    android:textSize="48sp"
+                    android:textSize="32sp"
                     />
-
             <TextView
                     android:text=""
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/monsterDmg2"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintBottom_toTopOf="@+id/monsterDmg1"
-                    android:textSize="48sp"
+                    android:id="@+id/playerDmgText2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/playerDmgText1"
+                    android:textSize="32sp"
                     />
 
             <TextView
@@ -50,18 +48,50 @@
                     android:id="@+id/monsterDmg1"
                     app:layout_constraintEnd_toEndOf="@+id/monsterDmg2"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    android:textSize="48sp"
+                    android:textSize="32sp"
                     />
-
             <TextView
                     android:text=""
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/playerDmgText2"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintBottom_toTopOf="@+id/playerDmgText1"
-                    android:textSize="48sp"
+                    android:id="@+id/monsterDmg2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/monsterDmg1"
+                    android:textSize="32sp"
                     />
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/monsterDmg3"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/monsterDmg2"
+                    android:textSize="32sp"
+                    />
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/monsterDmg4"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/monsterDmg3"
+                    android:textSize="32sp"
+                    />
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/monsterDmg5"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/monsterDmg4"
+                    android:textSize="32sp"
+                    />
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/monsterDmg6"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/monsterDmg5"
+                    android:textSize="32sp"
+                    />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <LinearLayout
