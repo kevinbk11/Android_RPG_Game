@@ -1,7 +1,5 @@
 package com.example.tunaandbk.Mob.Player
 
-import android.content.ClipData
-import android.util.Log
 import com.example.tunaandbk.Item.EmptyItem
 import com.example.tunaandbk.Item.Equipment.Equipment
 import com.example.tunaandbk.Item.Item
@@ -15,7 +13,7 @@ abstract class Player(name:String,acc:String){
     open var account:String=acc
     open var name:String=name
     open var job:String=""
-    open var hp:Int=0
+    open var HP:Int=0
     open var mp:Int=0
     open var fullHP:Int=0
     open var fullMP:Int=0
@@ -99,10 +97,10 @@ abstract class Player(name:String,acc:String){
     }
     fun respawn()
     {
-        hp=(fullHP*0.1).toInt()
+        HP=(fullHP*0.1).toInt()
         mp=(fullMP*0.1).toInt()
     }
-    fun isDead():Boolean{return hp<=0}
+    fun isDead():Boolean{return HP<=0}
     open fun normalAttack():List<Int>{
         return listOf()
     }

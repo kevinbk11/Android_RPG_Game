@@ -2,14 +2,20 @@ package com.example.tunaandbk.System.UIExtension
 
 import android.view.animation.AlphaAnimation
 import android.view.animation.Animation
+import android.view.animation.ScaleAnimation
+import android.widget.ImageView
+import kotlin.math.asin
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
+import com.example.tunaandbk.R
 import com.example.tunaandbk.System.fighting
+import com.example.tunaandbk.System.nowMonster
+import com.example.tunaandbk.System.player
 
 interface TextViewExtension {
-    fun startAlphaAnimation(dmgTextViewList:List<TextView>,dmgList:List<Int>, now:Int=0, max:Int,app:AppCompatActivity){
-        if(now==max)return
+    fun startDmgTextViewAnimation(dmgTextViewList:List<TextView>, dmgList:List<Int>, now:Int=0, app:AppCompatActivity){
+        if(now==dmgList.size)return
         else
         {
             val inAnim = AlphaAnimation(0.0f,1.0f)
@@ -22,24 +28,12 @@ interface TextViewExtension {
 
                 override fun onAnimationEnd(p0: Animation?) {
                     dmgTextViewList[now].text=""
-                    if(now+1==max)
+                    if(now+1==dmgList.size)
                     {
                         fighting.turn=(fighting.turn+1)%2
                         if(fighting.turn==0)fighting.roundProcessing=false
                         fighting.checkEnd()
                     }
-                }
-
-                override fun onAnimationRepeat(p0: Animation?) {
-
-                }
-            })
-            inAnim.setAnimationListener(object: Animation.AnimationListener{
-                override fun onAnimationStart(p0: Animation?) {
-                }
-
-                override fun onAnimationEnd(p0: Animation?) {
-
                 }
 
                 override fun onAnimationRepeat(p0: Animation?) {
@@ -52,9 +46,9 @@ interface TextViewExtension {
             Thread{
                 dmgTextViewList[now].startAnimation(inAnim)
                 Thread.sleep(600/dmgList.size.toLong())
-                startAlphaAnimation(dmgTextViewList, dmgList, now+1, max,app)
-                var time:Long =400
-                if(dmgList.size!=1)time = 600+(dmgList.size.toLong()-1)*250
+                startDmgTextViewAnimation(dmgTextViewList, dmgList, now+1,app)
+                var time:Long =100
+                if(dmgList.size!=1)time = 100+(dmgList.size.toLong()-1)*250
                 Thread.sleep(time)
                 dmgTextViewList[now].startAnimation(outAnim)
             }.start()
@@ -67,6 +61,6 @@ interface TextViewExtension {
             dmgTextViewList[now].text=dmgList[now].toString()
             dmgTextViewList[now].isVisible=false
         }
-        startAlphaAnimation(dmgTextViewList,dmgList,0,dmgList.size,app)
+        startDmgTextViewAnimation(dmgTextViewList,dmgList,0,app)
     }
 }

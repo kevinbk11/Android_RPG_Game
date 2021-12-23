@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.Button
 import com.example.tunaandbk.RecyclerView.Adapter.RecyclerViewAdapter
 import com.example.tunaandbk.RecyclerView.RecyclerViewPackage.skillRecyclerView
 import com.example.tunaandbk.System.*
@@ -24,7 +23,7 @@ class FightingPage : AppCompatActivity() {
         fightingButtonList.add(attackButton)
         fightingButtonList.add(itemButton)
         fightingButtonList.add(runButton)
-        Log.v("fightInfo","player:${player.hp},${nowMonster.name}:${nowMonster.hp}")
+        Log.v("fightInfo","player:${player.HP},${nowMonster.name}:${nowMonster.hp}")
     }
 
     fun normalAttack(view:View)

@@ -25,6 +25,7 @@
                     android:id="@+id/account"
                     android:inputType="textPersonName"
                     android:ems="10"
+                    android:text="1"
                     android:textSize="14sp"
                     android:textAlignment="textStart"/>
         </LinearLayout>
@@ -39,6 +40,7 @@
                 android:id="@+id/password"
                 android:inputType="textPassword"
                 android:textSize="14sp"
+                android:text="1"
                 android:textAlignment="textStart"/>
 
     </LinearLayout>

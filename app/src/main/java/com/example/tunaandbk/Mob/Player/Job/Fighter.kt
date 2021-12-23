@@ -7,7 +7,7 @@ import com.example.tunaandbk.Mob.Skill.PlayerSkill.FighterNormalAttack
 class Fighter(name:String,acc:String): Player(name,acc) {
     override var account = acc
     override var job="Fighter"
-    override var hp=500
+    override var HP=500
     override var mp=100
     override var fullHP=500
     override var fullMP=100
@@ -24,7 +24,7 @@ class Fighter(name:String,acc:String): Player(name,acc) {
         Log.v("test","LEVEL UP!")
         fullHP=500+(lv-1)*180
         fullMP=100+(lv-1)*30
-        hp=fullHP
+        HP=fullHP
         mp=fullMP
         BasicStr=lv*2.5
         this.save()

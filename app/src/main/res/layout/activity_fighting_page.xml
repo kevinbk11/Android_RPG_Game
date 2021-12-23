@@ -7,7 +7,8 @@
         android:layout_height="match_parent"
         android:gravity="bottom"
         android:orientation="vertical"
-        tools:context=".FightingPage">
+        tools:context=".FightingPage"
+        >
 
     <LinearLayout
             android:orientation="vertical"
@@ -22,6 +23,7 @@
                 android:layout_weight="2"
                 android:id="@+id/linearLayout"
                 >
+
             <TextView
                     android:text=""
                     android:layout_width="wrap_content"
@@ -31,6 +33,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     android:textSize="32sp"
                     />
+
             <TextView
                     android:text=""
                     android:layout_width="wrap_content"
@@ -50,6 +53,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     android:textSize="32sp"
                     />
+
             <TextView
                     android:text=""
                     android:layout_width="wrap_content"
@@ -59,6 +63,7 @@
                     app:layout_constraintBottom_toTopOf="@+id/monsterDmg1"
                     android:textSize="32sp"
                     />
+
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -67,6 +72,7 @@
                     app:layout_constraintBottom_toTopOf="@+id/monsterDmg2"
                     android:textSize="32sp"
                     />
+
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -75,6 +81,7 @@
                     app:layout_constraintBottom_toTopOf="@+id/monsterDmg3"
                     android:textSize="32sp"
                     />
+
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -83,6 +90,7 @@
                     app:layout_constraintBottom_toTopOf="@+id/monsterDmg4"
                     android:textSize="32sp"
                     />
+
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -90,6 +98,68 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintBottom_toTopOf="@+id/monsterDmg5"
                     android:textSize="32sp"
+                    />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="4"
+                >
+
+            <ImageView
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/hp_background"
+                    android:id="@+id/monsterHpBackground"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="@+id/playerHpFrame"
+                    />
+
+            <ImageView
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/hp_bar"
+                    android:id="@+id/playerHpBar"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="@+id/monsterHpBackground"
+                    />
+
+            <ImageView
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/hp_frame"
+                    android:id="@+id/playerHpFrame"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    />
+
+            <ImageView
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/hp_background"
+                    android:id="@+id/playerHpBackground"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    />
+
+            <ImageView
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/hp_bar"
+                    android:id="@+id/monsterHpBar"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="@+id/playerHpBackground"
+                    />
+
+            <ImageView
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/hp_frame"
+                    android:id="@+id/monsterHpFrame"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/playerHpBackground"
                     />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -121,17 +191,22 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="3">
+            android:layout_weight="3"
+            >
+
         <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:id="@+id/RV"
-                tools:ignore="NestedWeights"/>
+                tools:ignore="NestedWeights"
+                />
+
         <LinearLayout
                 android:layout_width="80dp"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                >
 
             <Button
                     android:layout_width="wrap_content"

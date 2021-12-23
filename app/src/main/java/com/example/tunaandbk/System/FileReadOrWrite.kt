@@ -1,6 +1,5 @@
 package com.example.tunaandbk.System
 
-import android.util.Log
 import com.example.tunaandbk.Pager.ViewPagerPackage.JobPager
 import com.example.tunaandbk.Mob.Player.Job.Fighter
 import com.google.firebase.firestore.ktx.firestore
@@ -17,7 +16,7 @@ interface FileReadOrWrite {
             with(player)
             {
                 account = p["account"].toString()
-                hp = p["hp"].toString().toInt()
+                HP = p["hp"].toString().toInt()
                 mp = p["mp"].toString().toInt()
                 fullMP = p["fullMP"].toString().toInt()
                 fullHP = p["fullHP"].toString().toInt()
