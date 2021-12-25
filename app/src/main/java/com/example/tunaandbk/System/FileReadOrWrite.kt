@@ -17,14 +17,15 @@ interface FileReadOrWrite {
             {
                 account = p["account"].toString()
                 HP = p["hp"].toString().toInt()
-                mp = p["mp"].toString().toInt()
+                MP = p["mp"].toString().toInt()
                 fullMP = p["fullMP"].toString().toInt()
                 fullHP = p["fullHP"].toString().toInt()
                 damage = p["damage"].toString().toDouble()
                 lv = p["lv"].toString().toInt()
                 fullEXP = p["fullEXP"].toString().toDouble()
-                exp = p["exp"].toString().toDouble()
+                EXP = p["exp"].toString().toDouble()
                 money = p["money"].toString().toInt()
+                nowMapNumber=p["nowMapNumber"].toString()
                 val b = p["bag"] as MutableMap<String, ArrayList<HashMap<String, Any>>>
                 val eq = b["equipment"]!!
                 val co = b["consume"]!!

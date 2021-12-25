@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".FightEndPage"
+        android:orientation="vertical"
+        >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            >
+
+        <ImageView
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/hp_background"
+                android:id="@+id/expBackground"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="270dp"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+
+        <ImageView
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/hp_bar"
+                android:id="@+id/expBar"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="270dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+
+        <ImageView
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/hp_frame"
+                android:id="@+id/expFrame"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="270dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+
+        <ImageView
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/hp_background"
+                android:id="@+id/mpBackground"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="120dp"
+                android:layout_marginEnd="30dp"
+                />
+
+        <ImageView
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/hp_bar"
+                android:id="@+id/mpBar"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="120dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="30dp"
+                />
+
+        <ImageView
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/hp_frame"
+                android:id="@+id/mpFrame"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="120dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="30dp"
+                />
+
+        <ImageView
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/hp_background"
+                android:id="@+id/hpBackground"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="90dp"
+                android:layout_marginEnd="30dp"
+                />
+
+        <ImageView
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/hp_bar"
+                android:id="@+id/hpBar"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="90dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="30dp"
+                />
+
+        <ImageView
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/hp_frame"
+                android:id="@+id/hpFrame"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="90dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="30dp"
+                />
+
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:srcCompat="@tools:sample/avatars"
+                android:id="@+id/PlayerImage"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="80dp"
+                android:layout_marginStart="52dp"
+                />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            >
+
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                >
+
+            <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:srcCompat="@tools:sample/avatars"
+                    android:id="@+id/ItemImg1"
+                    android:layout_weight="1"
+                    />
+
+            <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:srcCompat="@tools:sample/avatars"
+                    android:id="@+id/itemImg2"
+                    android:layout_weight="1"
+                    />
+
+            <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:srcCompat="@tools:sample/avatars"
+                    android:id="@+id/itemImg3"
+                    android:layout_weight="1"
+                    />
+
+            <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:srcCompat="@tools:sample/avatars"
+                    android:id="@+id/itemImg4"
+                    android:layout_weight="1"
+                    />
+
+            <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:srcCompat="@tools:sample/avatars"
+                    android:id="@+id/itemImg5"
+                    android:layout_weight="1"
+                    />
+
+            <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:srcCompat="@tools:sample/avatars"
+                    android:id="@+id/itemImg6"
+                    android:layout_weight="1"
+                    />
+
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:id="@+id/linearLayout2"
+                >
+
+            <Button
+                    android:text="Button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/button6"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginStart="70dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginBottom="70dp"
+                    />
+
+            <Button
+                    android:text="Button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/okButton"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginEnd="70dp"
+                    android:layout_marginBottom="70dp"
+                    android:onClick="backToMonsterChoice"
+                    />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

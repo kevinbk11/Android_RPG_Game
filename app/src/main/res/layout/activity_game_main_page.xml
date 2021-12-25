@@ -42,7 +42,7 @@
                 android:text="戰鬥"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/exploreButton" android:onClick="exploreMap"/>
+                android:id="@+id/fightButton" android:onClick="goFight"/>
     </LinearLayout>
 
     <LinearLayout

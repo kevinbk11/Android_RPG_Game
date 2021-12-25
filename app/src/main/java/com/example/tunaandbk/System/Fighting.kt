@@ -1,13 +1,17 @@
 package com.example.tunaandbk.System
 
+import android.content.Intent
 import android.util.Log
 import android.view.animation.Animation
 import android.view.animation.ScaleAnimation
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import com.example.tunaandbk.FightEndPage
+import com.example.tunaandbk.FightingPage
 import com.example.tunaandbk.R
 import com.example.tunaandbk.System.UIExtension.ImageViewExtension
 import com.example.tunaandbk.System.UIExtension.TextViewExtension
+import com.example.tunaandbk.ZoomInMap
 
 class Fighting(val context: AppCompatActivity? = null): TextViewExtension,ImageViewExtension {
     var turn = 0
@@ -38,10 +42,10 @@ class Fighting(val context: AppCompatActivity? = null): TextViewExtension,ImageV
         if(player.isDead()) { player.respawn() }
         else
         {
-            player.getMoney(nowMonster.dropMoney())
-            player.getExp(nowMonster.exp)
+            val intent = Intent(context, FightEndPage::class.java)
+            context!!.startActivity(intent)
+
         }
-        context!!.onBackPressed()
         player.save()
     }
     fun checkEnd()
