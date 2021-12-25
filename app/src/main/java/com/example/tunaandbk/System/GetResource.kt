@@ -11,8 +11,8 @@ interface GetResource {
     fun getXml(key:String):Int?
     {
         val mapXml=mapOf(
-            "伊納修" to R.layout.initial_city,
-            "布德草原" to R.layout.bird_grassland
+            "0001" to R.layout.initial_city,
+            "0002" to R.layout.bird_grassland
         )
         return mapXml[key]
     }

@@ -5,7 +5,6 @@ import com.example.tunaandbk.Mob.Player.Job.Fighter
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 interface FileReadOrWrite {
-
     fun addUserToFirebase(user: HashMap<String, Any>) {
         val db = Firebase.firestore
         db.collection("users").document(user["account"].toString()).set(user)
@@ -17,15 +16,16 @@ interface FileReadOrWrite {
             with(player)
             {
                 account = p["account"].toString()
-                hp = p["hp"].toString().toInt()
-                mp = p["mp"].toString().toInt()
+                HP = p["hp"].toString().toInt()
+                MP = p["mp"].toString().toInt()
                 fullMP = p["fullMP"].toString().toInt()
                 fullHP = p["fullHP"].toString().toInt()
                 damage = p["damage"].toString().toDouble()
                 lv = p["lv"].toString().toInt()
                 fullEXP = p["fullEXP"].toString().toDouble()
-                exp = p["exp"].toString().toDouble()
+                EXP = p["exp"].toString().toDouble()
                 money = p["money"].toString().toInt()
+                nowMapNumber=p["nowMapNumber"].toString()
                 val b = p["bag"] as MutableMap<String, ArrayList<HashMap<String, Any>>>
                 val eq = b["equipment"]!!
                 val co = b["consume"]!!

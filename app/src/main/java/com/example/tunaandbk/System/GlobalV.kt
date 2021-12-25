@@ -6,6 +6,7 @@ import android.content.Context
 import android.graphics.Color
 import android.view.MotionEvent
 import android.view.View
+import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.core.graphics.drawable.toBitmap
@@ -25,6 +26,8 @@ var player: Player = nullPlayer
 var activityList= mutableListOf<Activity>()
 var nowMonster: Monster = NullMonster
 var monsterDmgText:List<TextView> = listOf()
+var playerDmgText:List<TextView> = listOf()
+var fightingButtonList:MutableList<Button> = mutableListOf()
 val itemMap=mapOf(
     "木劍" to WoodSword,
     "石劍" to StoneSword,
