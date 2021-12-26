@@ -10,7 +10,7 @@ import com.example.tunaandbk.System.fighting
 import com.example.tunaandbk.System.nowMonster
 import com.example.tunaandbk.System.player
 
-interface ImageViewExtension {
+interface  ImageViewExtension {
     fun ImageView.startGetDamageAnimation(dmgList:List<Int>,now:Int=0,app:AppCompatActivity)
     {
         if(now==dmgList.size)return
