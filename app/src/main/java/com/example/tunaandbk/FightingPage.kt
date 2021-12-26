@@ -4,9 +4,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.TextView
 import com.example.tunaandbk.RecyclerView.Adapter.RecyclerViewAdapter
 import com.example.tunaandbk.RecyclerView.RecyclerViewPackage.skillRecyclerView
 import com.example.tunaandbk.System.*
+import com.example.tunaandbk.System.UIExtension.TextViewExtension
 import kotlinx.android.synthetic.main.activity_fighting_page.*
 
 class FightingPage : AppCompatActivity() {
@@ -17,6 +19,7 @@ class FightingPage : AppCompatActivity() {
         skillPanelLayout.build(this)
         fighting=Fighting(this)
         fighting.start()
+
         monsterDmgText=listOf(monsterDmg1,monsterDmg2,monsterDmg3,monsterDmg4,monsterDmg5,monsterDmg6)
         playerDmgText=listOf(playerDmgText1,playerDmgText2)
         fightingButtonList=(skillPanelLayout.RV.adapter as RecyclerViewAdapter).skillButtonList
@@ -25,7 +28,6 @@ class FightingPage : AppCompatActivity() {
         fightingButtonList.add(runButton)
         Log.v("fightInfo","player:${player.HP},${nowMonster.name}:${nowMonster.hp}")
     }
-
     fun normalAttack(view:View)
     {
         skillPosition=-1
