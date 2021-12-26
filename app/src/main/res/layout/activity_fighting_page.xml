@@ -112,9 +112,10 @@
                     android:layout_width="160dp"
                     android:layout_height="wrap_content"
                     app:srcCompat="@drawable/hp_background"
-                    android:id="@+id/monsterHpBackground"
+                    android:id="@+id/playerHpBackground"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintBottom_toBottomOf="@+id/playerHpFrame"
+                    app:layout_constraintBottom_toBottomOf="parent
+"
                     />
 
             <ImageView
@@ -123,7 +124,7 @@
                     app:srcCompat="@drawable/hp_bar"
                     android:id="@+id/playerHpBar"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintBottom_toBottomOf="@+id/monsterHpBackground"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     />
 
             <ImageView
@@ -139,7 +140,7 @@
                     android:layout_width="160dp"
                     android:layout_height="wrap_content"
                     app:srcCompat="@drawable/hp_background"
-                    android:id="@+id/playerHpBackground"
+                    android:id="@+id/monsterHpBackground1"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
                     />
@@ -150,7 +151,7 @@
                     app:srcCompat="@drawable/hp_bar"
                     android:id="@+id/monsterHpBar"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintBottom_toBottomOf="@+id/playerHpBackground"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     />
 
             <ImageView
@@ -159,7 +160,7 @@
                     app:srcCompat="@drawable/hp_frame"
                     android:id="@+id/monsterHpFrame"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="@+id/playerHpBackground"
+                    app:layout_constraintEnd_toEndOf="parent"
                     />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
