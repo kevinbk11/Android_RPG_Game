@@ -1,29 +1,21 @@
-package com.example.tunaandbk.System
+package com.example.tunaandbk.System.UIExtension
 
 import android.annotation.SuppressLint
-import android.app.AlertDialog
 import android.content.res.Resources
 import android.graphics.Color
-import android.util.Log
-import android.view.*
+import android.view.MotionEvent
+import android.view.View
 import android.view.animation.Animation
 import android.view.animation.ScaleAnimation
 import android.widget.Button
 import android.widget.ImageButton
 import androidx.core.graphics.drawable.toBitmap
-import com.example.tunaandbk.R
+import com.example.tunaandbk.System.GetResource
+import com.example.tunaandbk.System.b
+import com.example.tunaandbk.System.g
+import com.example.tunaandbk.System.r
 
-interface UIExtension:GetResource{
-    fun Window.hideBar() {
-        this.decorView.systemUiVisibility =
-            View.SYSTEM_UI_FLAG_FULLSCREEN or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-        this.decorView.setOnSystemUiVisibilityChangeListener { v ->
-            if (v and View.SYSTEM_UI_FLAG_FULLSCREEN == 0) {
-                this.decorView.systemUiVisibility =
-                    View.SYSTEM_UI_FLAG_FULLSCREEN or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-            }
-        }
-    }
+interface ButtonExtension:GetResource {
 
     fun ImageButton.checkColor(): Boolean {
         return !(r == g && g == b && r == 0)
@@ -49,13 +41,6 @@ interface UIExtension:GetResource{
             }
         })
     }
-
-    fun AlertDialog.showCheckFight() {
-        this.show()
-        this.window!!.setBackgroundDrawableResource(android.R.color.transparent)
-        this.window!!.setContentView(R.layout.fight_recheck)
-    }
-
     fun Button.setScaleAnimation() {
         this.setOnTouchListener(object : View.OnTouchListener {
             @SuppressLint("ClickableViewAccessibility")
@@ -86,11 +71,12 @@ interface UIExtension:GetResource{
     }
 
     fun ImageButton.setScaleAnimation(r: Resources, p:String) {
+        val btn = this
         this.setOnTouchListener(object : View.OnTouchListener {
             @SuppressLint("ClickableViewAccessibility")
             override fun onTouch(p0: View?, p1: MotionEvent?): Boolean {
-                p0 as ImageButton
                 if (p1!!.action == MotionEvent.ACTION_DOWN) {
+                    btn.setBackgroundResource(getImageResources(r,"bt_login_2","mipmap",p))
                     val am = ScaleAnimation(
                         1.0f, 0.9f, 1.0f, 0.9f,
                         Animation.RELATIVE_TO_SELF, 0.5f,
@@ -98,9 +84,10 @@ interface UIExtension:GetResource{
                     )
                     am!!.duration = 0
                     am.fillAfter = true
-                    p0!!.startAnimation(am)
-                    p0!!.setImageResource(getImageResources(r,"bt_login_2","mipmap",p))
+                    btn.startAnimation(am)
+
                 } else if (p1!!.action == MotionEvent.ACTION_UP) {
+                    btn.setBackgroundResource(getImageResources(r,"bt_login_1","mipmap",p))
                     val am = ScaleAnimation(
                         0.9f, 1.0f, 0.9f, 1.0f,
                         Animation.RELATIVE_TO_SELF, 0.5f,
@@ -108,11 +95,12 @@ interface UIExtension:GetResource{
                     )
                     am!!.duration = 0
                     am.fillAfter = true
-                    p0!!.startAnimation(am)
-                    p0!!.setImageResource(getImageResources(r,"bt_login_1","mipmap",p))
+                    btn!!.startAnimation(am)
+
                 }
                 return false
             }
         })
     }
+
 }

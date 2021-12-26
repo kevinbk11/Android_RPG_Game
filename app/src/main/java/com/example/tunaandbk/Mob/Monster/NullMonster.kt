@@ -1,5 +1,5 @@
 package com.example.tunaandbk.Mob.Monster
 
-object NullMonster:Monster("null",0,0.0,0.0) {
+object NullMonster:Monster("null",0,0.0,0.0,0,12, listOf()) {
 
 }

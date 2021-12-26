@@ -7,58 +7,235 @@
         android:layout_height="match_parent"
         android:gravity="bottom"
         android:orientation="vertical"
-        tools:context=".FightingPage">
+        tools:context=".FightingPage"
+        >
 
     <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="bottom"
-            android:layout_weight="2">
+            android:layout_weight="1"
+            android:gravity="center"
+            >
 
-        <ImageView
-                android:layout_width="0dp"
-                android:layout_height="200dp"
-                android:layout_weight="1"
-                android:src="@mipmap/fighter"/>
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="4"
+                >
 
-        <ImageView
-                android:layout_width="0dp"
-                android:layout_height="200dp"
-                android:layout_weight="1"
-                android:id="@+id/imageView"/>
+            <ImageView
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/hp_background"
+                    android:id="@+id/playerHpBackground"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent
+"
+                    />
+
+            <ImageView
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/hp_bar"
+                    android:id="@+id/playerHpBar"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    />
+
+            <ImageView
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/hp_frame"
+                    android:id="@+id/playerHpFrame"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    />
+
+            <ImageView
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/hp_background"
+                    android:id="@+id/monsterHpBackground1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    />
+
+            <ImageView
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/hp_bar"
+                    android:id="@+id/monsterHpBar"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    />
+
+            <ImageView
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/hp_frame"
+                    android:id="@+id/monsterHpFrame"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toStartOf="parent"
+                    >
+
+                <TextView
+                        style="@style/dmgtext"
+                        android:id="@+id/playerDmgText1"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        />
+
+                <TextView
+                        style="@style/dmgtext"
+                        android:id="@+id/playerDmgText2"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintBottom_toTopOf="@+id/playerDmgText1"
+                        />
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                        style="@style/dmgtext"
+                        android:id="@+id/monsterDmg1"
+                        app:layout_constraintEnd_toEndOf="@+id/monsterDmg2"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        />
+
+                <TextView
+                        style="@style/dmgtext"
+                        android:id="@+id/monsterDmg2"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintBottom_toTopOf="@+id/monsterDmg1"
+                        />
+
+                <TextView
+                        style="@style/dmgtext"
+                        android:id="@+id/monsterDmg3"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintBottom_toTopOf="@+id/monsterDmg2"
+                        />
+
+                <TextView
+                        style="@style/dmgtext"
+                        android:id="@+id/monsterDmg4"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintBottom_toTopOf="@+id/monsterDmg3"
+                        />
+
+                <TextView
+                        style="@style/dmgtext"
+                        android:id="@+id/monsterDmg5"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintBottom_toTopOf="@+id/monsterDmg4"
+                        />
+
+                <TextView
+                        style="@style/dmgtext"
+                        android:id="@+id/monsterDmg6"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintBottom_toTopOf="@+id/monsterDmg5"
+                        />
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="bottom"
+                    android:layout_weight="0"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:id="@+id/linearLayout"
+                    >
+
+                <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="200dp"
+                        android:layout_weight="1"
+                        />
+
+                <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="200dp"
+                        android:layout_weight="1"
+                        android:id="@+id/imageView"
+                        />
+
+            </LinearLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
     </LinearLayout>
 
     <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="3">
+            android:layout_weight="3"
+            >
+
         <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:id="@+id/RV"
-                tools:ignore="NestedWeights"/>
+                tools:ignore="NestedWeights"
+                />
+
         <LinearLayout
                 android:layout_width="80dp"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                >
+
             <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="道具"/>
+                    android:text="攻擊"
+                    android:onClick="normalAttack"
+                    android:id="@+id/attackButton"
+                    />
+
             <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="道具"/>
+                    android:text="道具"
+                    android:id="@+id/itemButton"
+                    />
+
             <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="道具"/>
+                    android:text="逃跑"
+                    android:id="@+id/runButton"
+                    />
         </LinearLayout>
 
     </LinearLayout>

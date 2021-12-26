@@ -10,22 +10,25 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.example.tunaandbk.Mob.Monster.*
 import com.example.tunaandbk.System.*
+import com.example.tunaandbk.System.UIExtension.WindowExtension
 import com.example.tunaandbk.System.nowMonster
 
 
-class ZoomInMap : AppCompatActivity(),GetResource,UIExtension {
+class ZoomInMap : AppCompatActivity(),GetResource,WindowExtension {
 
     var dialog: AlertDialog?=null
     override fun onBackPressed() {
-        super.onBackPressed()
+        val intent = Intent(this@ZoomInMap,GameMainPage::class.java)
+        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+        startActivity(intent)
         dialog!!.dismiss()
         dialog=null
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_zoom_in_map)
-        val map = intent.getStringExtra("map")
-        setContentView(getXml(map!!)!!)
+        val map = player.nowMapNumber
+        setContentView(getXml(map)!!)
         val builder = AlertDialog.Builder(this)
         dialog = builder.create()
 

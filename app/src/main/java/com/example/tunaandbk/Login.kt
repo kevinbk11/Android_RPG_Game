@@ -4,19 +4,19 @@ import android.content.Intent
 import android.graphics.Paint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.Toast
 import com.example.tunaandbk.System.FileReadOrWrite
-import com.example.tunaandbk.System.UIExtension
+import com.example.tunaandbk.System.UIExtension.ButtonExtension
+import com.example.tunaandbk.System.UIExtension.WindowExtension
 import com.example.tunaandbk.System.activityList
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_login.view.*
 
-class Login : AppCompatActivity(),FileReadOrWrite, UIExtension {
+class Login : AppCompatActivity(),FileReadOrWrite, WindowExtension,ButtonExtension {
     override fun onBackPressed() {
     }
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -1,13 +1,10 @@
 package com.example.tunaandbk.System
 
-import android.content.res.Resources
-import android.util.Log
 import com.example.tunaandbk.Pager.ViewPagerPackage.JobPager
 import com.example.tunaandbk.Mob.Player.Job.Fighter
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 interface FileReadOrWrite {
-
     fun addUserToFirebase(user: HashMap<String, Any>) {
         val db = Firebase.firestore
         db.collection("users").document(user["account"].toString()).set(user)
@@ -16,34 +13,35 @@ interface FileReadOrWrite {
     fun rebuildUserData(p: HashMap<String,Any?>) {
         if (p["job"] == "Fighter") {
             player = Fighter(p["name"].toString(),p["account"].toString())
-            with(player!!)
+            with(player)
             {
                 account = p["account"].toString()
                 HP = p["hp"].toString().toInt()
                 MP = p["mp"].toString().toInt()
-                FullMP = p["fullMP"].toString().toInt()
-                FullHP = p["fullHP"].toString().toInt()
-                Damage = p["damage"].toString().toDouble()
-                LV = p["lv"].toString().toInt()
-                FullEXP = p["fullEXP"] as Double
-                EXP = p["exp"] as Double
-                Money = p["money"].toString().toInt()
+                fullMP = p["fullMP"].toString().toInt()
+                fullHP = p["fullHP"].toString().toInt()
+                damage = p["damage"].toString().toDouble()
+                lv = p["lv"].toString().toInt()
+                fullEXP = p["fullEXP"].toString().toDouble()
+                EXP = p["exp"].toString().toDouble()
+                money = p["money"].toString().toInt()
+                nowMapNumber=p["nowMapNumber"].toString()
                 val b = p["bag"] as MutableMap<String, ArrayList<HashMap<String, Any>>>
                 val eq = b["equipment"]!!
                 val co = b["consume"]!!
                 val an = b["another"]!!
                 for(i in p["skillList"] as ArrayList<HashMap<String,String>>)
                 {
-                    player!!.learnSkill(skillMap[i["name"].toString()]!!)
+                    player.learnSkill(skillMap[i["name"].toString()]!!)
                 }
                 for (i in co.filter{it["name"]!="none"}) {
-                    put(itemMap[i["name"]],i["count"]!!.toString().toInt())
+                    getItem(itemMap[i["name"]],i["count"]!!.toString().toInt())
                 }
                 for (i in eq.filter{it["name"]!="none"}) {
-                    put(itemMap[i["name"]], i["count"]!!.toString().toInt())
+                    getItem(itemMap[i["name"]], i["count"]!!.toString().toInt())
                 }
                 for (i in an.filter{it["name"]!="none"}) {
-                    put(itemMap[i["name"]], i["count"]!!.toString().toInt())
+                    getItem(itemMap[i["name"]], i["count"]!!.toString().toInt())
                 }
             }
         }
