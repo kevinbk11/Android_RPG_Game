@@ -94,7 +94,8 @@ class Fighting(val context: FightingPage?=null): TextViewExtension,ImageViewExte
         val total = dmgList.sum()
         Log.v("test","tvvd")
             Thread{
-                for(i in total downTo 1 ){
+                for(i in total downTo 1 )
+                {
                     context!!.runOnUiThread{
                         if(textView.text.toString().toInt()<=0)return@runOnUiThread
                         textView.text=(textView.text.toString().toInt()-1).toString()
