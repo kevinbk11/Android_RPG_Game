@@ -15,21 +15,11 @@
             android:layout_weight="1"
             >
 
-        <ImageView
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/hp_background"
-                android:id="@+id/expBackground"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginTop="270dp"
-                app:layout_constraintStart_toStartOf="parent"
-                />
 
         <ImageView
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/hp_bar"
+                app:srcCompat="@drawable/exp_bar"
                 android:id="@+id/expBar"
                 app:layout_constraintTop_toTopOf="parent"
                 android:layout_marginTop="270dp"
@@ -40,7 +30,7 @@
         <ImageView
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/hp_frame"
+                app:srcCompat="@drawable/exp_bar_frame"
                 android:id="@+id/expFrame"
                 app:layout_constraintTop_toTopOf="parent"
                 android:layout_marginTop="270dp"
@@ -51,7 +41,7 @@
         <ImageView
                 android:layout_width="160dp"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/hp_background"
+                app:srcCompat="@drawable/bar_backgorund"
                 android:id="@+id/mpBackground"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -62,7 +52,7 @@
         <ImageView
                 android:layout_width="160dp"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/hp_bar"
+                app:srcCompat="@drawable/bar_mp"
                 android:id="@+id/mpBar"
                 app:layout_constraintTop_toTopOf="parent"
                 android:layout_marginTop="120dp"
@@ -73,7 +63,7 @@
         <ImageView
                 android:layout_width="160dp"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/hp_frame"
+                app:srcCompat="@drawable/bar_frame"
                 android:id="@+id/mpFrame"
                 app:layout_constraintTop_toTopOf="parent"
                 android:layout_marginTop="120dp"
@@ -84,7 +74,7 @@
         <ImageView
                 android:layout_width="160dp"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/hp_background"
+                app:srcCompat="@drawable/bar_backgorund"
                 android:id="@+id/hpBackground"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -95,7 +85,7 @@
         <ImageView
                 android:layout_width="160dp"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/hp_bar"
+                app:srcCompat="@drawable/bar_hp"
                 android:id="@+id/hpBar"
                 app:layout_constraintTop_toTopOf="parent"
                 android:layout_marginTop="90dp"
@@ -106,7 +96,7 @@
         <ImageView
                 android:layout_width="160dp"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/hp_frame"
+                app:srcCompat="@drawable/bar_frame"
                 android:id="@+id/hpFrame"
                 app:layout_constraintTop_toTopOf="parent"
                 android:layout_marginTop="90dp"

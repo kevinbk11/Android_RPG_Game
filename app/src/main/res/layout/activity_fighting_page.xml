@@ -21,81 +21,149 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     >
-                <ImageView
-                        android:layout_width="160dp"
-                        android:layout_height="wrap_content"
-                        app:srcCompat="@drawable/hp_background"
-                        android:id="@+id/monsterHpBackground1"
-                        />
 
-                <ImageView
-                        android:layout_width="160dp"
-                        android:layout_height="wrap_content"
-                        app:srcCompat="@drawable/hp_bar"
-                        android:id="@+id/monsterHpBar"
-                        />
+                <RelativeLayout
+                        android:layout_width="240dp"
+                        android:layout_height="30dp"
+                        android:id="@+id/m_bar"
+                        >
+                    <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:srcCompat="@drawable/bar_backgorund"
+                            android:id="@+id/monsterHpBackground1"
+                            />
 
-                <ImageView
-                        android:layout_width="160dp"
-                        android:layout_height="wrap_content"
-                        app:srcCompat="@drawable/hp_frame"
-                        android:id="@+id/monsterHpFrame"
-                        />
+                    <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:srcCompat="@drawable/bar_hp"
+                            android:id="@+id/monsterHpBar"
+                            />
+
+                    <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:srcCompat="@drawable/bar_frame"
+                            android:id="@+id/monsterHpFrame"
+                            />
+                </RelativeLayout>
+
 
                 <TextView
                         android:id="@+id/monster_hptext"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="hp:0/0"
-                        android:layout_below="@+id/monsterHpBar"
+                        android:layout_below="@+id/m_bar"
                         />
             </RelativeLayout>
 
         </LinearLayout>
 
-
     <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="240dp"
+            android:background="@color/brown"
             >
-        <androidx.recyclerview.widget.RecyclerView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:id="@+id/RV"
-                tools:ignore="NestedWeights"
-                />
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                android:gravity="center">
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="hp:0/0"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="4dp"
+                    />
+            <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/bar_backgorund"/>
+            <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/bar_hp"/>
+            <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/bar_frame"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                android:gravity="center">
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="mp:0/0"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="4dp"
+                    />
+            <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/bar_backgorund"/>
+            <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/bar_mp"/>
+            <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/bar_frame"/>
+
+        </RelativeLayout>
+
+
         <LinearLayout
-                android:layout_width="90dp"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                >
-
-            <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="攻擊"
-                    android:onClick="normalAttack"
-                    android:id="@+id/attackButton"
+                    android:id="@+id/RV"
+                    tools:ignore="NestedWeights"
                     />
+            <LinearLayout
+                    android:layout_width="90dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    >
 
-            <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="道具"
-                    android:id="@+id/itemButton"
-                    />
+                <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="攻擊"
+                        android:onClick="normalAttack"
+                        android:id="@+id/attackButton"
+                        />
 
-            <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="逃跑"
-                    android:id="@+id/runButton"
-                    />
+                <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="道具"
+                        android:id="@+id/itemButton"
+                        />
+
+                <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="逃跑"
+                        android:id="@+id/runButton"
+                        />
+            </LinearLayout>
         </LinearLayout>
+
 
     </LinearLayout>
 
