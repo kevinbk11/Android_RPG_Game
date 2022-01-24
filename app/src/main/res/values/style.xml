@@ -8,9 +8,11 @@
         <item name="android:windowBackground">@android:color/transparent</item>
     </style>
     <style name="dmgtext">
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">28sp</item>
+        <item name="android:text"> </item>
+        <item name="android:textColor">@color/red</item>
 
     </style>
 </resources>

@@ -9,113 +9,191 @@
         android:orientation="vertical"
         tools:context=".FightingPage"
         >
-    <TextView
-            android:id="@+id/monsterDmg1"
-            android:layout_width="wrap_content"
-            android:layout_height="32dp"/>
-    <TextView
-            android:id="@+id/monsterDmg2"
-            android:layout_width="wrap_content"
-            android:layout_height="32dp"/>
-    <TextView
-            android:id="@+id/monsterDmg3"
-            android:layout_width="wrap_content"
-            android:layout_height="32dp"/>
-    <TextView
-            android:id="@+id/monsterDmg4"
-            android:layout_width="wrap_content"
-            android:layout_height="32dp"/>
-    <TextView
-            android:id="@+id/monsterDmg5"
-            android:layout_width="wrap_content"
-            android:layout_height="32dp"/>
-    <TextView
-            android:id="@+id/monsterDmg6"
-            android:layout_width="wrap_content"
-            android:layout_height="32dp"/>
-    <TextView
-            android:id="@+id/playerDmgText1"
-            android:layout_width="wrap_content"
-            android:layout_height="32dp"/>
-    <TextView
-            android:id="@+id/playerDmgText2"
-            android:layout_width="wrap_content"
-            android:layout_height="32dp"/>
-        <LinearLayout
-                android:layout_width="match_parent"
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+
+        <RelativeLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
                 >
 
-
             <RelativeLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
+                    android:layout_width="240dp"
+                    android:layout_height="30dp"
+                    android:id="@+id/m_bar"
                     >
 
-                <RelativeLayout
-                        android:layout_width="240dp"
-                        android:layout_height="30dp"
-                        android:id="@+id/m_bar"
-                        >
-                    <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            app:srcCompat="@drawable/bar_backgorund"
-                            android:id="@+id/monsterHpBackground1"
-                            />
-
-                    <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            app:srcCompat="@drawable/bar_hp"
-                            android:id="@+id/monsterHpBar"
-                            />
-
-                    <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            app:srcCompat="@drawable/bar_frame"
-                            android:id="@+id/monsterHpFrame"
-                            />
-                </RelativeLayout>
-
-
-                <TextView
-                        android:id="@+id/monster_hptext"
-                        android:layout_width="wrap_content"
+                <ImageView
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="hp:0/0"
-                        android:layout_below="@+id/m_bar"
+                        app:srcCompat="@drawable/bar_backgorund"
+                        android:id="@+id/monsterHpBackground1"
+                        />
+
+                <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/bar_hp"
+                        android:id="@+id/monsterHpBar"
+                        />
+
+                <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/bar_frame"
+                        android:id="@+id/monsterHpFrame"
                         />
             </RelativeLayout>
 
-        </LinearLayout>
-<LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="200dp"
-            android:layout_weight="1"
-            android:src="@mipmap/fighter"
-            />
-    <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="200dp"
-            android:layout_weight="1"/>
-</LinearLayout>
+
+            <TextView
+                    android:id="@+id/monster_hptext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="hp:0/0"
+                    android:layout_below="@+id/m_bar"
+                    />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+
+            >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                >
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:id="@+id/linearLayout"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    >
+
+                <TextView
+                        android:id="@+id/playerDmgText1"
+                        style="@style/dmgtext"
+                        />
+
+                <TextView
+                        android:id="@+id/playerDmgText2"
+                        style="@style/dmgtext"
+                        />
+            </LinearLayout>
+
+            <ImageView
+                    android:id="@+id/fighter"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:src="@mipmap/fighter"
+
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_alignParentEnd="true"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:id="@+id/linearLayout3"
+                    >
+
+                <TextView
+                        android:id="@+id/monsterDmg1"
+                        style="@style/dmgtext"
+                        />
+
+                <TextView
+                        android:id="@+id/monsterDmg2"
+                        style="@style/dmgtext"
+                        />
+
+                <TextView
+                        android:id="@+id/monsterDmg3"
+                        style="@style/dmgtext"
+                        />
+
+                <TextView
+                        android:id="@+id/monsterDmg4"
+                        style="@style/dmgtext"
+                        />
+
+                <TextView
+                        android:id="@+id/monsterDmg5"
+                        style="@style/dmgtext"
+                        />
+
+                <TextView
+                        android:id="@+id/monsterDmg6"
+                        style="@style/dmgtext"
+                        />
+            </LinearLayout>
+
+            <ImageView
+                    android:id="@+id/monster"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="@+id/linearLayout3"
+                    app:layout_constraintTop_toTopOf="@+id/linearLayout3"
+                    />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
     <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="240dp"
             android:background="@color/brown"
             >
+
         <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="24dp"
-                android:gravity="center">
+                android:layout_height="18dp"
+                android:gravity="center"
+                >
+
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -123,26 +201,33 @@
                     android:layout_alignParentStart="true"
                     android:layout_marginStart="4dp"
                     />
+
             <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/bar_backgorund"/>
+                    android:src="@drawable/bar_backgorund"
+                    />
+
             <ImageView
                     android:id="@+id/playerHpBar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/bar_hp"/>
+                    android:src="@drawable/bar_hp"
+                    />
+
             <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/bar_frame"/>
+                    android:src="@drawable/bar_frame"
+                    />
 
         </RelativeLayout>
 
         <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="24dp"
-                android:gravity="center">
+                android:layout_height="18dp"
+                android:gravity="center"
+                >
 
             <TextView
                     android:layout_width="wrap_content"
@@ -151,25 +236,33 @@
                     android:layout_alignParentStart="true"
                     android:layout_marginStart="4dp"
                     />
+
             <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/bar_backgorund"/>
+                    android:src="@drawable/bar_backgorund"
+                    />
+
             <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/bar_mp"/>
+                    android:src="@drawable/bar_mp"
+                    />
+
             <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/bar_frame"/>
+                    android:src="@drawable/bar_frame"
+                    />
 
         </RelativeLayout>
 
 
         <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                >
+
             <androidx.recyclerview.widget.RecyclerView
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -177,6 +270,7 @@
                     android:id="@+id/RV"
                     tools:ignore="NestedWeights"
                     />
+
             <LinearLayout
                     android:layout_width="90dp"
                     android:layout_height="match_parent"
@@ -213,4 +307,4 @@
 
     </LinearLayout>
 
-    </LinearLayout>
+</LinearLayout>
