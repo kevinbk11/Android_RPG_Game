@@ -1,5 +1,6 @@
 package com.example.tunaandbk.System.UIExtension
 
+import android.util.Log
 import android.view.animation.AlphaAnimation
 import android.view.animation.Animation
 import android.view.animation.ScaleAnimation
@@ -31,7 +32,12 @@ interface TextViewExtension {
                     if(now+1==dmgList.size)
                     {
                         fighting.turn=(fighting.turn+1)%2
-                        if(fighting.turn==0)fighting.roundProcessing=false
+                        Log.v("test","${fighting.turn}")
+                        if(fighting.turn==0)
+                        {
+                            fighting.roundProcessing=false
+                            Log.v("test","?WHYWHY")
+                        }
                         fighting.checkEnd()
                     }
                 }

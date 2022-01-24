@@ -80,7 +80,11 @@ class Fighting(val context: FightingPage?=null): TextViewExtension,ImageViewExte
     fun waitAnimationEnd()
     {
         this.roundProcessing=true
-        while(this.roundProcessing){ Thread.sleep(100) }
+        while(this.roundProcessing)
+        {
+            Thread.sleep(100)
+            Log.v("test","?why")
+        }
     }
     fun changeFightingButtonClickable(state:Boolean)
     {
