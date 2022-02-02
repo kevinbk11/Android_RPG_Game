@@ -16,13 +16,12 @@
 
 
 
-
-
     </LinearLayout>
 
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/purple_200"
             >
 
 
@@ -74,8 +73,9 @@
     </LinearLayout>
 
     <LinearLayout
-            android:layout_height="wrap_content"
+            android:layout_height="200dp"
             android:layout_width="match_parent"
+            android:background="@color/teal_700"
 
             >
 
@@ -85,6 +85,18 @@
                 android:layout_weight="1"
                 >
 
+            <ImageView
+                    android:id="@+id/fighter"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:src="@mipmap/fighter"
+
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    />
+
             <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -92,6 +104,7 @@
                     android:id="@+id/linearLayout"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
+                    android:gravity="center"
                     >
 
                 <TextView
@@ -105,17 +118,6 @@
                         />
             </LinearLayout>
 
-            <ImageView
-                    android:id="@+id/fighter"
-                    android:layout_width="160dp"
-                    android:layout_height="160dp"
-                    android:src="@mipmap/fighter"
-
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
