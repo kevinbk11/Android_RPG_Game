@@ -5,7 +5,7 @@ import com.example.tunaandbk.Mob.Skill.Skill
 import kotlin.random.Random
 import kotlin.random.Random.Default.nextInt
 
-class TurnTurnBird:Monster("轉轉鳥",100,500.0,1.2,10,30,listOf()) {
+class TurnTurnBird:Monster("轉轉鳥",100,10.0,1.2,10,30,listOf()) {
     init{skills.add(NormalAttack1())
         skills.add(BirdAttack())}
     override fun attack():List<Int>
