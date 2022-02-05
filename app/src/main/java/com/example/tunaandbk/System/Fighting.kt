@@ -32,11 +32,11 @@ class Fighting(val context: FightingPage? =null): TextViewExtension,ImageViewExt
     fun start()
     {
         val playerHpTextView=context!!.findViewById<TextView>(R.id.player_hptext)
-        playerHpTextView.text= "hp:${player.HP}/${player.fullHP}"
+        playerHpTextView.text= "${player.HP}/${player.fullHP}"
         val monsterHpTextView=context!!.findViewById<TextView>(R.id.monster_hptext)
-        monsterHpTextView.text="hp:${nowMonster.hp.toString()}/${nowMonster.fullHP.toString()}"
+        monsterHpTextView.text="${nowMonster.hp}/${nowMonster.fullHP}"
         val playerMpTextView=context!!.findViewById<TextView>(R.id.player_mptext)
-        playerMpTextView.text="mp:${player.MP}/${player.fullMP}"
+        playerMpTextView.text="${player.MP}/${player.fullMP}"
         Log.v("testI",(player.HP.toFloat()/player.fullHP).toString())
 
         val hpBar = context!!.findViewById<ImageView>(R.id.playerHpBar)
@@ -116,19 +116,19 @@ class Fighting(val context: FightingPage? =null): TextViewExtension,ImageViewExt
     {
         val total = dmgList.sum()
         Log.v("test??",textView.text.toString())
-        var nowHp=textView.text.toString().split("/")[0].split(":")[1].toInt()
-        val fullHp=textView.text.toString().split("/")[1].toInt()
+        var now=textView.text.toString().split("/")[0].toInt()
+        val full=textView.text.toString().split("/")[1].toInt()
         Log.v("test","tvvd")
             Thread{
                 for(i in total downTo 1 )
                 {
                     context!!.runOnUiThread{
-                        if(nowHp<=0)return@runOnUiThread
-                        nowHp--
-                        textView.text="hp:${nowHp}/$fullHp"
+                        if(now<=0)return@runOnUiThread
+                        now--
+                        textView.text="${now}/$full"
                     }
                     Thread.sleep(1000/total.toLong())
-                    if(nowHp<=0)break
+                    if(now<=0)break
                 }
             }.start()
 

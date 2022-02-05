@@ -9,7 +9,6 @@ class SwordAttack: Skill() {
     override val needMp = 10
     override fun use(dmgList:MutableList<Int>):List<Int> {
         for(i in 1..2)dmgList+=((player.damage* nextDouble(1.2,1.5)).toInt())
-        player.MP-=needMp
         return dmgList
     }
 }

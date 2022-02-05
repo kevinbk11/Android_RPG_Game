@@ -60,6 +60,7 @@ interface  ImageViewExtension {
             Animation.RELATIVE_TO_SELF, 1f)
         animation.duration=600
         animation.fillAfter=true
+        player.MP-=mp
         this.startAnimation(animation)
     }
 }
