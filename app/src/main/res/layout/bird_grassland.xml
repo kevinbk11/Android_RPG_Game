@@ -3,21 +3,25 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
-              android:layout_height="match_parent">
+              android:layout_height="match_parent"
+              android:gravity="center">
 
     <Button
-            android:text="Button"
+            android:text="轉轉鳥"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/turnturnbird"
+            android:layout_height="wrap_content"
+            android:id="@+id/turnturnbird"
             android:onClick="turnTurnBird"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
             android:layout_weight="1"/>
-    <Space
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:layout_weight="3"/>
     <Button
-            android:text="Button"
+            android:text="小拳石"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/stone"
+            android:layout_height="wrap_content"
+            android:id="@+id/stone"
             android:onClick="littleStone"
-            android:layout_marginStart="12dp" android:layout_weight="1"/>
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:layout_weight="1"/>
 </LinearLayout>

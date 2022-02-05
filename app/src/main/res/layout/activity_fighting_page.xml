@@ -25,9 +25,7 @@
             <RelativeLayout
                     android:layout_width="240dp"
                     android:layout_height="30dp"
-                    android:id="@+id/m_bar"
-                    >
-
+                    android:id="@+id/m_bar">
                 <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -65,6 +63,7 @@
     <LinearLayout
             android:layout_height="180dp"
             android:layout_width="match_parent"
+            android:gravity="center"
             >
 
         <RelativeLayout
@@ -85,91 +84,94 @@
                     android:layout_marginStart="10dp"
                     />
 
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/linearLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:id="@+id/linearLayout"
-                    android:gravity="center"
-                    android:layout_marginBottom="40dp"
-                    android:layout_alignBottom="@+id/fighter"
-                    android:layout_alignTop="@+id/fighter"
-                    android:layout_marginTop="40dp"
                     >
-
                 <TextView
                         android:id="@+id/playerDmgText1"
                         style="@style/dmgtext"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
                         />
-
                 <TextView
                         android:id="@+id/playerDmgText2"
                         style="@style/dmgtext"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/playerDmgText1"
                         />
-            </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
 
         </RelativeLayout>
 
 
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:gravity="center">
 
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:layout_alignParentEnd="true"
-                    app:layout_constraintTop_toTopOf="parent"
                     android:id="@+id/linearLayout3"
                     >
-
                 <TextView
                         android:id="@+id/monsterDmg1"
                         style="@style/dmgtext"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
                         />
 
                 <TextView
                         android:id="@+id/monsterDmg2"
                         style="@style/dmgtext"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/monsterDmg1"
                         />
 
                 <TextView
                         android:id="@+id/monsterDmg3"
                         style="@style/dmgtext"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/monsterDmg2"
                         />
 
                 <TextView
                         android:id="@+id/monsterDmg4"
                         style="@style/dmgtext"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/monsterDmg3"
                         />
 
                 <TextView
                         android:id="@+id/monsterDmg5"
                         style="@style/dmgtext"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/monsterDmg4"
                         />
 
                 <TextView
                         android:id="@+id/monsterDmg6"
                         style="@style/dmgtext"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/monsterDmg5"
                         />
-            </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <ImageView
-                    android:id="@+id/monster"
-                    android:layout_width="160dp"
-                    android:layout_height="160dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintBottom_toBottomOf="@+id/linearLayout3"
-                    app:layout_constraintTop_toTopOf="@+id/linearLayout3"
-                    />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </RelativeLayout>
 
     </LinearLayout>
 
@@ -180,9 +182,9 @@
             android:background="@color/brown"
             >
 
-        <RelativeLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="18dp"
+                android:layout_height="28dp"
                 android:gravity="center"
                 >
 
@@ -190,32 +192,36 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="hp:0/0"
-                    android:layout_alignParentStart="true"
-                    android:layout_marginStart="4dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     />
 
             <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginEnd="60dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_marginStart="60dp">
+                    android:id="@+id/playerHpBar_1"
+                    android:layout_width="272dp"
+                    android:layout_height="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    >
+
                 <ImageView
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/bar_backgorund"
                         />
 
                 <ImageView
                         android:id="@+id/playerHpBar"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/bar_hp"
                         />
 
                 <ImageView
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/bar_frame"
                         />
@@ -223,25 +229,30 @@
             </FrameLayout>
 
 
-        </RelativeLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <RelativeLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="18dp">
+                android:layout_height="28dp"
+                android:gravity="center">
+
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="mp:0/0"
-                    android:layout_alignParentStart="true"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:id="@+id/textView4"
                     />
 
             <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginEnd="60dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_marginStart="60dp"
+                    android:layout_width="272dp"
+                    android:layout_height="20dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     >
 
                 <ImageView
@@ -265,7 +276,7 @@
             </FrameLayout>
 
 
-        </RelativeLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
         <LinearLayout
