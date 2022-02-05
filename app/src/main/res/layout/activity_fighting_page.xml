@@ -264,6 +264,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/bar_mp"
+                        android:id="@+id/playerMpBar"
                         />
 
                 <ImageView

@@ -7,7 +7,6 @@ import android.view.animation.Animation
 import android.view.animation.ScaleAnimation
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
 import com.example.tunaandbk.FightEndPage
 import com.example.tunaandbk.FightingPage
 import com.example.tunaandbk.R
@@ -41,7 +40,9 @@ class Fighting(val context: FightingPage? =null): TextViewExtension,ImageViewExt
         Log.v("testI",(player.HP.toFloat()/player.fullHP).toString())
 
         val hpBar = context!!.findViewById<ImageView>(R.id.playerHpBar)
+        val mpBar = context.findViewById<ImageView>(R.id.playerMpBar)
         hpBar.startAnimation(getBarAnimation(player.HP.toFloat(),player.fullHP.toFloat()))
+        mpBar.startAnimation(getBarAnimation(player.MP.toFloat(), player.fullMP.toFloat()))
         Log.v("?TEST", "${player.MP},${player.fullMP}")
         if(player.speed<nowMonster.speed)
         {
@@ -71,7 +72,7 @@ class Fighting(val context: FightingPage? =null): TextViewExtension,ImageViewExt
             val hpBar: ImageView = context.findViewById(R.id.playerHpBar)
             val hpTextView=context.findViewById<TextView>(R.id.player_hptext)
             textViewValueDecrease(hpTextView,dmgList)
-            hpBar.changeLengthAnimation(dmgList,app=context)
+            hpBar.changeHPLengthAnimation(dmgList,app=context)
         }
         if(player.isDead()) { fighting.endFighting() }
     }
@@ -85,11 +86,13 @@ class Fighting(val context: FightingPage? =null): TextViewExtension,ImageViewExt
         val dmgList:List<Int> = if(skillPosition==-1)player.normalAttack() else player.skillList[skillPosition].use()
         showDmg(monsterDmgText,dmgList,context!!)
         val hpBar: ImageView = context.findViewById(R.id.monsterHpBar)
+        val mpBar = context.findViewById<ImageView>(R.id.playerMpBar)
         val hpTextView=context.findViewById<TextView>(R.id.monster_hptext)
-
-
+        val mpTextView=context.findViewById<TextView>(R.id.player_mptext)
+        mpBar.changeMpLengthAnimation(if(skillPosition==-1) 0 else player.skillList[skillPosition].needMp)
         textViewValueDecrease(hpTextView,dmgList)
-        hpBar.changeLengthAnimation(dmgList,app=context)
+        textViewValueDecrease(mpTextView,listOf(player.skillList[skillPosition].needMp))
+        hpBar.changeHPLengthAnimation(dmgList,app=context)
 
     }
     fun waitAnimationEnd()
